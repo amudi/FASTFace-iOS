@@ -17,6 +17,8 @@
 @synthesize secondPhotoView;
 @synthesize photoChoice;
 @synthesize photoChoiceActionSheet;
+@synthesize clearActionSheet;
+@synthesize processActionSheet;
 
 
 - (void)dealloc {
@@ -76,35 +78,68 @@
 
 - (IBAction)clearPhotos:(id)sender {
 	DLog(@"Clear Photos");
+	clearActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Clear All photos", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Clear", nil) otherButtonTitles:nil];
+	[clearActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+	[clearActionSheet showInView:self.view];
+	[clearActionSheet release];
 }
 
 
 - (IBAction)processPhotos:(id)sender {
 	DLog(@"Process Photos");
+	processActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Process photos now? It may take a few minutes.", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Process", nil), nil];
+	[processActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+	[processActionSheet showInView:self.view];
+	[processActionSheet release];
 }
 
 
 #pragma mark Action Sheet Handler
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (actionSheet == photoChoiceActionSheet) {
-		DLog(@"photoChoiceActionSheet [%@] clicked at index: %d for photo: %d", actionSheet, buttonIndex, photoChoice);
+		DLog(@"photoChoiceActionSheet [%@] tapped at index: %d for photo: %d", actionSheet, buttonIndex, photoChoice);
 		if (photoChoice == PhotoChoice_PhotoUnknown) {
 			@throw [NSException exceptionWithName:@"FASTFaceException" reason:NSLocalizedString(@"Unknown selected photo on selectPhotoSource", nil) userInfo:nil];
 		}
 		switch (buttonIndex) {
 			case 0: 
 				DLog(@"Camera for photo %d", photoChoice);
-				// show camera
+				// TODO: show camera
 				break;
 			case 1:
 				DLog(@"Photo Album for photo %d", photoChoice);
-				// show photo album
+				// TODO: show photo album
 				break;
 
 			default:
 				break;
 		}
+	} else if (actionSheet == clearActionSheet) {
+		DLog(@"clearActionSheet tapped at index: %d", buttonIndex);
+		switch (buttonIndex) {
+			case 0:
+				DLog(@"Clear all photos");
+				// TODO: clear all photos
+				break;
+			default:
+				break;
+		}
+	} else if (actionSheet == processActionSheet) {
+		DLog(@"processActionSheet tapped at index: %d", buttonIndex);
+		switch (buttonIndex) {
+			case 0:
+				DLog(@"Process photos")
+				// TODO: process photos
+				break;
+			default:
+				break;
+		}
 	}
+}
+
+- (void)actionSheetCancel:(UIActionSheet *)actionSheet {
+	// do nothing on cancel
+	DLog(@"Action sheet %@ cancelled");
 }
 
 

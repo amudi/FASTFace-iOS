@@ -20,6 +20,10 @@ typedef enum PhotoChoice {
 	UIButton *processButton;
 	UIButton *firstPhotoView;
 	UIButton *secondPhotoView;
+	PhotoChoice photoChoice;
+	UIActionSheet *photoChoiceActionSheet;
+	UIActionSheet *clearActionSheet;
+	UIActionSheet *processActionSheet;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *clearButton;
@@ -28,6 +32,8 @@ typedef enum PhotoChoice {
 @property (nonatomic, retain) IBOutlet UIButton *secondPhotoView;
 @property (nonatomic, assign) PhotoChoice photoChoice;
 @property (nonatomic, retain) UIActionSheet *photoChoiceActionSheet;
+@property (nonatomic, retain) UIActionSheet *clearActionSheet;
+@property (nonatomic, retain) UIActionSheet *processActionSheet;
 
 - (IBAction)selectPhotoSource:(id)sender;
 - (IBAction)clearPhotos:(id)sender;

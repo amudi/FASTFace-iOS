@@ -8,17 +8,29 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum PhotoChoice {
+	PhotoChoice_PhotoUnknown = 0,
+	PhotoChoice_Photo1,
+	PhotoChoice_Photo2
+} PhotoChoice;
 
-@interface MainViewController : UIViewController {
+
+@interface MainViewController : UIViewController <UIActionSheetDelegate> {
 	UIButton *clearButton;
 	UIButton *processButton;
-	UIImageView *image1;
-	UIImageView *image2;
+	UIButton *firstPhotoView;
+	UIButton *secondPhotoView;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *clearButton;
 @property (nonatomic, retain) IBOutlet UIButton *processButton;
-@property (nonatomic, retain) IBOutlet UIImageView *image1;
-@property (nonatomic, retain) IBOutlet UIImageView *image2;
+@property (nonatomic, retain) IBOutlet UIButton *firstPhotoView;
+@property (nonatomic, retain) IBOutlet UIButton *secondPhotoView;
+@property (nonatomic, assign) PhotoChoice photoChoice;
+@property (nonatomic, retain) UIActionSheet *photoChoiceActionSheet;
+
+- (IBAction)selectPhotoSource:(id)sender;
+- (IBAction)clearPhotos:(id)sender;
+- (IBAction)processPhotos:(id)sender;
 
 @end

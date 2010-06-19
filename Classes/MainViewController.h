@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <iAd/iAd.h>
+
+@class ResultViewController;
 
 typedef enum PhotoChoice {
 	PhotoChoice_PhotoUnknown = 0,
@@ -26,6 +29,9 @@ typedef enum PhotoChoice {
 	UIActionSheet *processActionSheet;
 	UIImagePickerController *cameraViewController;
 	UIImagePickerController *photoAlbumViewController;
+	ADBannerView *adBanner;
+	
+	UIImage *defaultBlankImage;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *clearButton;
@@ -38,9 +44,14 @@ typedef enum PhotoChoice {
 @property (nonatomic, retain) UIActionSheet *processActionSheet;
 @property (nonatomic, retain) UIImagePickerController *cameraViewController;
 @property (nonatomic, retain) UIImagePickerController *photoAlbumViewController;
+@property (nonatomic, retain) IBOutlet ADBannerView *adBanner;
 
 - (IBAction)selectPhotoSource:(id)sender;
 - (IBAction)clearPhotos:(id)sender;
 - (IBAction)processPhotos:(id)sender;
+- (IBAction)showResult:(id)sender;
+
+- (void)clearPhotos;
+- (void)processFirstPhoto:(UIImage *)firstPhoto andSecondPhoto:(UIImage *)secondPhoto;
 
 @end

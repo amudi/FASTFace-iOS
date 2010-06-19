@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "ResultViewController.h"
 
 
 @implementation MainViewController
@@ -21,10 +22,21 @@
 @synthesize processActionSheet;
 @synthesize cameraViewController;
 @synthesize photoAlbumViewController;
+@synthesize adBanner;
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
+        // Custom initialization
+    }
+    return self;
+}
 
 
 - (void)dealloc {
     [super dealloc];
+	[defaultBlankImage release];
+	defaultBlankImage = nil;
 }
 
 
@@ -32,6 +44,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	photoChoice = PhotoChoice_PhotoUnknown;
+	defaultBlankImage = [UIImage imageNamed:@"blank_image.png"];
+	
+	DLog(@"Main Screen Loaded");
 }
 
 
@@ -46,6 +61,9 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
+	if (([firstPhotoView currentBackgroundImage] != defaultBlankImage) && ([secondPhotoView currentBackgroundImage] != defaultBlankImage)) {
+		[defaultBlankImage release];
+	}
 }
 
 
@@ -104,6 +122,17 @@
 }
 
 
+- (IBAction)showResult:(id)sender {
+	DLog(@"Show Result Screen");
+	ResultViewController *resultScreen = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
+	[resultScreen setMainViewController:self];
+	
+	resultScreen.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+	[self presentModalViewController:resultScreen animated:YES];
+	[resultScreen release];
+}
+
+
 #pragma mark Action Sheet Handler
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (actionSheet == photoChoiceActionSheet) {
@@ -148,6 +177,7 @@
 			case 0:
 				DLog(@"Process photos")
 				// TODO: process photos
+				[self showResult:self];
 				break;
 			default:
 				break;
@@ -174,6 +204,21 @@
 	DLog(@"Image picker [%@] cancelled", picker);
 	[picker dismissModalViewControllerAnimated:YES];
 	[picker release];
+}
+
+
+#pragma mark Photo processing methods
+- (void)clearPhotos {
+	if (defaultBlankImage == nil) {
+		defaultBlankImage = [UIImage imageNamed:@"blank_image.png"];
+	}
+	[firstPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
+	[secondPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
+}
+
+
+- (void)processFirstPhoto:(UIImage *)firstPhoto andSecondPhoto:(UIImage *)secondPhoto {
+	
 }
 
 

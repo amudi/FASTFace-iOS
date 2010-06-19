@@ -19,6 +19,8 @@
 @synthesize photoChoiceActionSheet;
 @synthesize clearActionSheet;
 @synthesize processActionSheet;
+@synthesize cameraViewController;
+@synthesize photoAlbumViewController;
 
 
 - (void)dealloc {
@@ -51,6 +53,14 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+
+- (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+	DLog(@"Interface will rotate to %@", toInterfaceOrientation);
+	if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+		DLog(@"Will rotate to portrait now");
+	}
 }
 
 
@@ -104,11 +114,19 @@
 		switch (buttonIndex) {
 			case 0: 
 				DLog(@"Camera for photo %d", photoChoice);
-				// TODO: show camera
+				// show camera
+				cameraViewController = [[UIImagePickerController alloc] init];
+				cameraViewController.delegate = self;
+				cameraViewController.sourceType = UIImagePickerControllerSourceTypeCamera;
+				[self presentModalViewController:cameraViewController animated:YES];
 				break;
 			case 1:
 				DLog(@"Photo Album for photo %d", photoChoice);
-				// TODO: show photo album
+				// show photo album
+				photoAlbumViewController = [[UIImagePickerController alloc] init];
+				photoAlbumViewController.delegate = self;
+				photoAlbumViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+				[self presentModalViewController:photoAlbumViewController animated:YES];
 				break;
 
 			default:
@@ -137,9 +155,25 @@
 	}
 }
 
+
+#pragma mark Delegates methods
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet {
 	// do nothing on cancel
 	DLog(@"Action sheet %@ cancelled");
+}
+
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+	DLog(@"Photo selected from picker [%@] : %@", picker, info);
+	[picker dismissModalViewControllerAnimated:YES];
+	[picker release];
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+	DLog(@"Image picker [%@] cancelled", picker);
+	[picker dismissModalViewControllerAnimated:YES];
+	[picker release];
 }
 
 

@@ -15,7 +15,7 @@ typedef enum PhotoChoice {
 } PhotoChoice;
 
 
-@interface MainViewController : UIViewController <UIActionSheetDelegate> {
+@interface MainViewController : UIViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
 	UIButton *clearButton;
 	UIButton *processButton;
 	UIButton *firstPhotoView;
@@ -24,6 +24,8 @@ typedef enum PhotoChoice {
 	UIActionSheet *photoChoiceActionSheet;
 	UIActionSheet *clearActionSheet;
 	UIActionSheet *processActionSheet;
+	UIImagePickerController *cameraViewController;
+	UIImagePickerController *photoAlbumViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *clearButton;
@@ -34,6 +36,8 @@ typedef enum PhotoChoice {
 @property (nonatomic, retain) UIActionSheet *photoChoiceActionSheet;
 @property (nonatomic, retain) UIActionSheet *clearActionSheet;
 @property (nonatomic, retain) UIActionSheet *processActionSheet;
+@property (nonatomic, retain) UIImagePickerController *cameraViewController;
+@property (nonatomic, retain) UIImagePickerController *photoAlbumViewController;
 
 - (IBAction)selectPhotoSource:(id)sender;
 - (IBAction)clearPhotos:(id)sender;

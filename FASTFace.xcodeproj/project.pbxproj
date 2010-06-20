@@ -19,6 +19,7 @@
 		D059418111CC859E000B3FDC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D059418011CC859E000B3FDC /* MainWindow.xib */; };
 		D091DDFF11C9901C009B2AA1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D091DDFD11C9901C009B2AA1 /* MainViewController.m */; };
 		D091DE0F11C994E7009B2AA1 /* blank_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D091DE0E11C994E7009B2AA1 /* blank_image.png */; };
+		D0955D1611CDB51600B5FBAD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0955D1511CDB51600B5FBAD /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D091DDFD11C9901C009B2AA1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		D091DDFE11C9901C009B2AA1 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = "User Interfaces/English.lproj/MainViewController.xib"; sourceTree = "<group>"; };
 		D091DE0E11C994E7009B2AA1 /* blank_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blank_image.png; path = "User Interfaces/blank_image.png"; sourceTree = "<group>"; };
+		D0955D1511CDB51600B5FBAD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				D0593FFD11CC6DC5000B3FDC /* iAd.framework in Frameworks */,
+				D0955D1611CDB51600B5FBAD /* MobileCoreServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +121,7 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				D0593FFC11CC6DC5000B3FDC /* iAd.framework */,
+				D0955D1511CDB51600B5FBAD /* MobileCoreServices.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

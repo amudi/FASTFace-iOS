@@ -84,23 +84,29 @@
 
 - (IBAction)selectPhotoSource:(id)sender {
 	UIButton *photoView = (UIButton *)sender;
+	
+	if (photoView == nil) {
+		@throw [NSException exceptionWithName:@"FASTFaceException" reason:@"Invalid photo tap source" userInfo:nil];
+	}
+	
 	if (photoView == firstPhotoView) {
 		DLog(@"Select first photo");
 		photoChoice = PhotoChoice_Photo1;
-		photoChoiceActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Select photo source", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Camera", nil), NSLocalizedString(@"Photo Album", nil), nil];
-		[photoChoiceActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-		[photoChoiceActionSheet showInView:self.view];
-		[photoChoiceActionSheet release];
 	} else if (photoView == secondPhotoView) {
 		DLog(@"Select second photo");
 		photoChoice = PhotoChoice_Photo2;
-		photoChoiceActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Select photo source", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Camera", nil), NSLocalizedString(@"Photo Album", nil), nil];
-		[photoChoiceActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-		[photoChoiceActionSheet showInView:self.view];
-		[photoChoiceActionSheet release];
-	} else {
-		@throw [NSException exceptionWithName:@"FASTFaceException" reason:NSLocalizedString(@"Unknown sender in selectPhotoSource:", nil) userInfo:nil];
 	}
+	
+	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+		photoChoiceActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Select photo source", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Camera", nil), NSLocalizedString(@"Photo Album", nil), nil];
+	} else {
+		// camera not available
+		photoChoiceActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Select photo source", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Photo Album", nil), nil];
+	}
+	
+	[photoChoiceActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+	[photoChoiceActionSheet showInView:self.view];
+	[photoChoiceActionSheet release];
 }
 
 
@@ -146,7 +152,13 @@
 				// show camera
 				cameraViewController = [[UIImagePickerController alloc] init];
 				cameraViewController.delegate = self;
-				cameraViewController.sourceType = UIImagePickerControllerSourceTypeCamera;
+				
+				if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+					cameraViewController.sourceType = UIImagePickerControllerSourceTypeCamera;
+				} else {
+					cameraViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+				}
+
 				[self presentModalViewController:cameraViewController animated:YES];
 				break;
 			case 1:

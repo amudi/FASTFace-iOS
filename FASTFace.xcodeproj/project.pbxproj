@@ -12,6 +12,7 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		D00637F911CED3A300BBDE49 /* libFASTFaceRecognizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */; };
 		D0593F7311CC681C000B3FDC /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0593F7111CC681C000B3FDC /* ResultViewController.m */; };
 		D0593FFD11CC6DC5000B3FDC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0593FFC11CC6DC5000B3FDC /* iAd.framework */; };
 		D059412D11CC81A9000B3FDC /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D059412C11CC81A9000B3FDC /* ResultViewController.xib */; };
@@ -20,6 +21,9 @@
 		D091DDFF11C9901C009B2AA1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D091DDFD11C9901C009B2AA1 /* MainViewController.m */; };
 		D091DE0F11C994E7009B2AA1 /* blank_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D091DE0E11C994E7009B2AA1 /* blank_image.png */; };
 		D0955D1611CDB51600B5FBAD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0955D1511CDB51600B5FBAD /* MobileCoreServices.framework */; };
+		D0C05C9F11CECD1C00C20516 /* FASTFaceRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C05C9D11CECD1C00C20516 /* FASTFaceRecognizer.h */; };
+		D0C05CA011CECD1C00C20516 /* FASTFaceRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C05C9E11CECD1C00C20516 /* FASTFaceRecognizer.m */; };
+		D0C05CD211CED0A300C20516 /* FASTFaceRecognizerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C05CD111CED0A300C20516 /* FASTFaceRecognizerTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,13 @@
 		D091DDFE11C9901C009B2AA1 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = "User Interfaces/English.lproj/MainViewController.xib"; sourceTree = "<group>"; };
 		D091DE0E11C994E7009B2AA1 /* blank_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blank_image.png; path = "User Interfaces/blank_image.png"; sourceTree = "<group>"; };
 		D0955D1511CDB51600B5FBAD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFASTFaceRecognizer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0C05C9D11CECD1C00C20516 /* FASTFaceRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTFaceRecognizer.h; sourceTree = "<group>"; };
+		D0C05C9E11CECD1C00C20516 /* FASTFaceRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceRecognizer.m; sourceTree = "<group>"; };
+		D0C05CAB11CECF6400C20516 /* FASTFaceRecognizerTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FASTFaceRecognizerTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0C05CAC11CECF6400C20516 /* FASTFaceRecognizerTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FASTFaceRecognizerTest-Info.plist"; sourceTree = "<group>"; };
+		D0C05CD011CED0A300C20516 /* FASTFaceRecognizerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTFaceRecognizerTest.h; sourceTree = "<group>"; };
+		D0C05CD111CED0A300C20516 /* FASTFaceRecognizerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceRecognizerTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +65,21 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				D0593FFD11CC6DC5000B3FDC /* iAd.framework in Frameworks */,
 				D0955D1611CDB51600B5FBAD /* MobileCoreServices.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0C05C7E11CECC2000C20516 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0C05CA811CECF6400C20516 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D00637F911CED3A300BBDE49 /* libFASTFaceRecognizer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* FASTFace.app */,
+				D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */,
+				D0C05CAB11CECF6400C20516 /* FASTFaceRecognizerTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -84,9 +112,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				080E96DDFE201D6D7F000001 /* Classes */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
-				29B97317FDCFA39411CA2CEA /* Resources */,
+				D0C05C9111CECC5B00C20516 /* FASTFace */,
+				D0C05C8E11CECC4C00C20516 /* FASTFaceRecognizer */,
+				D0C05CB911CECFAB00C20516 /* FASTFaceRecognizerTest */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -126,7 +154,71 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D0C05C8E11CECC4C00C20516 /* FASTFaceRecognizer */ = {
+			isa = PBXGroup;
+			children = (
+				D0C05C9211CECC7C00C20516 /* Classes */,
+			);
+			path = FASTFaceRecognizer;
+			sourceTree = "<group>";
+		};
+		D0C05C9111CECC5B00C20516 /* FASTFace */ = {
+			isa = PBXGroup;
+			children = (
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+			);
+			name = FASTFace;
+			sourceTree = "<group>";
+		};
+		D0C05C9211CECC7C00C20516 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D0C05C9D11CECD1C00C20516 /* FASTFaceRecognizer.h */,
+				D0C05C9E11CECD1C00C20516 /* FASTFaceRecognizer.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D0C05CB911CECFAB00C20516 /* FASTFaceRecognizerTest */ = {
+			isa = PBXGroup;
+			children = (
+				D0C05CCB11CED04C00C20516 /* Classes */,
+				D0C05CBA11CECFC600C20516 /* Resources */,
+			);
+			path = FASTFaceRecognizerTest;
+			sourceTree = "<group>";
+		};
+		D0C05CBA11CECFC600C20516 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D0C05CAC11CECF6400C20516 /* FASTFaceRecognizerTest-Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D0C05CCB11CED04C00C20516 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D0C05CD011CED0A300C20516 /* FASTFaceRecognizerTest.h */,
+				D0C05CD111CED0A300C20516 /* FASTFaceRecognizerTest.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D0C05C7C11CECC2000C20516 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0C05C9F11CECD1C00C20516 /* FASTFaceRecognizer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		1D6058900D05DD3D006BFB54 /* FASTFace */ = {
@@ -146,6 +238,41 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* FASTFace.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D0C05C7F11CECC2000C20516 /* FASTFaceRecognizer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0C05C8311CECC4000C20516 /* Build configuration list for PBXNativeTarget "FASTFaceRecognizer" */;
+			buildPhases = (
+				D0C05C7C11CECC2000C20516 /* Headers */,
+				D0C05C7D11CECC2000C20516 /* Sources */,
+				D0C05C7E11CECC2000C20516 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FASTFaceRecognizer;
+			productName = FASTFaceRecognizer;
+			productReference = D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D0C05CAA11CECF6400C20516 /* FASTFaceRecognizerTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0C05CB011CECF6500C20516 /* Build configuration list for PBXNativeTarget "FASTFaceRecognizerTest" */;
+			buildPhases = (
+				D0C05CA611CECF6400C20516 /* Resources */,
+				D0C05CA711CECF6400C20516 /* Sources */,
+				D0C05CA811CECF6400C20516 /* Frameworks */,
+				D0C05CA911CECF6400C20516 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FASTFaceRecognizerTest;
+			productName = FASTFaceRecognizerTest;
+			productReference = D0C05CAB11CECF6400C20516 /* FASTFaceRecognizerTest.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -162,6 +289,8 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* FASTFace */,
+				D0C05C7F11CECC2000C20516 /* FASTFaceRecognizer */,
+				D0C05CAA11CECF6400C20516 /* FASTFaceRecognizerTest */,
 			);
 		};
 /* End PBXProject section */
@@ -178,7 +307,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D0C05CA611CECF6400C20516 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D0C05CA911CECF6400C20516 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
@@ -189,6 +341,22 @@
 				1D3623260D0F684500981E51 /* FASTFaceAppDelegate.m in Sources */,
 				D091DDFF11C9901C009B2AA1 /* MainViewController.m in Sources */,
 				D0593F7311CC681C000B3FDC /* ResultViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0C05C7D11CECC2000C20516 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0C05CA011CECD1C00C20516 /* FASTFaceRecognizer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0C05CA711CECF6400C20516 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0C05CD211CED0A300C20516 /* FASTFaceRecognizerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +445,89 @@
 			};
 			name = Release;
 		};
+		D0C05C8111CECC2100C20516 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PREBINDING = NO;
+				PRODUCT_NAME = FASTFaceRecognizer;
+			};
+			name = Debug;
+		};
+		D0C05C8211CECC2100C20516 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = FASTFaceRecognizer;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		D0C05CAE11CECF6500C20516 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "FASTFaceRecognizerTest/Resources/FASTFaceRecognizerTest-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FASTFaceRecognizerTest;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D0C05CAF11CECF6500C20516 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				INFOPLIST_FILE = "FASTFaceRecognizerTest-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FASTFaceRecognizerTest;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -294,6 +545,24 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0C05C8311CECC4000C20516 /* Build configuration list for PBXNativeTarget "FASTFaceRecognizer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0C05C8111CECC2100C20516 /* Debug */,
+				D0C05C8211CECC2100C20516 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0C05CB011CECF6500C20516 /* Build configuration list for PBXNativeTarget "FASTFaceRecognizerTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D0C05CAE11CECF6500C20516 /* Debug */,
+				D0C05CAF11CECF6500C20516 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

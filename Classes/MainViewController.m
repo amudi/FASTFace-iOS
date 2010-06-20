@@ -6,6 +6,7 @@
 //  Copyright 2010 amudi.org. All rights reserved.
 //
 
+#import <MobileCoreServices/MobileCoreServices.h>
 #import "MainViewController.h"
 #import "ResultViewController.h"
 
@@ -152,9 +153,11 @@
 				// show camera
 				cameraViewController = [[UIImagePickerController alloc] init];
 				cameraViewController.delegate = self;
+				cameraViewController.allowsEditing = YES;
 				
 				if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
 					cameraViewController.sourceType = UIImagePickerControllerSourceTypeCamera;
+					cameraViewController.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
 				} else {
 					cameraViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 				}
@@ -166,11 +169,14 @@
 				// show photo album
 				photoAlbumViewController = [[UIImagePickerController alloc] init];
 				photoAlbumViewController.delegate = self;
+				photoAlbumViewController.allowsEditing = YES;
+				photoAlbumViewController.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
 				photoAlbumViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 				[self presentModalViewController:photoAlbumViewController animated:YES];
 				break;
 
 			default:
+				DLog(@"Unknown button tapped in action sheet : %d", buttonIndex);
 				break;
 		}
 	} else if (actionSheet == clearActionSheet) {
@@ -179,6 +185,7 @@
 			case 0:
 				DLog(@"Clear all photos");
 				// TODO: clear all photos
+				[self clearPhotos];
 				break;
 			default:
 				break;
@@ -208,6 +215,28 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	DLog(@"Photo selected from picker [%@] : %@", picker, info);
 	[picker dismissModalViewControllerAnimated:YES];
+	
+	NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+	if (CFStringCompare((CFStringRef)mediaType, (CFStringRef)kUTTypeImage, 0) == kCFCompareEqualTo) {
+		UIImage *photo = [info objectForKey:UIImagePickerControllerEditedImage];
+		if (!photo) {
+			// no edited photo available
+			photo = [info objectForKey:UIImagePickerControllerOriginalImage];
+			DLog(@"No edited image, using original image");
+		}
+		switch (photoChoice) {
+		case PhotoChoice_Photo1:
+			[firstPhotoView setBackgroundImage:photo forState:UIControlStateNormal];
+			break;
+		case PhotoChoice_Photo2:
+			[secondPhotoView setBackgroundImage:photo forState:UIControlStateNormal];
+			break;
+		default:
+			break;
+		}
+		photoChoice = PhotoChoice_PhotoUnknown;
+	}
+	
 	[picker release];
 }
 

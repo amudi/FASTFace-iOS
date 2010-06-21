@@ -25,10 +25,20 @@
 		D0C05C9F11CECD1C00C20516 /* FASTFaceRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C05C9D11CECD1C00C20516 /* FASTFaceRecognizer.h */; };
 		D0C05CA011CECD1C00C20516 /* FASTFaceRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C05C9E11CECD1C00C20516 /* FASTFaceRecognizer.m */; };
 		D0C05CD211CED0A300C20516 /* FASTFaceRecognizerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C05CD111CED0A300C20516 /* FASTFaceRecognizerTest.m */; };
-		D0F991C511D01F54004312F8 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F991C411D01F54004312F8 /* UIImage+Alpha.m */; };
-		D0F991D011D01FD9004312F8 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F991CF11D01FD9004312F8 /* UIImage+RoundedCorner.m */; };
-		D0F991E411D02029004312F8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F991E311D02029004312F8 /* UIImage+Resize.m */; };
-		D0F991FB11D023F3004312F8 /* UIImage+Grayscale.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F991FA11D023F3004312F8 /* UIImage+Grayscale.m */; };
+		D0F9920211D02866004312F8 /* UIImageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F9920111D02866004312F8 /* UIImageTest.m */; };
+		D0F992FD11D029F8004312F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		D0F992FE11D029F8004312F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		D0F992FF11D029F8004312F8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		D0F9930711D02A0E004312F8 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F991C411D01F54004312F8 /* UIImage+Alpha.m */; };
+		D0F9930911D02A0E004312F8 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F991CF11D01FD9004312F8 /* UIImage+RoundedCorner.m */; };
+		D0F9930B11D02A0E004312F8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F991E311D02029004312F8 /* UIImage+Resize.m */; };
+		D0F9930D11D02A0E004312F8 /* UIImage+Grayscale.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F991FA11D023F3004312F8 /* UIImage+Grayscale.m */; };
+		D0F9931811D02A5A004312F8 /* UIImage+Alpha.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F991C311D01F54004312F8 /* UIImage+Alpha.h */; };
+		D0F9931911D02A5A004312F8 /* UIImage+RoundedCorner.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F991CE11D01FD9004312F8 /* UIImage+RoundedCorner.h */; };
+		D0F9931A11D02A5A004312F8 /* UIImage+Resize.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F991E211D02029004312F8 /* UIImage+Resize.h */; };
+		D0F9931B11D02A5A004312F8 /* UIImage+Grayscale.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F991F911D023F3004312F8 /* UIImage+Grayscale.h */; };
+		D0F9936311D02B4B004312F8 /* FASTFaceRecognizerTest.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C05CD011CED0A300C20516 /* FASTFaceRecognizerTest.h */; };
+		D0F9936411D02B4B004312F8 /* UIImageTest.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F9920011D02866004312F8 /* UIImageTest.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +76,8 @@
 		D0F991E311D02029004312F8 /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 		D0F991F911D023F3004312F8 /* UIImage+Grayscale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Grayscale.h"; sourceTree = "<group>"; };
 		D0F991FA11D023F3004312F8 /* UIImage+Grayscale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Grayscale.m"; sourceTree = "<group>"; };
+		D0F9920011D02866004312F8 /* UIImageTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageTest.h; sourceTree = "<group>"; };
+		D0F9920111D02866004312F8 /* UIImageTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +98,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F992FD11D029F8004312F8 /* UIKit.framework in Frameworks */,
+				D0F992FE11D029F8004312F8 /* Foundation.framework in Frameworks */,
+				D0F992FF11D029F8004312F8 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +240,8 @@
 			children = (
 				D0C05CD011CED0A300C20516 /* FASTFaceRecognizerTest.h */,
 				D0C05CD111CED0A300C20516 /* FASTFaceRecognizerTest.m */,
+				D0F9920011D02866004312F8 /* UIImageTest.h */,
+				D0F9920111D02866004312F8 /* UIImageTest.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -236,7 +253,20 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F9931811D02A5A004312F8 /* UIImage+Alpha.h in Headers */,
+				D0F9931911D02A5A004312F8 /* UIImage+RoundedCorner.h in Headers */,
+				D0F9931A11D02A5A004312F8 /* UIImage+Resize.h in Headers */,
+				D0F9931B11D02A5A004312F8 /* UIImage+Grayscale.h in Headers */,
 				D0C05C9F11CECD1C00C20516 /* FASTFaceRecognizer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D0F9936211D02B47004312F8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0F9936311D02B4B004312F8 /* FASTFaceRecognizerTest.h in Headers */,
+				D0F9936411D02B4B004312F8 /* UIImageTest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +311,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D0C05CB011CECF6500C20516 /* Build configuration list for PBXNativeTarget "FASTFaceRecognizerTest" */;
 			buildPhases = (
+				D0F9936211D02B47004312F8 /* Headers */,
 				D0C05CA611CECF6400C20516 /* Resources */,
 				D0C05CA711CECF6400C20516 /* Sources */,
 				D0C05CA811CECF6400C20516 /* Frameworks */,
@@ -370,6 +401,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0F9930711D02A0E004312F8 /* UIImage+Alpha.m in Sources */,
+				D0F9930911D02A0E004312F8 /* UIImage+RoundedCorner.m in Sources */,
+				D0F9930B11D02A0E004312F8 /* UIImage+Resize.m in Sources */,
+				D0F9930D11D02A0E004312F8 /* UIImage+Grayscale.m in Sources */,
 				D0C05CA011CECD1C00C20516 /* FASTFaceRecognizer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,10 +414,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0C05CD211CED0A300C20516 /* FASTFaceRecognizerTest.m in Sources */,
-				D0F991C511D01F54004312F8 /* UIImage+Alpha.m in Sources */,
-				D0F991D011D01FD9004312F8 /* UIImage+RoundedCorner.m in Sources */,
-				D0F991E411D02029004312F8 /* UIImage+Resize.m in Sources */,
-				D0F991FB11D023F3004312F8 /* UIImage+Grayscale.m in Sources */,
+				D0F9920211D02866004312F8 /* UIImageTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

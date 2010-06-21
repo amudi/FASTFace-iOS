@@ -6,6 +6,9 @@
 //  Copyright 2010 amudi.org. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
+
 // Extends the UIImage class to support resizing/cropping
 @interface UIImage (Resize)
 - (UIImage *)croppedImage:(CGRect)bounds;

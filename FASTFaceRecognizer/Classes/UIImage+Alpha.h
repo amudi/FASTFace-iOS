@@ -6,6 +6,8 @@
 //  Copyright 2010 amudi.org. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+
 
 @interface UIImage (Alpha)
 - (BOOL)hasAlpha;

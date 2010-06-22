@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "FaceRecognizer.h"
+#import "FaceImage.h"
+#import "FaceTemplate.h"
 
 @interface FASTFaceRecognizer : NSObject {
 

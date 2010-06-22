@@ -21,7 +21,7 @@
 
 - (void)testResize {
 	STAssertTrue(YES, @"Yesss");
-	STAssertFalse(YES, @"NOooo");
+	//STAssertFalse(YES, @"NOooo");
 }
 
 

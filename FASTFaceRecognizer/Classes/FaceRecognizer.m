@@ -22,7 +22,20 @@
 @synthesize areaWidth;
 @synthesize areaHeight;
 
+- (void)dealloc {
+	for (int i = 0; i < areaHeight; ++i) {
+		free(eigenface[i]);
+	}
+	free(eigenface);
+	
+    [super dealloc];
+}
+
 - (id)initWithImage:(UIImage *)image andFaceTemplate:(FaceTemplate *)ft {
+	if (image == nil || ft == nil) {
+		[NSException raise:NSGenericException  format:@"parameters must not be nil"];
+	}
+	
 	if (self = [super init]) {
 		CGSize imgSize = [image size];
 		imageWidth = (int)imgSize.width;
@@ -30,9 +43,26 @@
 		areaWidth = [ft areaWidth];
 		areaHeight = [ft areaHeight];
 		
-		int *rgbData = (int *)malloc(((imageWidth + 1) * imageHeight) * sizeof(int));
+		int rgbData[(imageWidth + 1) * imageHeight];
 		eigenface = (int**)malloc(areaHeight * sizeof(int *));
-		*eigenface = (int*)malloc(areaWidth * sizeof(int));
+		if (eigenface) {
+			for (int i = 0; i < areaHeight; ++i) {
+				eigenface[i] = (int *)malloc(areaWidth * sizeof(int));
+				if (!eigenface[i]) {
+					[NSException raise:NSGenericException  format:@"Cannot allocate memory for eigenface"];
+					return nil;
+				}
+			}
+		}
+		
+		// TODO: get RGB data from image
+		CGImageRef imageRef = image.CGImage;
+		CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+		CGContextRef context = CGBitmapContextCreate(rgbData, imageWidth, imageHeight, 8, imageWidth * 4, colorSpace, kCGImageAlphaPremultipliedFirst);
+		CGColorSpaceRelease(colorSpace);
+		
+		CGRect rect = CGRectMake(0, 0, imageWidth, imageHeight);
+		CGContextDrawImage(context, rect, imageRef);
 		
 		int w = imageWidth / areaWidth;
 		if (w < 1) {
@@ -47,7 +77,7 @@
 		int pixels = w * h;
 		long maxCol = 0x00FFFFFF;
 		
-		long rgbVal, value;
+		long rgbVal, value = 0;
 		int screenX, screenY;
 		for (int x = 0; x < areaWidth; ++x) {
 			for (int y = 0; y < areaHeight; ++y) {
@@ -57,7 +87,7 @@
 				for (int xx = 0; xx < screenX + w; ++xx) {
 					for (int yy = 0; yy < screenY + h; ++yy) {
 						rgbVal = rgbData[yy * (imageWidth + 1) * xx] & maxCol;
-						value /= maxCol;
+						value += rgbVal / maxCol;
 					}
 				}
 				
@@ -75,6 +105,9 @@
 				eigenface[x][y] = pixels;
 			}
 		}
+		
+		// release CG stuff
+		CGContextRelease(context);
 	}
 	return self;
 }
@@ -90,7 +123,7 @@
 			[string appendFormat:@"%d", eigenface[x][y]];
 		}
 	}
-	return (NSString *)string;
+	return [string autorelease];
 }
 
 - (long)getDistanceFrom:(FaceRecognizer *)fr {

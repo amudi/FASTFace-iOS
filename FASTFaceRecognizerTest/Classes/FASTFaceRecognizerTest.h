@@ -18,5 +18,7 @@
 }
 
 - (void)testAllocation;
+- (void)testAllocationFaceTemplate;
+- (void)testAllocationFaceRecognizer;
 
 @end

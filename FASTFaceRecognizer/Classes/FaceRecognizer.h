@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+@class FaceTemplate;
 
 @interface FaceRecognizer : NSObject {
 	NSInteger imageWidth;
@@ -22,6 +25,7 @@
 @property (nonatomic, assign) NSInteger areaWidth;
 @property (nonatomic, assign) NSInteger areaHeight;
 
+- (id)initWithImage:(UIImage *)image andFaceTemplate:(FaceTemplate *)ft;
 - (NSInteger)getEigenfaceAtX:(int)x andY:(int)y;
 - (NSString *)dump;
 - (long)getDistanceFrom:(FaceRecognizer *)fr;

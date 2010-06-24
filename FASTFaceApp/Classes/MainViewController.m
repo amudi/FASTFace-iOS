@@ -250,7 +250,7 @@
 
 #pragma mark Photo processing methods
 - (void)clearPhotos {
-	if (defaultBlankImage == nil) {
+	if (!defaultBlankImage) {
 		defaultBlankImage = [UIImage imageNamed:@"blank_image.png"];
 	}
 	[firstPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];

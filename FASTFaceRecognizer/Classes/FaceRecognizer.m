@@ -32,7 +32,7 @@
 }
 
 - (id)initWithImage:(UIImage *)image andFaceTemplate:(FaceTemplate *)ft {
-	if (image == nil || ft == nil) {
+	if (!image || !ft) {
 		[NSException raise:NSGenericException  format:@"parameters must not be nil"];
 	}
 	

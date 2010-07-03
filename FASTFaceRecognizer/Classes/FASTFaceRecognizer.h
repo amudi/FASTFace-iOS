@@ -6,12 +6,5 @@
 //  Copyright 2010 amudi.org. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "FaceRecognizer.h"
-#import "FaceTemplate.h"
-
-@interface FASTFaceRecognizer : NSObject {
-
-}
-
-@end
+#include "FaceRecognizer.h"
+#include "FaceTemplate.h"

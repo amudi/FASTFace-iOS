@@ -9,12 +9,14 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import <UIKit/UIKit.h>
-
-@class FASTFaceRecognizer;
-
+#import "FaceTemplate.h"
+#import "FaceRecognizer.h"
 
 @interface FASTFaceRecognizerTest : SenTestCase {
-	FASTFaceRecognizer *fastFaceRecognizer;
+	UIImage *uiImage;
+	CGImageRef imageRef;
+	FaceRecognizer *fr;
+	FaceTemplate *ft;
 }
 
 - (void)testAllocation;

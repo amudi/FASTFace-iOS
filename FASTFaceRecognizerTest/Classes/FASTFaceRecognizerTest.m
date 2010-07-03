@@ -7,38 +7,35 @@
 //
 
 #import "FASTFaceRecognizerTest.h"
-#import "FASTFaceRecognizer.h"
 
 
 @implementation FASTFaceRecognizerTest
 
 - (void)setUp {
-	fastFaceRecognizer = [[FASTFaceRecognizer alloc] init];
+	uiImage = [UIImage imageNamed:@"test_image.png"];
+	[uiImage retain];
+	
+	imageRef = [uiImage CGImage];
+	CGImageRetain(imageRef);
+	
+	//FaceTemplateInit(ft);
+	//FaceRecognizerInit(fr, imageRef, ft);
 }
 
 - (void)testAllocation {
-	STAssertNotNil(fastFaceRecognizer, @"Failed allocation");
+	STAssertNotNil(uiImage, @"UIImage allocation failed");
 }
 
 - (void)testAllocationFaceTemplate {
-	FaceTemplate *ft = [[FaceTemplate alloc] init];
-	STAssertNotNil(ft, @"Failed to allocate FaceTemplate");
+
 }
 
 - (void)testAllocationFaceRecognizer {
-	FaceTemplate *ft = [[FaceTemplate alloc] init];
-	STAssertNotNil(ft, @"Failed to allocate FaceTemplate");
-	
-	UIImage *image = [UIImage imageNamed:@"test_image.png"];
-	//UIImage *image = [[UIImage alloc] init];
-	//STAssertNotNil(image, @"Failed to create image");
-	
-	FaceRecognizer *fr = [[FaceRecognizer alloc] initWithImage:image andFaceTemplate:ft];
-	STAssertNotNil(fr, @"Failed to allocate FaceRecognizer");
 }
 
 - (void)tearDown {
-	[fastFaceRecognizer release];
+	[uiImage release];
+	CGImageRelease(imageRef);
 }
 
 @end

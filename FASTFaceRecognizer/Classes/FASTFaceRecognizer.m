@@ -7,8 +7,3 @@
 //
 
 #import "FASTFaceRecognizer.h"
-
-
-@implementation FASTFaceRecognizer
-
-@end

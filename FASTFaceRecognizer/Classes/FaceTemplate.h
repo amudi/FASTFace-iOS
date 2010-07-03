@@ -6,22 +6,21 @@
 //  Copyright 2010 amudi.org. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#ifndef FACETEMPLATE_H
+#define FACETEMPLATE_H
 
+#include <CoreGraphics/CoreGraphics.h>
 
-@interface FaceTemplate : NSObject {
-	NSInteger areaWidth;
-	NSInteger areaHeight;
-  @private
+typedef struct FaceTemplate {	
+	CGSize areaSize;
 	int **pixelInfo;
-}
+} FaceTemplate;
 
-@property (nonatomic, assign) NSInteger areaWidth;
-@property (nonatomic, assign) NSInteger areaHeight;
+void FaceTemplateInit(FaceTemplate *ft);
+void FaceTemplateDealloc(FaceTemplate *ft);
+int FaceTemplateGetPixelInfo(FaceTemplate *ft, int x, int y);
+void FaceTemplateSetPixelInfo(FaceTemplate *ft, int x, int y, int value);
+void FaceTemplateLoadResource(FaceTemplate *ft, char *resourceName);
+char *FaceTemplateDump();
 
-- (int)pixelInfoWithX:(int)x andY:(int)y;
-- (void)setPixelInfoAtX:(int)x andY:(int)y withValue:(int)value;
-- (void)loadResource:(NSString *)resourceName;
-- (NSString *)dump;
-
-@end
+#endif

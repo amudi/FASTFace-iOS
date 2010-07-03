@@ -23,9 +23,9 @@
 		D059412F11CC81BD000B3FDC /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D059412E11CC81BD000B3FDC /* MainViewController.xib */; };
 		D059418111CC859E000B3FDC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D059418011CC859E000B3FDC /* MainWindow.xib */; };
 		D078DEA811D174F70006BAD6 /* FaceTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = D078DEA611D174F70006BAD6 /* FaceTemplate.h */; };
-		D078DEA911D174F70006BAD6 /* FaceTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = D078DEA711D174F70006BAD6 /* FaceTemplate.m */; };
+		D078DEA911D174F70006BAD6 /* FaceTemplate.c in Sources */ = {isa = PBXBuildFile; fileRef = D078DEA711D174F70006BAD6 /* FaceTemplate.c */; };
 		D078DEAA11D175080006BAD6 /* FaceRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = D078DE9C11D174D20006BAD6 /* FaceRecognizer.h */; };
-		D078DEAC11D175140006BAD6 /* FaceRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D078DE9D11D174D20006BAD6 /* FaceRecognizer.m */; };
+		D078DEAC11D175140006BAD6 /* FaceRecognizer.c in Sources */ = {isa = PBXBuildFile; fileRef = D078DE9D11D174D20006BAD6 /* FaceRecognizer.c */; };
 		D091DDFF11C9901C009B2AA1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D091DDFD11C9901C009B2AA1 /* MainViewController.m */; };
 		D091DE0F11C994E7009B2AA1 /* blank_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D091DE0E11C994E7009B2AA1 /* blank_image.png */; };
 		D0955D1611CDB51600B5FBAD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0955D1511CDB51600B5FBAD /* MobileCoreServices.framework */; };
@@ -48,6 +48,23 @@
 		D0F9936411D02B4B004312F8 /* UIImageTest.h in Headers */ = {isa = PBXBuildFile; fileRef = D0F9920011D02866004312F8 /* UIImageTest.h */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D09BA2F311DF051100748516 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0C05C7F11CECC2000C20516 /* FASTFaceRecognizer */;
+			remoteInfo = FASTFaceRecognizer;
+		};
+		D0A65CE111D2D6A100C3BD23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0C05C7F11CECC2000C20516;
+			remoteInfo = FASTFaceRecognizer;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* FASTFaceAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTFaceAppDelegate.h; sourceTree = "<group>"; };
@@ -65,9 +82,9 @@
 		D0593F7211CC681C000B3FDC /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ResultViewController.xib; path = English.lproj/ResultViewController.xib; sourceTree = "<group>"; };
 		D0593FFC11CC6DC5000B3FDC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		D078DE9C11D174D20006BAD6 /* FaceRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceRecognizer.h; sourceTree = "<group>"; };
-		D078DE9D11D174D20006BAD6 /* FaceRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceRecognizer.m; sourceTree = "<group>"; };
+		D078DE9D11D174D20006BAD6 /* FaceRecognizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FaceRecognizer.c; sourceTree = "<group>"; };
 		D078DEA611D174F70006BAD6 /* FaceTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceTemplate.h; sourceTree = "<group>"; };
-		D078DEA711D174F70006BAD6 /* FaceTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceTemplate.m; sourceTree = "<group>"; };
+		D078DEA711D174F70006BAD6 /* FaceTemplate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FaceTemplate.c; sourceTree = "<group>"; };
 		D091DDFC11C9901C009B2AA1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		D091DDFD11C9901C009B2AA1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		D091DDFE11C9901C009B2AA1 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = English.lproj/MainViewController.xib; sourceTree = "<group>"; };
@@ -229,9 +246,9 @@
 				D0F991F911D023F3004312F8 /* UIImage+Grayscale.h */,
 				D0F991FA11D023F3004312F8 /* UIImage+Grayscale.m */,
 				D078DE9C11D174D20006BAD6 /* FaceRecognizer.h */,
-				D078DE9D11D174D20006BAD6 /* FaceRecognizer.m */,
+				D078DE9D11D174D20006BAD6 /* FaceRecognizer.c */,
 				D078DEA611D174F70006BAD6 /* FaceTemplate.h */,
-				D078DEA711D174F70006BAD6 /* FaceTemplate.m */,
+				D078DEA711D174F70006BAD6 /* FaceTemplate.c */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -305,6 +322,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D0A65CE211D2D6A100C3BD23 /* PBXTargetDependency */,
 			);
 			name = FASTFace;
 			productName = FASTFace;
@@ -341,6 +359,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D09BA2F411DF051100748516 /* PBXTargetDependency */,
 			);
 			name = FASTFaceRecognizerTest;
 			productName = FASTFaceRecognizerTest;
@@ -428,8 +447,8 @@
 				D0F9930B11D02A0E004312F8 /* UIImage+Resize.m in Sources */,
 				D0F9930D11D02A0E004312F8 /* UIImage+Grayscale.m in Sources */,
 				D0C05CA011CECD1C00C20516 /* FASTFaceRecognizer.m in Sources */,
-				D078DEA911D174F70006BAD6 /* FaceTemplate.m in Sources */,
-				D078DEAC11D175140006BAD6 /* FaceRecognizer.m in Sources */,
+				D078DEA911D174F70006BAD6 /* FaceTemplate.c in Sources */,
+				D078DEAC11D175140006BAD6 /* FaceRecognizer.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +462,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D09BA2F411DF051100748516 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0C05C7F11CECC2000C20516 /* FASTFaceRecognizer */;
+			targetProxy = D09BA2F311DF051100748516 /* PBXContainerItemProxy */;
+		};
+		D0A65CE211D2D6A100C3BD23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0C05C7F11CECC2000C20516 /* FASTFaceRecognizer */;
+			targetProxy = D0A65CE111D2D6A100C3BD23 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D059412C11CC81A9000B3FDC /* ResultViewController.xib */ = {

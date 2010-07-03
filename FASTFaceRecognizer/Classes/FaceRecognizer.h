@@ -12,7 +12,7 @@
 #include <CoreGraphics/CoreGraphics.h>
 #include "FaceTemplate.h"
 
-typedef struct FaceRecognizer {
+struct FaceRecognizer {
 	/*FaceRecognizer()
 		: imageSize(0.0f, 0.0f)
 		, areaSize(0.0f, 0.0f)
@@ -22,9 +22,10 @@ typedef struct FaceRecognizer {
 	CGSize imageSize;
 	CGSize areaSize;
 	int **eigenface;
-} FaceRecognizer;
+};
+typedef struct FaceRecognizer FaceRecognizer;
 
-void FaceRecognizerInit(FaceRecognizer *fr, CGImageRef image, FaceTemplate *ft);
+FaceRecognizer *FaceRecognizerCreate(CGImageRef image, FaceTemplate *ft);
 void FaceRecognizerDealloc(FaceRecognizer *fr);
 int FaceRecognizerGetEigenFace(const FaceRecognizer *fr, int x, int y);
 long FaceRecognizerGetDistance(const FaceRecognizer *fr, const FaceRecognizer *frReference);

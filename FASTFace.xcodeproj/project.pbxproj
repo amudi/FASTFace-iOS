@@ -12,8 +12,6 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
-		D00637F911CED3A300BBDE49 /* libFASTFaceRecognizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */; };
-		D006383C11CED62600BBDE49 /* libFASTFaceRecognizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */; };
 		D035178211D2D018006554C6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		D035178311D2D018006554C6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		D035179211D2D0A9006554C6 /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D035179111D2D0A9006554C6 /* test_image.png */; };
@@ -49,7 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D09BA2F311DF051100748516 /* PBXContainerItemProxy */ = {
+		D00B71D611DF18200033CB25 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
@@ -114,7 +112,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D006383C11CED62600BBDE49 /* libFASTFaceRecognizer.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -139,7 +136,6 @@
 			files = (
 				D035178211D2D018006554C6 /* UIKit.framework in Frameworks */,
 				D035178311D2D018006554C6 /* CoreGraphics.framework in Frameworks */,
-				D00637F911CED3A300BBDE49 /* libFASTFaceRecognizer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +355,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				D09BA2F411DF051100748516 /* PBXTargetDependency */,
+				D00B71D711DF18200033CB25 /* PBXTargetDependency */,
 			);
 			name = FASTFaceRecognizerTest;
 			productName = FASTFaceRecognizerTest;
@@ -464,10 +460,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D09BA2F411DF051100748516 /* PBXTargetDependency */ = {
+		D00B71D711DF18200033CB25 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D0C05C7F11CECC2000C20516 /* FASTFaceRecognizer */;
-			targetProxy = D09BA2F311DF051100748516 /* PBXContainerItemProxy */;
+			targetProxy = D00B71D611DF18200033CB25 /* PBXContainerItemProxy */;
 		};
 		D0A65CE211D2D6A100C3BD23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

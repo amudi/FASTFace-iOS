@@ -1,5 +1,5 @@
 //
-//  FaceTemplate.m
+//  FaceTemplate.c
 //  FASTFace
 //
 //  Created by Amudi Sebastian on 6/23/10.
@@ -7,14 +7,25 @@
 //
 
 #include "FaceTemplate.h"
+#include <stdlib.h>
 
-void FaceTemplateInit(FaceTemplate *ft) {
+FaceTemplate *FaceTemplateCreate() {
+	FaceTemplate *ft = (FaceTemplate*)malloc(sizeof(FaceTemplate));
 	ft->areaSize = CGSizeMake(0.0f, 0.0f);
 	ft->pixelInfo = NULL;
+	return ft;
 }
 
 void FaceTemplateDealloc(FaceTemplate *ft) {
-
+	if (ft) {
+		if (ft->pixelInfo) {
+			for (int i = 0; i < ft->areaSize.height; ++i) {
+				free(ft->pixelInfo[i]);
+			}
+			free(ft->pixelInfo);
+		}
+		free(ft);
+	}
 }
 
 int FaceTemplateGetPixelInfo(FaceTemplate *ft, int x, int y) {

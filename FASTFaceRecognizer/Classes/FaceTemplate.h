@@ -11,12 +11,13 @@
 
 #include <CoreGraphics/CoreGraphics.h>
 
-typedef struct FaceTemplate {	
+struct FaceTemplate {	
 	CGSize areaSize;
 	int **pixelInfo;
-} FaceTemplate;
+};
+typedef struct FaceTemplate FaceTemplate;
 
-void FaceTemplateInit(FaceTemplate *ft);
+FaceTemplate *FaceTemplateCreate();
 void FaceTemplateDealloc(FaceTemplate *ft);
 int FaceTemplateGetPixelInfo(FaceTemplate *ft, int x, int y);
 void FaceTemplateSetPixelInfo(FaceTemplate *ft, int x, int y, int value);

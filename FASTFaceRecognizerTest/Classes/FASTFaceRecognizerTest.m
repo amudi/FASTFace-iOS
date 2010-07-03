@@ -12,25 +12,29 @@
 @implementation FASTFaceRecognizerTest
 
 - (void)setUp {
-	uiImage = [UIImage imageNamed:@"test_image.png"];
-	[uiImage retain];
+	NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+	NSString *path = [bundle pathForResource:@"test_image" ofType:@"png"];
+	uiImage = [[UIImage alloc] initWithContentsOfFile:path];
 	
 	imageRef = [uiImage CGImage];
 	CGImageRetain(imageRef);
-	
-	//FaceTemplateInit(ft);
-	//FaceRecognizerInit(fr, imageRef, ft);
 }
 
 - (void)testAllocation {
 	STAssertNotNil(uiImage, @"UIImage allocation failed");
+	STAssertFalse(imageRef == NULL, @"CGImageRef nil");
 }
 
 - (void)testAllocationFaceTemplate {
-
+	ft = FaceTemplateCreate();
+	STAssertFalse(ft == NULL, @"FaceTemplate allocation failed");
 }
 
 - (void)testAllocationFaceRecognizer {
+	//ft = FaceTemplateCreate();
+	STAssertFalse(ft == NULL, @"FaceTemplate allocation failed");
+	//fr = FaceRecognizerCreate(imageRef, ft);
+	STAssertFalse(fr == NULL, @"FaceRecognizer allocation failed");
 }
 
 - (void)tearDown {

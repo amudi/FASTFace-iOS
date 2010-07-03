@@ -1,5 +1,5 @@
 //
-//  FaceRecognizer.m
+//  FaceRecognizer.c
 //  FASTFace
 //
 //  Created by Amudi Sebastian on 6/23/10.
@@ -10,10 +10,16 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void FaceRecognizerInit(FaceRecognizer *fr, CGImageRef image, FaceTemplate *ft) {
+FaceRecognizer *FaceRecognizerCreate(CGImageRef image, FaceTemplate *ft) {
 	if (!image || !ft) {
 		fprintf(stderr, "can't init FaceRecognizer, parameters must not be nil");
-		return;
+		return NULL;
+	}
+	
+	FaceRecognizer *fr = (FaceRecognizer*)malloc(sizeof(FaceRecognizer));
+	if (!fr) {
+		fprintf(stderr, "can't allocate memory for FaceRecognizer");
+		return NULL;
 	}
 	
 	fr->imageSize.width = CGImageGetWidth(image);
@@ -23,15 +29,15 @@ void FaceRecognizerInit(FaceRecognizer *fr, CGImageRef image, FaceTemplate *ft) 
 	int rgbData[((int)(fr->imageSize.width + 1)) * ((int)fr->imageSize.height)];
 	fr->eigenface = (int**)malloc(fr->areaSize.height * sizeof(int *));
 	if (!fr->eigenface) {
-		//stderr;
-		return;
+		fprintf(stderr, "can't allocate memory for eigenface array");
+		return NULL;
 	}
 	
 	for (int i = 0; i < fr->areaSize.height; ++i) {
 		fr->eigenface[i] = (int *)malloc(fr->areaSize.width * sizeof(int));
 		if (!fr->eigenface[i]) {
-			fprintf(stderr, "can't allocate eigenface array");
-			return;
+			fprintf(stderr, "can't allocate memory for eigenface inner array");
+			return NULL;
 		}
 	}
 	
@@ -84,13 +90,22 @@ void FaceRecognizerInit(FaceRecognizer *fr, CGImageRef image, FaceTemplate *ft) 
 	
 	// release CG stuff
 	CGContextRelease(context);
+	
+	return fr;
 }
 
 void FaceRecognizerDealloc(FaceRecognizer *fr) {
-	for (int i = 0; i < fr->areaSize.height; ++i) {
-		free(fr->eigenface[i]);
+	if (fr) {
+		if (fr->eigenface) {
+			for (int i = 0; i < fr->areaSize.height; ++i) {
+				if (fr->eigenface[i]) {
+					free(fr->eigenface[i]);
+				}
+			}
+			free(fr->eigenface);
+		}
+		free(fr);
 	}
-	free(fr->eigenface);
 }
 
 int FaceRecognizerGetEigenFace(const FaceRecognizer *fr, int x, int y) {

@@ -19,8 +19,10 @@
 	FaceTemplate *ft;
 }
 
-- (void)testAllocation;
-- (void)testAllocationFaceTemplate;
-- (void)testAllocationFaceRecognizer;
+- (void)testSetUpAllocation;
+- (void)testFaceTemplateCreate;
+- (void)testFaceRecognizerCreate;
+- (void)testFaceTemplateDealloc;
+- (void)testFaceRecognizerDealloc;
 
 @end

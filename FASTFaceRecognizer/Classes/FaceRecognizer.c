@@ -96,16 +96,12 @@ FaceRecognizer *FaceRecognizerCreate(CGImageRef image, FaceTemplate *ft) {
 
 void FaceRecognizerDealloc(FaceRecognizer *fr) {
 	if (fr) {
-		if (fr->eigenface) {
-			for (int i = 0; i < fr->areaSize.height; ++i) {
-				if (fr->eigenface[i]) {
-					free(fr->eigenface[i]);
-				}
-			}
-			free(fr->eigenface);
+		for (int i = 0; i < fr->areaSize.height; ++i) {
+			free(fr->eigenface[i]);
 		}
-		free(fr);
+		free(fr->eigenface);
 	}
+	free(fr);
 }
 
 int FaceRecognizerGetEigenFace(const FaceRecognizer *fr, int x, int y) {

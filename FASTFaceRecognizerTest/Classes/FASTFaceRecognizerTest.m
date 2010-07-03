@@ -18,26 +18,38 @@
 	
 	imageRef = [uiImage CGImage];
 	CGImageRetain(imageRef);
+	ft = FaceTemplateCreate();
+	fr = FaceRecognizerCreate(imageRef, ft);
 }
 
-- (void)testAllocation {
+- (void)testSetUpAllocation {
 	STAssertNotNil(uiImage, @"UIImage allocation failed");
 	STAssertFalse(imageRef == NULL, @"CGImageRef nil");
 }
 
-- (void)testAllocationFaceTemplate {
-	ft = FaceTemplateCreate();
+- (void)testFaceTemplateCreate {
 	STAssertFalse(ft == NULL, @"FaceTemplate allocation failed");
 }
 
-- (void)testAllocationFaceRecognizer {
-	//ft = FaceTemplateCreate();
-	STAssertFalse(ft == NULL, @"FaceTemplate allocation failed");
-	//fr = FaceRecognizerCreate(imageRef, ft);
+- (void)testFaceRecognizerCreate {
 	STAssertFalse(fr == NULL, @"FaceRecognizer allocation failed");
 }
 
+- (void)testFaceTemplateDealloc {
+	FaceTemplateDealloc(ft);
+	ft = NULL;
+	STAssertTrue(ft == NULL, @"FaceTemplate deallocation failed, ft = %d", ft);
+}
+
+- (void)testFaceRecognizerDealloc {
+	FaceRecognizerDealloc(fr);
+	fr = NULL;
+	STAssertTrue(fr == NULL, @"FaceRecognizer deallocation failed, fr = %d", fr);
+}
+
 - (void)tearDown {
+	FaceTemplateDealloc(ft);
+	FaceRecognizerDealloc(fr);
 	[uiImage release];
 	CGImageRelease(imageRef);
 }

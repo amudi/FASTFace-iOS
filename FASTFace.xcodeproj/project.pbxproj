@@ -12,6 +12,8 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		D00B720711DF19A70033CB25 /* libFASTFaceRecognizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */; };
+		D00B720811DF19A80033CB25 /* libFASTFaceRecognizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */; };
 		D035178211D2D018006554C6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		D035178311D2D018006554C6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		D035179211D2D0A9006554C6 /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D035179111D2D0A9006554C6 /* test_image.png */; };
@@ -51,7 +53,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D0C05C7F11CECC2000C20516 /* FASTFaceRecognizer */;
+			remoteGlobalIDString = D0C05C7F11CECC2000C20516;
 			remoteInfo = FASTFaceRecognizer;
 		};
 		D0A65CE111D2D6A100C3BD23 /* PBXContainerItemProxy */ = {
@@ -117,6 +119,7 @@
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				D0593FFD11CC6DC5000B3FDC /* iAd.framework in Frameworks */,
 				D0955D1611CDB51600B5FBAD /* MobileCoreServices.framework in Frameworks */,
+				D00B720711DF19A70033CB25 /* libFASTFaceRecognizer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +139,7 @@
 			files = (
 				D035178211D2D018006554C6 /* UIKit.framework in Frameworks */,
 				D035178311D2D018006554C6 /* CoreGraphics.framework in Frameworks */,
+				D00B720811DF19A80033CB25 /* libFASTFaceRecognizer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

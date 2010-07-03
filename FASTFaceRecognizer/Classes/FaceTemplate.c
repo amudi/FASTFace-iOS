@@ -18,14 +18,12 @@ FaceTemplate *FaceTemplateCreate() {
 
 void FaceTemplateDealloc(FaceTemplate *ft) {
 	if (ft) {
-		if (ft->pixelInfo) {
-			for (int i = 0; i < ft->areaSize.height; ++i) {
-				free(ft->pixelInfo[i]);
-			}
-			free(ft->pixelInfo);
+		for (int i = 0; i < ft->areaSize.height; ++i) {
+			free(ft->pixelInfo[i]);
 		}
-		free(ft);
+		free(ft->pixelInfo);
 	}
+	free(ft);
 }
 
 int FaceTemplateGetPixelInfo(FaceTemplate *ft, int x, int y) {

@@ -33,6 +33,7 @@
 		D0C05C9F11CECD1C00C20516 /* FASTFaceRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C05C9D11CECD1C00C20516 /* FASTFaceRecognizer.h */; };
 		D0C05CA011CECD1C00C20516 /* FASTFaceRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C05C9E11CECD1C00C20516 /* FASTFaceRecognizer.m */; };
 		D0C05CD211CED0A300C20516 /* FASTFaceRecognizerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C05CD111CED0A300C20516 /* FASTFaceRecognizerTest.m */; };
+		D0F44DA411E077D4003CE7FC /* FASTFaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F44DA311E077D4003CE7FC /* FASTFaceModel.m */; };
 		D0F9920211D02866004312F8 /* UIImageTest.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F9920111D02866004312F8 /* UIImageTest.m */; };
 		D0F992FD11D029F8004312F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		D0F992FE11D029F8004312F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -99,6 +100,8 @@
 		D0C05CAC11CECF6400C20516 /* FASTFaceRecognizerTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FASTFaceRecognizerTest-Info.plist"; sourceTree = "<group>"; };
 		D0C05CD011CED0A300C20516 /* FASTFaceRecognizerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTFaceRecognizerTest.h; sourceTree = "<group>"; };
 		D0C05CD111CED0A300C20516 /* FASTFaceRecognizerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceRecognizerTest.m; sourceTree = "<group>"; };
+		D0F44DA211E077D4003CE7FC /* FASTFaceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTFaceModel.h; sourceTree = "<group>"; };
+		D0F44DA311E077D4003CE7FC /* FASTFaceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceModel.m; sourceTree = "<group>"; };
 		D0F991C311D01F54004312F8 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
 		D0F991C411D01F54004312F8 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
 		D0F991CE11D01FD9004312F8 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 				D091DDFD11C9901C009B2AA1 /* MainViewController.m */,
 				D0593F7011CC681C000B3FDC /* ResultViewController.h */,
 				D0593F7111CC681C000B3FDC /* ResultViewController.m */,
+				D0F44DA211E077D4003CE7FC /* FASTFaceModel.h */,
+				D0F44DA311E077D4003CE7FC /* FASTFaceModel.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -439,6 +444,7 @@
 				1D3623260D0F684500981E51 /* FASTFaceAppDelegate.m in Sources */,
 				D091DDFF11C9901C009B2AA1 /* MainViewController.m in Sources */,
 				D0593F7311CC681C000B3FDC /* ResultViewController.m in Sources */,
+				D0F44DA411E077D4003CE7FC /* FASTFaceModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

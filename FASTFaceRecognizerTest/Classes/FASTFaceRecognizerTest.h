@@ -24,5 +24,6 @@
 - (void)testFaceRecognizerCreate;
 - (void)testFaceTemplateDealloc;
 - (void)testFaceRecognizerDealloc;
+- (void)testFaceRecognizerGetRGBData;
 
 @end

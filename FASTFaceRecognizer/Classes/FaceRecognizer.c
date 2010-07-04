@@ -41,14 +41,7 @@ FaceRecognizer *FaceRecognizerCreate(CGImageRef image, FaceTemplate *ft) {
 		}
 	}
 	
-	// TODO: get RGB data from image
-	CGImageRef imageRef = image;
-	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-	CGContextRef context = CGBitmapContextCreate(rgbData, fr->imageSize.width, fr->imageSize.height, 8, fr->imageSize.width * 4, colorSpace, kCGImageAlphaPremultipliedFirst);
-	CGColorSpaceRelease(colorSpace);
-	
-	CGRect rect = CGRectMake(0, 0, fr->imageSize.width, fr->imageSize.height);
-	CGContextDrawImage(context, rect, imageRef);
+	FaceRecognizerGetRGBDataFromImage(fr, rgbData, image);
 	
 	int w = fr->imageSize.width / fr->areaSize.width;
 	if (w < 1) w = 1;
@@ -88,9 +81,6 @@ FaceRecognizer *FaceRecognizerCreate(CGImageRef image, FaceTemplate *ft) {
 		}
 	}
 	
-	// release CG stuff
-	CGContextRelease(context);
-	
 	return fr;
 }
 
@@ -122,6 +112,19 @@ long FaceRecognizerGetDistance(const FaceRecognizer *fr, const FaceRecognizer *f
 	}
 	
 	return distance;
+}
+
+void FaceRecognizerGetRGBDataFromImage(FaceRecognizer *fr, int *rgbData, CGImageRef image) {
+	// TODO: get RGB data from image
+	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+	CGContextRef context = CGBitmapContextCreate(rgbData, fr->imageSize.width, fr->imageSize.height, 8, fr->imageSize.width * 4, colorSpace, kCGImageAlphaPremultipliedFirst);
+	CGColorSpaceRelease(colorSpace);
+	
+	CGRect rect = CGRectMake(0, 0, fr->imageSize.width, fr->imageSize.height);
+	CGContextDrawImage(context, rect, image);
+	
+	// release CG stuff
+	CGContextRelease(context);
 }
 
 char *FaceRecognizerDump(const FaceRecognizer *fr) {

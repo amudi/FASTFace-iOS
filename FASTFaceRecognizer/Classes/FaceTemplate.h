@@ -19,9 +19,9 @@ typedef struct FaceTemplate FaceTemplate;
 
 FaceTemplate *FaceTemplateCreate();
 void FaceTemplateDealloc(FaceTemplate *ft);
-int FaceTemplateGetPixelInfo(FaceTemplate *ft, int x, int y);
+int FaceTemplateGetPixelInfo(const FaceTemplate *ft, int x, int y);
 void FaceTemplateSetPixelInfo(FaceTemplate *ft, int x, int y, int value);
-void FaceTemplateLoadResource(FaceTemplate *ft, char *resourceName);
+void FaceTemplateLoadResource(FaceTemplate *ft, const char *resourceName);
 char *FaceTemplateDump();
 
 #endif

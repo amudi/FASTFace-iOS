@@ -27,7 +27,7 @@ FaceRecognizer *FaceRecognizerCreate(CGImageRef image, FaceTemplate *ft) {
 	fr->areaSize = ft->areaSize;
 	
 	int rgbData[((int)(fr->imageSize.width + 1)) * ((int)fr->imageSize.height)];
-	fr->eigenface = (int**)malloc(fr->areaSize.height * sizeof(int *));
+	fr->eigenface = (int **)malloc(fr->areaSize.height * sizeof(int *));
 	if (!fr->eigenface) {
 		fprintf(stderr, "can't allocate memory for eigenface array");
 		return NULL;
@@ -115,7 +115,7 @@ long FaceRecognizerGetDistance(const FaceRecognizer *fr, const FaceRecognizer *f
 }
 
 void FaceRecognizerGetRGBDataFromImage(FaceRecognizer *fr, int *rgbData, CGImageRef image) {
-	// TODO: get RGB data from image
+	// get RGB data from image
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 	CGContextRef context = CGBitmapContextCreate(rgbData, fr->imageSize.width, fr->imageSize.height, 8, fr->imageSize.width * 4, colorSpace, kCGImageAlphaPremultipliedFirst);
 	CGColorSpaceRelease(colorSpace);

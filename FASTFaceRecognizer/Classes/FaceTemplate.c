@@ -8,6 +8,7 @@
 
 #include "FaceTemplate.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 FaceTemplate *FaceTemplateCreate() {
 	FaceTemplate *ft = (FaceTemplate*)malloc(sizeof(FaceTemplate));
@@ -26,7 +27,7 @@ void FaceTemplateDealloc(FaceTemplate *ft) {
 	free(ft);
 }
 
-int FaceTemplateGetPixelInfo(FaceTemplate *ft, int x, int y) {
+int FaceTemplateGetPixelInfo(const FaceTemplate *ft, int x, int y) {
 	if (x < ft->areaSize.width && y < ft->areaSize.height) {
 		return ft->pixelInfo[x][y];
 	}
@@ -39,8 +40,69 @@ void FaceTemplateSetPixelInfo(FaceTemplate *ft, int x, int y, int value) {
 	}
 }
 
-void FaceTemplateLoadResource(FaceTemplate *ft, char *resourceName) {
-	// TODO: convert loadResource method into something relevant here
+void FaceTemplateLoadResource(FaceTemplate *ft, const char *resourceName) {
+	// TODO: load face template data from file
+	FILE *filePtr = fopen(resourceName, "r");
+	if (filePtr == NULL) {
+		fprintf(stderr, "Can't open resource: %s", resourceName);
+		return;
+	}
+		
+	int x = 0;
+	int output = 0;
+	
+	// get width
+	while ((x = fgetc(filePtr)) != 13) {
+		if ((x >= 48) && (x <= 57)) {
+			output *= 10;
+			output += (x - 48);
+		}
+	}
+	ft->areaSize.width = output;
+	
+	// get height
+	output = 0;
+	while ((x = fgetc(filePtr)) != 13) {
+		if ((x >= 48) && (x <= 57)) {
+			output *= 10;
+			output += (x - 48);
+		}
+	}
+	ft->areaSize.height = output;
+	
+	ft->pixelInfo = (int **)malloc(ft->areaSize.width * sizeof(int *));
+	if (!ft->pixelInfo) {
+		fprintf(stderr, "Can't allocate memory for pixelInfo");
+		return;
+	}
+	
+	for (int i = 0; i < ft->areaSize.width; ++i) {
+		ft->pixelInfo[i] = (int *)malloc(ft->areaSize.height * sizeof(int));
+		if (!ft->pixelInfo[i]) {
+			fprintf(stderr, "Can't allocate memory for pixelInfo inner array");
+			return;
+		}
+	}
+	
+	output = 0;
+	int i = 0;
+	int j = 0;
+	while ((x = fgetc(filePtr)) != -1) {
+		if ((x != 13) && (x != 10)) {
+			output *= 10;
+			output += (x - 48);
+		} else if (x == 13) {
+			ft->pixelInfo[i][j] = output;
+			if (i < (ft->areaSize.width - 1)) {
+				++i;
+			} else {
+				i = 0;
+				++j;
+			}
+			output = 0;
+		}
+	}
+	fclose(filePtr);
 }
 
 char *FaceTemplateDump() {

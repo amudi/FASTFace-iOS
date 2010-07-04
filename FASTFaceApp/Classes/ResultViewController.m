@@ -22,11 +22,15 @@
 @synthesize mainViewController;
 
 
+- (id)init {
+	[super initWithNibName:@"ResultViewController" bundle:nil];
+	// Custom initialization
+	
+	return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
+    return [self init];
 }
 
 

@@ -25,19 +25,23 @@
 @synthesize photoAlbumViewController;
 @synthesize adBanner;
 
+- (id)init {
+	[super initWithNibName:@"MainViewController" bundle:nil];
+	// Custom initialization
+	
+	return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
+    return [self init];
 }
 
 
 - (void)dealloc {
-    [super dealloc];
 	[defaultBlankImage release];
 	defaultBlankImage = nil;
+	
+    [super dealloc];
 }
 
 
@@ -46,6 +50,8 @@
     [super viewDidLoad];
 	photoChoice = PhotoChoice_PhotoUnknown;
 	defaultBlankImage = [UIImage imageNamed:@"blank_image.png"];
+	hasCamera = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+	DLog(@"is Camera available: %d", hasCamera);
 	
 	DLog(@"Main Screen Loaded");
 }
@@ -74,6 +80,10 @@
     // e.g. self.myOutlet = nil;
 }
 
+- (NSString *)viewNibName {
+	return @"MainViewController";
+}
+
 
 - (void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
 	DLog(@"Interface will rotate to %@", toInterfaceOrientation);
@@ -98,7 +108,7 @@
 		photoChoice = PhotoChoice_Photo2;
 	}
 	
-	if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+	if (hasCamera) {
 		photoChoiceActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Select photo source", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Camera", nil), NSLocalizedString(@"Photo Album", nil), nil];
 	} else {
 		// camera not available
@@ -142,44 +152,50 @@
 
 #pragma mark Action Sheet Handler
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-	if (actionSheet == photoChoiceActionSheet) {
+	if ([actionSheet isEqual:photoChoiceActionSheet]) {
 		DLog(@"photoChoiceActionSheet [%@] tapped at index: %d for photo: %d", actionSheet, buttonIndex, photoChoice);
 		if (photoChoice == PhotoChoice_PhotoUnknown) {
 			@throw [NSException exceptionWithName:@"FASTFaceException" reason:NSLocalizedString(@"Unknown selected photo on selectPhotoSource", nil) userInfo:nil];
 		}
 		switch (buttonIndex) {
-			case 0: 
-				DLog(@"Camera for photo %d", photoChoice);
-				// show camera
+			case 0: 				
+				// show camera or photo album
 				cameraViewController = [[UIImagePickerController alloc] init];
 				cameraViewController.delegate = self;
 				cameraViewController.allowsEditing = YES;
 				
-				if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+				if (hasCamera) {
+					DLog(@"Camera for photo %d", photoChoice);
 					cameraViewController.sourceType = UIImagePickerControllerSourceTypeCamera;
 					cameraViewController.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
 				} else {
+					DLog(@"Photo Album for photo %d", photoChoice);
 					cameraViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 				}
 
 				[self presentModalViewController:cameraViewController animated:YES];
 				break;
+				
 			case 1:
-				DLog(@"Photo Album for photo %d", photoChoice);
-				// show photo album
-				photoAlbumViewController = [[UIImagePickerController alloc] init];
-				photoAlbumViewController.delegate = self;
-				photoAlbumViewController.allowsEditing = YES;
-				photoAlbumViewController.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
-				photoAlbumViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-				[self presentModalViewController:photoAlbumViewController animated:YES];
+				// show photo album or cancel
+				if (hasCamera) {
+					DLog(@"Photo Album for photo %d", photoChoice);
+					photoAlbumViewController = [[UIImagePickerController alloc] init];
+					photoAlbumViewController.delegate = self;
+					photoAlbumViewController.allowsEditing = YES;
+					photoAlbumViewController.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
+					photoAlbumViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+					[self presentModalViewController:photoAlbumViewController animated:YES];
+				} else {
+					DLog(@"Cancel photo %d", photoChoice);
+				}				
 				break;
 
 			default:
 				DLog(@"Unknown button tapped in action sheet : %d", buttonIndex);
 				break;
 		}
-	} else if (actionSheet == clearActionSheet) {
+	} else if ([actionSheet isEqual:clearActionSheet]) {
 		DLog(@"clearActionSheet tapped at index: %d", buttonIndex);
 		switch (buttonIndex) {
 			case 0:
@@ -190,7 +206,7 @@
 			default:
 				break;
 		}
-	} else if (actionSheet == processActionSheet) {
+	} else if ([actionSheet isEqual:processActionSheet]) {
 		DLog(@"processActionSheet tapped at index: %d", buttonIndex);
 		switch (buttonIndex) {
 			case 0:

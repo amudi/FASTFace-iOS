@@ -32,6 +32,7 @@ typedef enum PhotoChoice {
 	ADBannerView *adBanner;
 	
 	UIImage *defaultBlankImage;
+	BOOL hasCamera;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *clearButton;

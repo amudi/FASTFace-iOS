@@ -20,10 +20,13 @@
 }
 
 - (void)testSetUpAllocation;
-- (void)testFaceTemplateCreate;
+
 - (void)testFaceRecognizerCreate;
-- (void)testFaceTemplateDealloc;
 - (void)testFaceRecognizerDealloc;
 - (void)testFaceRecognizerGetRGBData;
+
+- (void)testFaceTemplateCreate;
+- (void)testFaceTemplateDealloc;
+- (void)testFaceTemplateLoadResource;
 
 @end

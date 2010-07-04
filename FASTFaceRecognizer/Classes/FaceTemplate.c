@@ -41,7 +41,7 @@ void FaceTemplateSetPixelInfo(FaceTemplate *ft, int x, int y, int value) {
 }
 
 void FaceTemplateLoadResource(FaceTemplate *ft, const char *resourceName) {
-	// TODO: load face template data from file
+	// load face template data from file
 	FILE *filePtr = fopen(resourceName, "r");
 	if (filePtr == NULL) {
 		fprintf(stderr, "Can't open resource: %s", resourceName);
@@ -52,21 +52,25 @@ void FaceTemplateLoadResource(FaceTemplate *ft, const char *resourceName) {
 	int output = 0;
 	
 	// get width
-	while ((x = fgetc(filePtr)) != 13) {
-		if ((x >= 48) && (x <= 57)) {
+	x = fgetc(filePtr);
+	while ((x != kLF) && (x != kCR)) {
+		if ((x >= kZERO) && (x <= kNINE)) {
 			output *= 10;
-			output += (x - 48);
+			output += (x - kZERO);
 		}
+		x = fgetc(filePtr);
 	}
 	ft->areaSize.width = output;
 	
 	// get height
 	output = 0;
-	while ((x = fgetc(filePtr)) != 13) {
-		if ((x >= 48) && (x <= 57)) {
+	x = fgetc(filePtr);
+	while ((x != kLF) && (x != kCR)) {
+		if ((x >= kZERO) && (x <= kNINE)) {
 			output *= 10;
-			output += (x - 48);
+			output += (x - kZERO);
 		}
+		x = fgetc(filePtr);
 	}
 	ft->areaSize.height = output;
 	
@@ -87,10 +91,10 @@ void FaceTemplateLoadResource(FaceTemplate *ft, const char *resourceName) {
 	output = 0;
 	int i = 0;
 	int j = 0;
-	while ((x = fgetc(filePtr)) != -1) {
-		if ((x != 13) && (x != 10)) {
+	while ((x = fgetc(filePtr)) != EOF) {
+		if ((x != kCR) && (x != kLF)) {
 			output *= 10;
-			output += (x - 48);
+			output += (x - kZERO);
 		} else if (x == 13) {
 			ft->pixelInfo[i][j] = output;
 			if (i < (ft->areaSize.width - 1)) {

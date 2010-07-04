@@ -27,18 +27,8 @@
 	STAssertFalse(imageRef == NULL, @"CGImageRef nil");
 }
 
-- (void)testFaceTemplateCreate {
-	STAssertFalse(ft == NULL, @"FaceTemplate allocation failed");
-}
-
 - (void)testFaceRecognizerCreate {
 	STAssertFalse(fr == NULL, @"FaceRecognizer allocation failed");
-}
-
-- (void)testFaceTemplateDealloc {
-	FaceTemplateDealloc(ft);
-	ft = NULL;
-	STAssertTrue(ft == NULL, @"FaceTemplate deallocation failed, ft = %d", ft);
 }
 
 - (void)testFaceRecognizerDealloc {
@@ -55,6 +45,28 @@
 	int arrayOfZeros[((int)(fr->imageSize.width + 1)) * ((int)fr->imageSize.height)];
 	memset(arrayOfZeros, 0, ((int)(fr->imageSize.width + 1)) * ((int)fr->imageSize.height));
 	STAssertFalse(rgbData == arrayOfZeros, @"Get RGB data returns all zeros");
+}
+
+- (void)testFaceTemplateCreate {
+	STAssertFalse(ft == NULL, @"FaceTemplate allocation failed");
+}
+
+- (void)testFaceTemplateDealloc {
+	FaceTemplateDealloc(ft);
+	ft = NULL;
+	STAssertTrue(ft == NULL, @"FaceTemplate deallocation failed, ft = %d", ft);
+}
+
+- (void)testFaceTemplateLoadResource {
+	NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+	NSString *pathString = [bundle pathForResource:@"face_template" ofType:@"txt"];
+	const char *path = [pathString cStringUsingEncoding:NSUTF8StringEncoding];
+	STAssertTrue(sizeof(path) > 0, @"can't get face_template.txt path, path = %s", path);
+	
+	FaceTemplateLoadResource(ft, path);
+	STAssertTrue(sizeof(ft->pixelInfo) > 0, @"load resource failed, sizeof(ft->pixelInfo) = %d", sizeof(ft->pixelInfo));
+	STAssertTrue(ft->areaSize.width > 0, @"load resource resulted in a 0 width, areaSize.width = %d", (int)ft->areaSize.width);
+	STAssertTrue(ft->areaSize.height > 0, @"load resource resulted in a 0 height, areaSize.height = %d", (int)ft->areaSize.height);
 }
 
 - (void)tearDown {

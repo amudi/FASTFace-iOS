@@ -8,7 +8,6 @@
 
 
 #import <SenTestingKit/SenTestingKit.h>
-#import <UIKit/UIKit.h>
 #import "FASTFaceAppDelegate.h"
 
 @interface FASTFaceAppTests : SenTestCase {

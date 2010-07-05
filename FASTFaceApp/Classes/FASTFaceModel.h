@@ -16,8 +16,12 @@
 	CGImageRef photo2;
 }
 
-@property (nonatomic, assign) FaceTemplate* faceTemplate;
+@property (nonatomic, assign) FaceTemplate *faceTemplate;
+@property (nonatomic, assign) CGImageRef photo1;
+@property (nonatomic, assign) CGImageRef photo2;
 
-- (CGFloat)getDistanceFromImage:(CGImageRef)image toImage:(CGImageRef)imageRef;
+- (id)initWithFaceTemplatePath:(NSString *)path;
+- (CGFloat)getDistanceFrom:(CGImageRef)photoRef to:(CGImageRef)photo;
+- (CGFloat)getDistance;
 
 @end

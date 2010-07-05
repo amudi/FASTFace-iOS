@@ -37,7 +37,15 @@
 		D035178211D2D018006554C6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		D035178311D2D018006554C6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		D035179211D2D0A9006554C6 /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D035179111D2D0A9006554C6 /* test_image.png */; };
-		D05846D711E202D3008372C9 /* face_template.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0243EEB11E031B000E55B79 /* face_template.txt */; };
+		D058488511E20FD3008372C9 /* FASTFace_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* FASTFace_Prefix.pch */; };
+		D05848E911E214D9008372C9 /* face_template.txt in Resources */ = {isa = PBXBuildFile; fileRef = D05848E711E214D9008372C9 /* face_template.txt */; };
+		D05848EA11E214D9008372C9 /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D05848E811E214D9008372C9 /* test_image.png */; };
+		D05848EB11E214D9008372C9 /* face_template.txt in Resources */ = {isa = PBXBuildFile; fileRef = D05848E711E214D9008372C9 /* face_template.txt */; };
+		D05848EC11E214D9008372C9 /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D05848E811E214D9008372C9 /* test_image.png */; };
+		D05848ED11E214D9008372C9 /* face_template.txt in Resources */ = {isa = PBXBuildFile; fileRef = D05848E711E214D9008372C9 /* face_template.txt */; };
+		D05848EE11E214D9008372C9 /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D05848E811E214D9008372C9 /* test_image.png */; };
+		D05848EF11E214D9008372C9 /* face_template.txt in Resources */ = {isa = PBXBuildFile; fileRef = D05848E711E214D9008372C9 /* face_template.txt */; };
+		D05848F011E214D9008372C9 /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D05848E811E214D9008372C9 /* test_image.png */; };
 		D0593F7311CC681C000B3FDC /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0593F7111CC681C000B3FDC /* ResultViewController.m */; };
 		D0593FFD11CC6DC5000B3FDC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0593FFC11CC6DC5000B3FDC /* iAd.framework */; };
 		D059412D11CC81A9000B3FDC /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D059412C11CC81A9000B3FDC /* ResultViewController.xib */; };
@@ -130,6 +138,8 @@
 		D02F662611E15957006ABDC6 /* FASTFaceModelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FASTFaceModelTests-Info.plist"; sourceTree = "<group>"; };
 		D02F663E11E159C5006ABDC6 /* FASTFaceModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceModelTests.m; sourceTree = "<group>"; };
 		D035179111D2D0A9006554C6 /* test_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_image.png; sourceTree = "<group>"; };
+		D05848E711E214D9008372C9 /* face_template.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = face_template.txt; sourceTree = "<group>"; };
+		D05848E811E214D9008372C9 /* test_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_image.png; sourceTree = "<group>"; };
 		D0593F7011CC681C000B3FDC /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		D0593F7111CC681C000B3FDC /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		D0593F7211CC681C000B3FDC /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ResultViewController.xib; path = English.lproj/ResultViewController.xib; sourceTree = "<group>"; };
@@ -317,6 +327,15 @@
 			path = Tests;
 			sourceTree = "<group>";
 		};
+		D05848C511E212A9008372C9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D05848E711E214D9008372C9 /* face_template.txt */,
+				D05848E811E214D9008372C9 /* test_image.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		D0C05C8E11CECC4C00C20516 /* FASTFaceRecognizer */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,6 +349,7 @@
 			children = (
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				D05848C511E212A9008372C9 /* Resources */,
 				29B97317FDCFA39411CA2CEA /* User Interfaces */,
 				D02F61D611E14B57006ABDC6 /* Tests */,
 			);
@@ -394,6 +414,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D058488511E20FD3008372C9 /* FASTFace_Prefix.pch in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +590,8 @@
 				D059412F11CC81BD000B3FDC /* MainViewController.xib in Resources */,
 				D091DE0F11C994E7009B2AA1 /* blank_image.png in Resources */,
 				D059412D11CC81A9000B3FDC /* ResultViewController.xib in Resources */,
+				D05848ED11E214D9008372C9 /* face_template.txt in Resources */,
+				D05848EE11E214D9008372C9 /* test_image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +601,8 @@
 			files = (
 				D02F64A311E1504E006ABDC6 /* FASTFaceTests.octest in Resources */,
 				D02F61A211E14A7D006ABDC6 /* blank_image.png in Resources */,
+				D05848EF11E214D9008372C9 /* face_template.txt in Resources */,
+				D05848F011E214D9008372C9 /* test_image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +610,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D05848EB11E214D9008372C9 /* face_template.txt in Resources */,
+				D05848EC11E214D9008372C9 /* test_image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,7 +619,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D05846D711E202D3008372C9 /* face_template.txt in Resources */,
+				D05848E911E214D9008372C9 /* face_template.txt in Resources */,
+				D05848EA11E214D9008372C9 /* test_image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -870,6 +898,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = FASTFaceApp/FASTFace_Prefix.pch;
 				INFOPLIST_FILE = "FASTFaceApp/Tests/FASTFaceTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -898,6 +927,7 @@
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREFIX_HEADER = FASTFaceApp/FASTFace_Prefix.pch;
 				INFOPLIST_FILE = "FASTFaceApp/Tests/FASTFaceTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -928,6 +958,7 @@
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = FASTFaceApp/FASTFace_Prefix.pch;
 				INFOPLIST_FILE = "FASTFaceApp/Tests/FASTFaceModelTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",
@@ -956,6 +987,7 @@
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PREFIX_HEADER = FASTFaceApp/FASTFace_Prefix.pch;
 				INFOPLIST_FILE = "FASTFaceApp/Tests/FASTFaceModelTests-Info.plist";
 				OTHER_LDFLAGS = (
 					"-framework",

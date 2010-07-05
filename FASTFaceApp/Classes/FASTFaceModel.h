@@ -10,10 +10,13 @@
 #import "FASTFaceRecognizer.h"
 
 @interface FASTFaceModel : NSObject {
+  @private
 	FaceTemplate *ft;
 	CGImageRef photo1;
 	CGImageRef photo2;
 }
+
+@property (nonatomic, assign) FaceTemplate* faceTemplate;
 
 - (CGFloat)getDistanceFromImage:(CGImageRef)image toImage:(CGImageRef)imageRef;
 

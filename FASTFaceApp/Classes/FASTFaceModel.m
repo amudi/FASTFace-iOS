@@ -11,6 +11,8 @@
 
 @implementation FASTFaceModel
 
+@synthesize faceTemplate = ft;
+
 - (id)init {
 	if ((self = [super init])) {
 		//NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

@@ -15,6 +15,21 @@
 		D00B720711DF19A70033CB25 /* libFASTFaceRecognizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */; };
 		D00B720811DF19A80033CB25 /* libFASTFaceRecognizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */; };
 		D0243EEC11E031B000E55B79 /* face_template.txt in Resources */ = {isa = PBXBuildFile; fileRef = D0243EEB11E031B000E55B79 /* face_template.txt */; };
+		D02F61A211E14A7D006ABDC6 /* blank_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D091DE0E11C994E7009B2AA1 /* blank_image.png */; };
+		D02F61A511E14A7D006ABDC6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		D02F61A611E14A7D006ABDC6 /* FASTFaceAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* FASTFaceAppDelegate.m */; };
+		D02F61A711E14A7D006ABDC6 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D091DDFD11C9901C009B2AA1 /* MainViewController.m */; };
+		D02F61A811E14A7D006ABDC6 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0593F7111CC681C000B3FDC /* ResultViewController.m */; };
+		D02F61A911E14A7D006ABDC6 /* FASTFaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F44DA311E077D4003CE7FC /* FASTFaceModel.m */; };
+		D02F61AB11E14A7D006ABDC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		D02F61AC11E14A7D006ABDC6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		D02F61AD11E14A7D006ABDC6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
+		D02F61AE11E14A7D006ABDC6 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0593FFC11CC6DC5000B3FDC /* iAd.framework */; };
+		D02F61AF11E14A7D006ABDC6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0955D1511CDB51600B5FBAD /* MobileCoreServices.framework */; };
+		D02F61B011E14A7D006ABDC6 /* libFASTFaceRecognizer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */; };
+		D02F64A311E1504E006ABDC6 /* FASTFaceTests.octest in Resources */ = {isa = PBXBuildFile; fileRef = D02F626E11E14EED006ABDC6 /* FASTFaceTests.octest */; };
+		D02F65D211E157EA006ABDC6 /* FASTFaceAppTests.h in Headers */ = {isa = PBXBuildFile; fileRef = D02F65D011E157EA006ABDC6 /* FASTFaceAppTests.h */; };
+		D02F65D311E157EA006ABDC6 /* FASTFaceAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D02F65D111E157EA006ABDC6 /* FASTFaceAppTests.m */; };
 		D035178211D2D018006554C6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		D035178311D2D018006554C6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		D035179211D2D0A9006554C6 /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D035179111D2D0A9006554C6 /* test_image.png */; };
@@ -58,6 +73,20 @@
 			remoteGlobalIDString = D0C05C7F11CECC2000C20516;
 			remoteInfo = FASTFaceRecognizer;
 		};
+		D02F627A11E14F3C006ABDC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D02F626D11E14EED006ABDC6 /* FASTFaceTests */;
+			remoteInfo = FASTFaceTests;
+		};
+		D02F659B11E1566D006ABDC6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D0C05C7F11CECC2000C20516 /* FASTFaceRecognizer */;
+			remoteInfo = FASTFaceRecognizer;
+		};
 		D0A65CE111D2D6A100C3BD23 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -79,6 +108,12 @@
 		32CA4F630368D1EE00C91783 /* FASTFace_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTFace_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* FASTFace-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FASTFace-Info.plist"; path = "../FASTFace-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 		D0243EEB11E031B000E55B79 /* face_template.txt */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 7; lineEnding = 0; path = face_template.txt; sourceTree = "<group>"; };
+		D02F61B411E14A7D006ABDC6 /* FASTFace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FASTFace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D02F624B11E14E6E006ABDC6 /* FASTFaceTesting-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FASTFaceTesting-Info.plist"; path = "FASTFaceApp/FASTFaceTesting-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D02F626E11E14EED006ABDC6 /* FASTFaceTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FASTFaceTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D02F647E11E14FE0006ABDC6 /* FASTFaceTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "FASTFaceTests-Info.plist"; sourceTree = "<group>"; };
+		D02F65D011E157EA006ABDC6 /* FASTFaceAppTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTFaceAppTests.h; sourceTree = "<group>"; };
+		D02F65D111E157EA006ABDC6 /* FASTFaceAppTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceAppTests.m; sourceTree = "<group>"; };
 		D035179111D2D0A9006554C6 /* test_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_image.png; sourceTree = "<group>"; };
 		D0593F7011CC681C000B3FDC /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		D0593F7111CC681C000B3FDC /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
@@ -128,6 +163,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D02F61AA11E14A7D006ABDC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D02F61AB11E14A7D006ABDC6 /* Foundation.framework in Frameworks */,
+				D02F61AC11E14A7D006ABDC6 /* UIKit.framework in Frameworks */,
+				D02F61AD11E14A7D006ABDC6 /* CoreGraphics.framework in Frameworks */,
+				D02F61AE11E14A7D006ABDC6 /* iAd.framework in Frameworks */,
+				D02F61AF11E14A7D006ABDC6 /* MobileCoreServices.framework in Frameworks */,
+				D02F61B011E14A7D006ABDC6 /* libFASTFaceRecognizer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D02F626B11E14EED006ABDC6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0C05C7E11CECC2000C20516 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -172,6 +227,8 @@
 				1D6058910D05DD3D006BFB54 /* FASTFace.app */,
 				D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */,
 				D0C05CAB11CECF6400C20516 /* FASTFaceRecognizerTest.octest */,
+				D02F61B411E14A7D006ABDC6 /* FASTFace.app */,
+				D02F626E11E14EED006ABDC6 /* FASTFaceTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,6 +278,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D02F61D611E14B57006ABDC6 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				D02F647E11E14FE0006ABDC6 /* FASTFaceTests-Info.plist */,
+				D02F624B11E14E6E006ABDC6 /* FASTFaceTesting-Info.plist */,
+				D02F65D011E157EA006ABDC6 /* FASTFaceAppTests.h */,
+				D02F65D111E157EA006ABDC6 /* FASTFaceAppTests.m */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 		D0C05C8E11CECC4C00C20516 /* FASTFaceRecognizer */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +303,7 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* User Interfaces */,
+				D02F61D611E14B57006ABDC6 /* Tests */,
 			);
 			path = FASTFaceApp;
 			sourceTree = "<group>";
@@ -293,6 +362,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		D02F629111E14FA6006ABDC6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D02F65D211E157EA006ABDC6 /* FASTFaceAppTests.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0C05C7C11CECC2000C20516 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -336,6 +413,44 @@
 			productName = FASTFace;
 			productReference = 1D6058910D05DD3D006BFB54 /* FASTFace.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D02F619C11E14A7D006ABDC6 /* FASTFaceTesting */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D02F61B111E14A7D006ABDC6 /* Build configuration list for PBXNativeTarget "FASTFaceTesting" */;
+			buildPhases = (
+				D02F619F11E14A7D006ABDC6 /* Resources */,
+				D02F61A411E14A7D006ABDC6 /* Sources */,
+				D02F61AA11E14A7D006ABDC6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D02F627B11E14F3C006ABDC6 /* PBXTargetDependency */,
+				D02F659C11E1566D006ABDC6 /* PBXTargetDependency */,
+			);
+			name = FASTFaceTesting;
+			productName = FASTFace;
+			productReference = D02F61B411E14A7D006ABDC6 /* FASTFace.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D02F626D11E14EED006ABDC6 /* FASTFaceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D02F627211E14EED006ABDC6 /* Build configuration list for PBXNativeTarget "FASTFaceTests" */;
+			buildPhases = (
+				D02F626911E14EED006ABDC6 /* Resources */,
+				D02F629111E14FA6006ABDC6 /* Headers */,
+				D02F626A11E14EED006ABDC6 /* Sources */,
+				D02F626B11E14EED006ABDC6 /* Frameworks */,
+				D02F626C11E14EED006ABDC6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FASTFaceTests;
+			productName = FASTFaceTests;
+			productReference = D02F626E11E14EED006ABDC6 /* FASTFaceTests.octest */;
+			productType = "com.apple.product-type.bundle";
 		};
 		D0C05C7F11CECC2000C20516 /* FASTFaceRecognizer */ = {
 			isa = PBXNativeTarget;
@@ -390,6 +505,8 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* FASTFace */,
+				D02F619C11E14A7D006ABDC6 /* FASTFaceTesting */,
+				D02F626D11E14EED006ABDC6 /* FASTFaceTests */,
 				D0C05C7F11CECC2000C20516 /* FASTFaceRecognizer */,
 				D0C05CAA11CECF6400C20516 /* FASTFaceRecognizerTest */,
 			);
@@ -408,6 +525,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D02F619F11E14A7D006ABDC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D02F64A311E1504E006ABDC6 /* FASTFaceTests.octest in Resources */,
+				D02F61A211E14A7D006ABDC6 /* blank_image.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D02F626911E14EED006ABDC6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D0C05CA611CECF6400C20516 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -420,6 +553,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		D02F626C11E14EED006ABDC6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
 		D0C05CA911CECF6400C20516 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -445,6 +591,26 @@
 				D091DDFF11C9901C009B2AA1 /* MainViewController.m in Sources */,
 				D0593F7311CC681C000B3FDC /* ResultViewController.m in Sources */,
 				D0F44DA411E077D4003CE7FC /* FASTFaceModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D02F61A411E14A7D006ABDC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D02F61A511E14A7D006ABDC6 /* main.m in Sources */,
+				D02F61A611E14A7D006ABDC6 /* FASTFaceAppDelegate.m in Sources */,
+				D02F61A711E14A7D006ABDC6 /* MainViewController.m in Sources */,
+				D02F61A811E14A7D006ABDC6 /* ResultViewController.m in Sources */,
+				D02F61A911E14A7D006ABDC6 /* FASTFaceModel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D02F626A11E14EED006ABDC6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D02F65D311E157EA006ABDC6 /* FASTFaceAppTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +644,16 @@
 			isa = PBXTargetDependency;
 			target = D0C05C7F11CECC2000C20516 /* FASTFaceRecognizer */;
 			targetProxy = D00B71D611DF18200033CB25 /* PBXContainerItemProxy */;
+		};
+		D02F627B11E14F3C006ABDC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D02F626D11E14EED006ABDC6 /* FASTFaceTests */;
+			targetProxy = D02F627A11E14F3C006ABDC6 /* PBXContainerItemProxy */;
+		};
+		D02F659C11E1566D006ABDC6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D0C05C7F11CECC2000C20516 /* FASTFaceRecognizer */;
+			targetProxy = D02F659B11E1566D006ABDC6 /* PBXContainerItemProxy */;
 		};
 		D0A65CE211D2D6A100C3BD23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -547,6 +723,7 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DDEBUG";
@@ -561,11 +738,97 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PREBINDING = NO;
 				SDKROOT = iphoneos4.0;
+			};
+			name = Release;
+		};
+		D02F61B211E14A7D006ABDC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = FASTFaceApp/FASTFace_Prefix.pch;
+				INFOPLIST_FILE = "FASTFaceApp/FASTFaceTesting-Info.plist";
+				PRODUCT_NAME = FASTFace;
+			};
+			name = Debug;
+		};
+		D02F61B311E14A7D006ABDC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = FASTFace_Prefix.pch;
+				INFOPLIST_FILE = "../FASTFace-Info copy.plist";
+				PRODUCT_NAME = FASTFace;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D02F627011E14EED006ABDC6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INFOPLIST_FILE = "FASTFaceApp/Tests/FASTFaceTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FASTFaceTests;
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		D02F627111E14EED006ABDC6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				INFOPLIST_FILE = "FASTFaceApp/Tests/FASTFaceTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					SenTestingKit,
+					"-framework",
+					UIKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = FASTFaceTests;
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -669,6 +932,24 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D02F61B111E14A7D006ABDC6 /* Build configuration list for PBXNativeTarget "FASTFaceTesting" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D02F61B211E14A7D006ABDC6 /* Debug */,
+				D02F61B311E14A7D006ABDC6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D02F627211E14EED006ABDC6 /* Build configuration list for PBXNativeTarget "FASTFaceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D02F627011E14EED006ABDC6 /* Debug */,
+				D02F627111E14EED006ABDC6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

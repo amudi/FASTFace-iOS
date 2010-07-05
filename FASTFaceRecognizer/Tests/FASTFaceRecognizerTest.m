@@ -6,7 +6,29 @@
 //  Copyright 2010 amudi.org. All rights reserved.
 //
 
-#import "FASTFaceRecognizerTest.h"
+#import <SenTestingKit/SenTestingKit.h>
+#import <UIKit/UIKit.h>
+#import "FaceTemplate.h"
+#import "FaceRecognizer.h"
+
+@interface FASTFaceRecognizerTest : SenTestCase {
+	UIImage *uiImage;
+	CGImageRef imageRef;
+	FaceRecognizer *fr;
+	FaceTemplate *ft;
+}
+
+- (void)testSetUpAllocation;
+
+- (void)testFaceRecognizerCreate;
+- (void)testFaceRecognizerDealloc;
+- (void)testFaceRecognizerGetRGBData;
+
+- (void)testFaceTemplateCreate;
+- (void)testFaceTemplateDealloc;
+- (void)testFaceTemplateLoadResource;
+
+@end
 
 
 @implementation FASTFaceRecognizerTest

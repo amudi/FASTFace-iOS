@@ -13,9 +13,11 @@
 
 @interface FASTFaceAppTests : SenTestCase {
 	FASTFaceAppDelegate *appDelegate;
+	MainViewController *mainView;
 }
 
 - (void)testAppDelegate;
+- (void)testMainViewControllerAllocation;
 
 @end
 
@@ -24,17 +26,17 @@
 - (void)setUp {
 	NSLog(@"%@ start", self.name);
 	appDelegate = [[UIApplication sharedApplication] delegate];
+	mainView = appDelegate.mainViewController;
 }
 
 - (void)testAppDelegate {
 	NSLog(@"%@ start", self.name);
-	//STAssertNotNil(appDelegate, @"failed to get app delegate, appDelegate = %@", appDelegate);
+	STAssertNotNil(appDelegate, @"failed to get AppDelegate, appDelegate = %@", appDelegate);
 }
 
-- (void)tearDown {
+- (void)testMainViewControllerAllocation {
 	NSLog(@"%@ start", self.name);
-	[appDelegate release];
-	//STAssertNil(appDelegate, @"failed to release app delegate, appDelegate = %@", appDelegate);
+	STAssertNotNil(mainView, @"failed to get MainViewController, mainView = %@", mainView);
 }
 
 @end

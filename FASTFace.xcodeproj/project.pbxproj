@@ -68,6 +68,12 @@
 		D059412D11CC81A9000B3FDC /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D059412C11CC81A9000B3FDC /* ResultViewController.xib */; };
 		D059412F11CC81BD000B3FDC /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D059412E11CC81BD000B3FDC /* MainViewController.xib */; };
 		D059418111CC859E000B3FDC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D059418011CC859E000B3FDC /* MainWindow.xib */; };
+		D05CD35511E34F1C0099F2F8 /* UIImageCategoriesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D05CD35411E34F1C0099F2F8 /* UIImageCategoriesTests.m */; };
+		D05CD36211E34FA60099F2F8 /* test_image_noalpha.png in Resources */ = {isa = PBXBuildFile; fileRef = D05CD36111E34FA60099F2F8 /* test_image_noalpha.png */; };
+		D05CD3BF11E351C60099F2F8 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = D058499811E21A87008372C9 /* UIImage+Alpha.m */; };
+		D05CD3C011E351C60099F2F8 /* UIImage+Grayscale.m in Sources */ = {isa = PBXBuildFile; fileRef = D058499A11E21A87008372C9 /* UIImage+Grayscale.m */; };
+		D05CD3C111E351C60099F2F8 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = D058499C11E21A87008372C9 /* UIImage+Resize.m */; };
+		D05CD3C211E351C60099F2F8 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = D058499E11E21A87008372C9 /* UIImage+RoundedCorner.m */; };
 		D065228211E1FEE200D9615B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		D078DEA811D174F70006BAD6 /* FaceTemplate.h in Headers */ = {isa = PBXBuildFile; fileRef = D078DEA611D174F70006BAD6 /* FaceTemplate.h */; };
 		D078DEA911D174F70006BAD6 /* FaceTemplate.c in Sources */ = {isa = PBXBuildFile; fileRef = D078DEA711D174F70006BAD6 /* FaceTemplate.c */; };
@@ -144,7 +150,7 @@
 		D02F663E11E159C5006ABDC6 /* FASTFaceModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceModelTests.m; sourceTree = "<group>"; };
 		D035179111D2D0A9006554C6 /* test_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_image.png; sourceTree = "<group>"; };
 		D05848E711E214D9008372C9 /* face_template.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = face_template.txt; sourceTree = "<group>"; };
-		D05848E811E214D9008372C9 /* test_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_image.png; sourceTree = "<group>"; };
+		D05848E811E214D9008372C9 /* test_image.png */ = {isa = PBXFileReference; explicitFileType = image.png; path = test_image.png; sourceTree = "<group>"; };
 		D058498611E21A0F008372C9 /* FASTFaceRecognizerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceRecognizerTest.m; sourceTree = "<group>"; };
 		D058499711E21A87008372C9 /* UIImage+Alpha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Alpha.h"; sourceTree = "<group>"; };
 		D058499811E21A87008372C9 /* UIImage+Alpha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Alpha.m"; sourceTree = "<group>"; };
@@ -158,6 +164,8 @@
 		D0593F7111CC681C000B3FDC /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		D0593F7211CC681C000B3FDC /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ResultViewController.xib; path = English.lproj/ResultViewController.xib; sourceTree = "<group>"; };
 		D0593FFC11CC6DC5000B3FDC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		D05CD35411E34F1C0099F2F8 /* UIImageCategoriesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageCategoriesTests.m; sourceTree = "<group>"; };
+		D05CD36111E34FA60099F2F8 /* test_image_noalpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_image_noalpha.png; sourceTree = "<group>"; };
 		D078DE9C11D174D20006BAD6 /* FaceRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceRecognizer.h; sourceTree = "<group>"; };
 		D078DE9D11D174D20006BAD6 /* FaceRecognizer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FaceRecognizer.c; sourceTree = "<group>"; };
 		D078DEA611D174F70006BAD6 /* FaceTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceTemplate.h; sourceTree = "<group>"; };
@@ -324,6 +332,7 @@
 				D02F624B11E14E6E006ABDC6 /* FASTFaceTesting-Info.plist */,
 				D02F65D111E157EA006ABDC6 /* FASTFaceAppTests.m */,
 				D02F663E11E159C5006ABDC6 /* FASTFaceModelTests.m */,
+				D05CD35411E34F1C0099F2F8 /* UIImageCategoriesTests.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -331,6 +340,7 @@
 		D05848C511E212A9008372C9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D05CD36111E34FA60099F2F8 /* test_image_noalpha.png */,
 				D05848E711E214D9008372C9 /* face_template.txt */,
 				D05848E811E214D9008372C9 /* test_image.png */,
 			);
@@ -618,6 +628,7 @@
 			files = (
 				D05848E911E214D9008372C9 /* face_template.txt in Resources */,
 				D05848EA11E214D9008372C9 /* test_image.png in Resources */,
+				D05CD36211E34FA60099F2F8 /* test_image_noalpha.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +736,11 @@
 			files = (
 				D02F664011E15A24006ABDC6 /* FASTFaceModel.m in Sources */,
 				D02F663F11E159C5006ABDC6 /* FASTFaceModelTests.m in Sources */,
+				D05CD35511E34F1C0099F2F8 /* UIImageCategoriesTests.m in Sources */,
+				D05CD3BF11E351C60099F2F8 /* UIImage+Alpha.m in Sources */,
+				D05CD3C011E351C60099F2F8 /* UIImage+Grayscale.m in Sources */,
+				D05CD3C111E351C60099F2F8 /* UIImage+Resize.m in Sources */,
+				D05CD3C211E351C60099F2F8 /* UIImage+RoundedCorner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

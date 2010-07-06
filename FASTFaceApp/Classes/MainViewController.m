@@ -260,6 +260,7 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
 	DLog(@"Image picker [%@] cancelled", picker);
 	[picker dismissModalViewControllerAnimated:YES];
+	[[picker parentViewController] dismissModalViewControllerAnimated:YES];
 	[picker release];
 }
 

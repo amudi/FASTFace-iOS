@@ -7,13 +7,16 @@
 //
 
 #import "FASTFaceModel.h"
-
+#import "UIImage+Resize.h"
+#import "UIImage+RoundedCorner.h"
 
 @implementation FASTFaceModel
 
 @synthesize faceTemplate = ft;
 @synthesize photo1;
+@synthesize thumbnail1;
 @synthesize photo2;
+@synthesize thumbnail2;
 
 - (id)init {
 	if ((self = [super init])) {
@@ -31,8 +34,26 @@
 }
 
 - (void)dealloc {
+	[photo1 release];
+	[photo2 release];
+	[thumbnail1 release];
+	[thumbnail2 release];
 	FaceTemplateDealloc(ft);
 	[super dealloc];
+}
+
+- (void)generateThumbnails {
+	// generate thumbnail
+	[thumbnail1 release];
+	[thumbnail2 release];
+	
+	thumbnail1 = [[UIImage alloc] initWithCGImage:[photo1 CGImage]];
+	thumbnail2 = [[UIImage alloc] initWithCGImage:[photo2 CGImage]];
+	
+	thumbnail1 = [thumbnail1 resizedImage:CGSizeMake(kThumbnailSize, kThumbnailSize) interpolationQuality:kCGInterpolationDefault];
+	thumbnail1 = [thumbnail1 thumbnailImage:kThumbnailSize transparentBorder:1 cornerRadius:5 interpolationQuality:kCGInterpolationDefault];
+	thumbnail2 = [photo2 resizedImageWithContentMode:UIViewContentModeScaleToFill bounds:CGSizeMake(kThumbnailSize, kThumbnailSize) interpolationQuality:kCGInterpolationDefault];
+	thumbnail2 = [thumbnail2 thumbnailImage:kThumbnailSize transparentBorder:1 cornerRadius:5 interpolationQuality:kCGInterpolationDefault];
 }
 
 - (CGFloat)getDistanceFrom:(CGImageRef)photoRef to:(CGImageRef)photo; {
@@ -62,7 +83,7 @@
 }
 
 - (CGFloat)getDistance {
-	return [self getDistanceFrom:photo1 to:photo1];
+	return [self getDistanceFrom:[photo1 CGImage] to:[photo2 CGImage]];
 }
 
 @end

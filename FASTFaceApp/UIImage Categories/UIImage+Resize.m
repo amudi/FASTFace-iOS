@@ -13,6 +13,7 @@
 
 // Private helper methods
 @interface UIImage ()
+- (UIImage *)resizedImage:(CGImageRef)imageRef size:(CGSize)newSize transform:(CGAffineTransform)transform drawTransposed:(BOOL)transpose interpolationQuality:(CGInterpolationQuality)quality;
 - (UIImage *)resizedImage:(CGSize)newSize transform:(CGAffineTransform)transform drawTransposed:(BOOL)transpose interpolationQuality:(CGInterpolationQuality)quality;
 - (CGAffineTransform)transformForOrientation:(CGSize)newSize;
 @end
@@ -24,8 +25,48 @@
 // The bounds will be adjusted using CGRectIntegral.
 // This method ignores the image's imageOrientation setting.
 - (UIImage *)croppedImage:(CGRect)bounds {
-    CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], bounds);
-    UIImage *croppedImage = [UIImage imageWithCGImage:imageRef];
+    CGAffineTransform txTranslate;
+    CGAffineTransform txCompound;
+    CGRect adjustedBounds;
+    BOOL drawTransposed;
+	
+    switch (self.imageOrientation) {
+        case UIImageOrientationDown:
+        case UIImageOrientationDownMirrored:
+            txTranslate = CGAffineTransformMakeTranslation(self.size.width, self.size.height);
+            txCompound = CGAffineTransformRotate(txTranslate, M_PI);
+            adjustedBounds = CGRectApplyAffineTransform(bounds, txCompound);
+            drawTransposed = NO;
+            break;
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+            txTranslate = CGAffineTransformMakeTranslation(self.size.height, 0.0);
+            txCompound = CGAffineTransformRotate(txTranslate, M_PI_2);
+            adjustedBounds = CGRectApplyAffineTransform(bounds, txCompound);
+            drawTransposed = YES;
+            break;
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored:
+            txTranslate = CGAffineTransformMakeTranslation(0.0, self.size.width);
+            txCompound = CGAffineTransformRotate(txTranslate, M_PI + M_PI_2);
+            adjustedBounds = CGRectApplyAffineTransform(bounds, txCompound);
+            drawTransposed = YES;
+            break;
+        default:
+            adjustedBounds = bounds;
+            drawTransposed = NO;
+    }
+	
+    CGImageRef imageRef = CGImageCreateWithImageInRect([self CGImage], adjustedBounds);
+    UIImage *croppedImage;
+    if (CGRectEqualToRect(adjustedBounds, bounds))
+        croppedImage = [UIImage imageWithCGImage:imageRef];
+    else
+        croppedImage = [self resizedImage:imageRef
+                                     size:bounds.size
+                                transform:[self transformForOrientation:bounds.size]
+                           drawTransposed:drawTransposed
+                     interpolationQuality:kCGInterpolationHigh];
     CGImageRelease(imageRef);
     return croppedImage;
 }
@@ -102,9 +143,12 @@
 // The new image's orientation will be UIImageOrientationUp, regardless of the current image's orientation
 // If the new size is not integral, it will be rounded up
 - (UIImage *)resizedImage:(CGSize)newSize transform:(CGAffineTransform)transform drawTransposed:(BOOL)transpose interpolationQuality:(CGInterpolationQuality)quality {
+	return [self resizedImage:self.CGImage size:newSize transform:transform drawTransposed:transpose interpolationQuality:quality];
+}
+
+- (UIImage *)resizedImage:(CGImageRef)imageRef size:(CGSize)newSize transform:(CGAffineTransform)transform drawTransposed:(BOOL)transpose interpolationQuality:(CGInterpolationQuality)quality {
     CGRect newRect = CGRectIntegral(CGRectMake(0, 0, newSize.width, newSize.height));
     CGRect transposedRect = CGRectMake(0, 0, newRect.size.height, newRect.size.width);
-    CGImageRef imageRef = self.CGImage;
     
     // Build a context that's the same dimensions as the new size
     CGContextRef bitmap = CGBitmapContextCreate(NULL,

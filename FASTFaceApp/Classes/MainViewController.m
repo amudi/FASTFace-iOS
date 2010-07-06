@@ -9,6 +9,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "MainViewController.h"
 #import "ResultViewController.h"
+#import <unistd.h>
 
 
 @implementation MainViewController
@@ -24,6 +25,7 @@
 @synthesize cameraViewController;
 @synthesize photoAlbumViewController;
 @synthesize adBanner;
+@synthesize progressHUD;
 
 - (id)init {
 	[super initWithNibName:@"MainViewController" bundle:nil];
@@ -68,9 +70,6 @@
     [super didReceiveMemoryWarning];
     
     // Release any cached data, images, etc that aren't in use.
-	if (([firstPhotoView currentBackgroundImage] != defaultBlankImage) && ([secondPhotoView currentBackgroundImage] != defaultBlankImage)) {
-		[defaultBlankImage release];
-	}
 }
 
 
@@ -145,6 +144,11 @@
 	[resultScreen setMainViewController:self];
 	
 	resultScreen.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+	if ([sender class] == [MBProgressHUD class]) {
+		DLog(@"sender is MBProgressHUD");
+		MBProgressHUD *hud = (MBProgressHUD *)sender;
+		[hud hide];
+	}
 	[self presentModalViewController:resultScreen animated:YES];
 	[resultScreen release];
 }
@@ -200,8 +204,18 @@
 		switch (buttonIndex) {
 			case 0:
 				DLog(@"Clear all photos");
-				// TODO: clear all photos
-				[self clearPhotos];
+				progressHUD = [[[MBProgressHUD alloc] initWithView:self.view] autorelease];
+				[self.view addSubview:progressHUD];
+				[progressHUD showWithBlock:^(id <MBProgressHUD> hud) {
+					hud.labelText = NSLocalizedString(@"Loading", nil);
+					hud.detailsLabelText = NSLocalizedString(@"clearing all photos", nil);
+					
+					hud.mode = MBProgressHUDModeIndeterminate;
+					[self clearPhotos];
+					sleep(1);
+					
+					[hud hide];
+				}];
 				break;
 			default:
 				break;
@@ -211,8 +225,18 @@
 		switch (buttonIndex) {
 			case 0:
 				DLog(@"Process photos")
-				// TODO: process photos
-				[self showResult:self];
+				progressHUD = [[[MBProgressHUD alloc] initWithView:self.view] autorelease];
+				[self.view addSubview:progressHUD];
+				[progressHUD showWithBlock:^(id <MBProgressHUD> hud) {
+					hud.labelText = NSLocalizedString(@"Loading", nil);
+					hud.detailsLabelText = NSLocalizedString(@"processing photos", nil);
+					
+					hud.mode = MBProgressHUDModeIndeterminate;
+					// TODO: actual photo processing here
+					sleep(1);
+					
+					[self showResult:progressHUD];
+				}];
 				break;
 			default:
 				break;
@@ -264,12 +288,8 @@
 	[picker release];
 }
 
-
 #pragma mark Photo processing methods
 - (void)clearPhotos {
-	if (!defaultBlankImage) {
-		defaultBlankImage = [UIImage imageNamed:@"blank_image.png"];
-	}
 	[firstPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
 	[secondPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
 }

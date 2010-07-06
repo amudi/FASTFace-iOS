@@ -37,8 +37,10 @@
 		D035178211D2D018006554C6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		D035178311D2D018006554C6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		D035179211D2D0A9006554C6 /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D035179111D2D0A9006554C6 /* test_image.png */; };
-		D04745B611E3E8D900ADDBDD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D04745B511E3E8D900ADDBDD /* MBProgressHUD.m */; };
-		D04745B711E3E8D900ADDBDD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D04745B511E3E8D900ADDBDD /* MBProgressHUD.m */; };
+		D047460D11E3F10300ADDBDD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D047460A11E3F10300ADDBDD /* MBProgressHUD.m */; };
+		D047460E11E3F10300ADDBDD /* MBProgressHUDProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D047460C11E3F10300ADDBDD /* MBProgressHUDProxy.m */; };
+		D047460F11E3F10300ADDBDD /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D047460A11E3F10300ADDBDD /* MBProgressHUD.m */; };
+		D047461011E3F10300ADDBDD /* MBProgressHUDProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D047460C11E3F10300ADDBDD /* MBProgressHUDProxy.m */; };
 		D058488511E20FD3008372C9 /* FASTFace_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 32CA4F630368D1EE00C91783 /* FASTFace_Prefix.pch */; };
 		D05848E911E214D9008372C9 /* face_template.txt in Resources */ = {isa = PBXBuildFile; fileRef = D05848E711E214D9008372C9 /* face_template.txt */; };
 		D05848EA11E214D9008372C9 /* test_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D05848E811E214D9008372C9 /* test_image.png */; };
@@ -151,8 +153,10 @@
 		D02F662611E15957006ABDC6 /* FASTFaceModelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FASTFaceModelTests-Info.plist"; sourceTree = "<group>"; };
 		D02F663E11E159C5006ABDC6 /* FASTFaceModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceModelTests.m; sourceTree = "<group>"; };
 		D035179111D2D0A9006554C6 /* test_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_image.png; sourceTree = "<group>"; };
-		D04745B411E3E8D900ADDBDD /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		D04745B511E3E8D900ADDBDD /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		D047460911E3F10300ADDBDD /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		D047460A11E3F10300ADDBDD /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		D047460B11E3F10300ADDBDD /* MBProgressHUDProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUDProxy.h; sourceTree = "<group>"; };
+		D047460C11E3F10300ADDBDD /* MBProgressHUDProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUDProxy.m; sourceTree = "<group>"; };
 		D05848E711E214D9008372C9 /* face_template.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = face_template.txt; sourceTree = "<group>"; };
 		D05848E811E214D9008372C9 /* test_image.png */ = {isa = PBXFileReference; explicitFileType = image.png; path = test_image.png; sourceTree = "<group>"; };
 		D058498611E21A0F008372C9 /* FASTFaceRecognizerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceRecognizerTest.m; sourceTree = "<group>"; };
@@ -344,8 +348,10 @@
 		D04745B211E3E88E00ADDBDD /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				D04745B411E3E8D900ADDBDD /* MBProgressHUD.h */,
-				D04745B511E3E8D900ADDBDD /* MBProgressHUD.m */,
+				D047460911E3F10300ADDBDD /* MBProgressHUD.h */,
+				D047460A11E3F10300ADDBDD /* MBProgressHUD.m */,
+				D047460B11E3F10300ADDBDD /* MBProgressHUDProxy.h */,
+				D047460C11E3F10300ADDBDD /* MBProgressHUDProxy.m */,
 			);
 			path = MBProgressHUD;
 			sourceTree = "<group>";
@@ -713,7 +719,8 @@
 				D05849A011E21A87008372C9 /* UIImage+Grayscale.m in Sources */,
 				D05849A111E21A87008372C9 /* UIImage+Resize.m in Sources */,
 				D05849A211E21A87008372C9 /* UIImage+RoundedCorner.m in Sources */,
-				D04745B611E3E8D900ADDBDD /* MBProgressHUD.m in Sources */,
+				D047460D11E3F10300ADDBDD /* MBProgressHUD.m in Sources */,
+				D047460E11E3F10300ADDBDD /* MBProgressHUDProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,7 +737,8 @@
 				D05849A411E21A87008372C9 /* UIImage+Grayscale.m in Sources */,
 				D05849A511E21A87008372C9 /* UIImage+Resize.m in Sources */,
 				D05849A611E21A87008372C9 /* UIImage+RoundedCorner.m in Sources */,
-				D04745B711E3E8D900ADDBDD /* MBProgressHUD.m in Sources */,
+				D047460F11E3F10300ADDBDD /* MBProgressHUD.m in Sources */,
+				D047461011E3F10300ADDBDD /* MBProgressHUDProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

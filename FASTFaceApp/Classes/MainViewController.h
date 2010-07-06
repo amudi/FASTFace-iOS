@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <iAd/iAd.h>
+#import "MBProgressHUD.h"
 
 @class ResultViewController;
 
@@ -30,6 +31,7 @@ typedef enum PhotoChoice {
 	UIImagePickerController *cameraViewController;
 	UIImagePickerController *photoAlbumViewController;
 	ADBannerView *adBanner;
+	MBProgressHUD *progressHUD;
 	
 	UIImage *defaultBlankImage;
 	BOOL hasCamera;
@@ -46,6 +48,7 @@ typedef enum PhotoChoice {
 @property (nonatomic, retain) UIImagePickerController *cameraViewController;
 @property (nonatomic, retain) UIImagePickerController *photoAlbumViewController;
 @property (nonatomic, retain) IBOutlet ADBannerView *adBanner;
+@property (nonatomic, retain) IBOutlet MBProgressHUD *progressHUD;
 
 - (IBAction)selectPhotoSource:(id)sender;
 - (IBAction)clearPhotos:(id)sender;

@@ -20,6 +20,7 @@
 @synthesize resultDescriptionLabel;
 @synthesize adBanner;
 @synthesize mainViewController;
+@synthesize result;
 
 
 - (id)init {

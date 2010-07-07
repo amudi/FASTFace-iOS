@@ -8,6 +8,7 @@
 
 #import "FASTFaceAppDelegate.h"
 #import "MainViewController.h"
+#import "FASTFaceModel.h"
 
 @implementation FASTFaceAppDelegate
 
@@ -21,6 +22,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch.
+	DLog(@"Loading faceModel..");
+	NSString *templatePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"face_template" ofType:@"txt"];
+	faceModel = [[FASTFaceModel alloc] initWithFaceTemplatePath:templatePath];
+	[mainViewController setFaceModel:faceModel];
 	[window addSubview:mainViewController.view];
     [window makeKeyAndVisible];
 	

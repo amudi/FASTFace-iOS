@@ -21,6 +21,7 @@
 	UILabel *resultDescriptionLabel;
 	ADBannerView *adBanner;
 	MainViewController *mainViewController;
+	CGFloat result;
 }
 
 @property (nonatomic, retain) IBOutlet UIImageView *firstPhotoView;
@@ -31,6 +32,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *resultDescriptionLabel;
 @property (nonatomic, retain) IBOutlet ADBannerView *adBanner;
 @property (nonatomic, retain) MainViewController *mainViewController;
+@property (nonatomic, assign) CGFloat result;
 
 - (IBAction)startOver:(id)sender;
 - (IBAction)share:(id)sender;

@@ -9,6 +9,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "MainViewController.h"
 #import "ResultViewController.h"
+#import "FASTFaceModel.h"
 #import <unistd.h>
 
 
@@ -26,6 +27,7 @@
 @synthesize photoAlbumViewController;
 @synthesize adBanner;
 @synthesize progressHUD;
+@synthesize faceModel;
 
 - (id)init {
 	[super initWithNibName:@"MainViewController" bundle:nil];
@@ -51,7 +53,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	photoChoice = PhotoChoice_PhotoUnknown;
-	defaultBlankImage = [UIImage imageNamed:@"blank_image.png"];
+	defaultBlankImage = [[UIImage imageNamed:@"blank_image.png"] retain];
 	hasCamera = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
 	DLog(@"is Camera available: %d", hasCamera);
 	
@@ -140,7 +142,7 @@
 
 - (IBAction)showResult:(id)sender {
 	DLog(@"Show Result Screen");
-	ResultViewController *resultScreen = [[ResultViewController alloc] initWithNibName:@"ResultViewController" bundle:nil];
+	ResultViewController *resultScreen = [[ResultViewController alloc] init];
 	[resultScreen setMainViewController:self];
 	
 	resultScreen.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
@@ -233,6 +235,9 @@
 					
 					hud.mode = MBProgressHUDModeIndeterminate;
 					// TODO: actual photo processing here
+					[faceModel preprocessPhoto1];
+					[faceModel preprocessPhoto2];
+					[faceModel calculateDistance];
 					sleep(1);
 					
 					[self showResult:progressHUD];
@@ -266,10 +271,14 @@
 		}
 		switch (photoChoice) {
 		case PhotoChoice_Photo1:
-			[firstPhotoView setBackgroundImage:photo forState:UIControlStateNormal];
+			[faceModel setPhoto1:photo];
+			[faceModel generateThumbnails];
+			[firstPhotoView setBackgroundImage:[faceModel thumbnail1] forState:UIControlStateNormal];
 			break;
 		case PhotoChoice_Photo2:
-			[secondPhotoView setBackgroundImage:photo forState:UIControlStateNormal];
+			[faceModel setPhoto2:photo];
+			[faceModel generateThumbnails];
+			[secondPhotoView setBackgroundImage:[faceModel thumbnail2] forState:UIControlStateNormal];
 			break;
 		default:
 			break;
@@ -290,13 +299,9 @@
 
 #pragma mark Photo processing methods
 - (void)clearPhotos {
+	[faceModel clear];
 	[firstPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
 	[secondPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
-}
-
-
-- (void)processFirstPhoto:(UIImage *)firstPhoto andSecondPhoto:(UIImage *)secondPhoto {
-	
 }
 
 

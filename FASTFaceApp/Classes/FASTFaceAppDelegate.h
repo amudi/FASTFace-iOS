@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class MainViewController;
+@class FASTFaceModel;
 
 @interface FASTFaceAppDelegate : NSObject <UIApplicationDelegate> {
     UIWindow *window;
 	MainViewController* mainViewController;
+	FASTFaceModel *faceModel;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

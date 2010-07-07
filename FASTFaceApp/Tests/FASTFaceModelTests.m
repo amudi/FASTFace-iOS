@@ -93,9 +93,9 @@
 	[faceModel setPhoto2:testImage];
 	STAssertNotNil([faceModel photo2], @"failed to load photo1, photo2 = %@", [faceModel photo2]);
 	
-	//[faceModel generateThumbnails];
-	//STAssertNotNil([faceModel thumbnail1], @"failed to generate thumbnail1, thumbnail1 = %@", [faceModel thumbnail1]);
-	//STAssertNotNil([faceModel thumbnail2], @"failed to generate thumbnail2, thumbnail2 = %@", [faceModel thumbnail2]);
+	[faceModel generateThumbnails];
+	STAssertNotNil([faceModel thumbnail1], @"failed to generate thumbnail1, thumbnail1 = %@", [faceModel thumbnail1]);
+	STAssertNotNil([faceModel thumbnail2], @"failed to generate thumbnail2, thumbnail2 = %@", [faceModel thumbnail2]);
 }
 
 - (void)testGetDistance {
@@ -107,8 +107,8 @@
 	[faceModel setPhoto2:testImage];
 	STAssertNotNil([faceModel photo2], @"failed to load photo1, photo2 = %@", [faceModel photo2]);
 	
-	CGFloat distance = [faceModel getDistance];
-	STAssertEquals(distance, 0.0f, @"failed to get correct distance from same image, distance = %f", distance);
+	[faceModel calculateDistance];
+	STAssertEquals([faceModel result], 0.0f, @"failed to get correct distance from same image, distance = %f", [faceModel result]);
 }
 
 - (void)tearDown {

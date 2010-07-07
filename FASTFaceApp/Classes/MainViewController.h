@@ -11,6 +11,7 @@
 #import "MBProgressHUD.h"
 
 @class ResultViewController;
+@class FASTFaceModel;
 
 typedef enum PhotoChoice {
 	PhotoChoice_PhotoUnknown = 0,
@@ -35,6 +36,8 @@ typedef enum PhotoChoice {
 	
 	UIImage *defaultBlankImage;
 	BOOL hasCamera;
+	
+	FASTFaceModel *faceModel;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton *clearButton;
@@ -49,6 +52,7 @@ typedef enum PhotoChoice {
 @property (nonatomic, retain) UIImagePickerController *photoAlbumViewController;
 @property (nonatomic, retain) IBOutlet ADBannerView *adBanner;
 @property (nonatomic, retain) IBOutlet MBProgressHUD *progressHUD;
+@property (nonatomic, retain) FASTFaceModel *faceModel;
 
 - (IBAction)selectPhotoSource:(id)sender;
 - (IBAction)clearPhotos:(id)sender;
@@ -56,6 +60,5 @@ typedef enum PhotoChoice {
 - (IBAction)showResult:(id)sender;
 
 - (void)clearPhotos;
-- (void)processFirstPhoto:(UIImage *)firstPhoto andSecondPhoto:(UIImage *)secondPhoto;
 
 @end

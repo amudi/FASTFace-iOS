@@ -17,8 +17,13 @@
 	FaceTemplate *ft;
 	UIImage *photo1;
 	UIImage *thumbnail1;
+	UIImage *prepPhoto1;
 	UIImage *photo2;
 	UIImage *thumbnail2;
+	UIImage *prepPhoto2;
+	CGFloat result;
+	BOOL isPhoto1Preprocessed;
+	BOOL isPhoto2Preprocessed;
 }
 
 @property (nonatomic, assign) FaceTemplate *faceTemplate;
@@ -26,10 +31,14 @@
 @property (nonatomic, retain) UIImage *thumbnail1;
 @property (nonatomic, retain) UIImage *photo2;
 @property (nonatomic, retain) UIImage *thumbnail2;
+@property (nonatomic, assign) CGFloat result;
 
 - (id)initWithFaceTemplatePath:(NSString *)path;
+- (void)clear;
 - (void)generateThumbnails;
-- (CGFloat)getDistanceFrom:(CGImageRef)photoRef to:(CGImageRef)photo;
-- (CGFloat)getDistance;
+- (void)preprocessPhoto1;
+- (void)preprocessPhoto2;
+- (void)calculateDistanceFrom:(UIImage *)photoRef to:(UIImage *)photo;
+- (void)calculateDistance;
 
 @end

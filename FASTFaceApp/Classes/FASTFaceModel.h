@@ -10,7 +10,9 @@
 #import "FASTFaceRecognizer.h"
 
 #define kThumbnailSize 150
-#define kRetinaDisplayThumbnailSize 300
+#define kThumbnailSizeRetinaDisplay 300
+#define kThumbnailRadius 10
+#define kThumbnailRadiusRetinaDisplay 20
 
 @interface FASTFaceModel : NSObject {
   @private

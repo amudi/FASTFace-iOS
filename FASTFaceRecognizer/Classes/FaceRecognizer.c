@@ -26,15 +26,15 @@ FaceRecognizer *FaceRecognizerCreate(CGImageRef image, FaceTemplate *ft) {
 	fr->imageSize.height = CGImageGetHeight(image);
 	fr->areaSize = ft->areaSize;
 	
-	int rgbData[((int)(fr->imageSize.width + 1)) * ((int)fr->imageSize.height)];
-	fr->eigenface = (int **)malloc(fr->areaSize.height * sizeof(int *));
+	uint32_t rgbData[((int)(fr->imageSize.width + 1)) * ((int)fr->imageSize.height)];
+	fr->eigenface = (uint32_t **)malloc(fr->areaSize.height * sizeof(uint32_t *));
 	if (!fr->eigenface) {
 		fprintf(stderr, "can't allocate memory for eigenface array");
 		return NULL;
 	}
 	
 	for (int i = 0; i < fr->areaSize.height; ++i) {
-		fr->eigenface[i] = (int *)malloc(fr->areaSize.width * sizeof(int));
+		fr->eigenface[i] = (uint32_t *)malloc(fr->areaSize.width * sizeof(uint32_t));
 		if (!fr->eigenface[i]) {
 			fprintf(stderr, "can't allocate memory for eigenface inner array");
 			return NULL;
@@ -49,25 +49,25 @@ FaceRecognizer *FaceRecognizerCreate(CGImageRef image, FaceTemplate *ft) {
 	int h = fr->imageSize.height / fr->areaSize.height;
 	if (h < 1) h = 1;
 	
-	int pixels = w * h;
-	long maxCol = 0x00FFFFFF;
+	uint32_t pixels = w * h;
+	uint32_t maxCol = 0x00FFFFFF;
 	
-	long rgbVal, value = 0;
+	uint32_t rgbVal, value = 0;
 	int screenX, screenY;
 	for (int x = 0; x < fr->areaSize.width; ++x) {
 		for (int y = 0; y < fr->areaSize.height; ++y) {
-			screenX = x * w;
-			screenY = y * h;
+			screenX = x * fr->imageSize.width / fr->areaSize.width;
+			screenY = y * fr->imageSize.height / fr->areaSize.height;
 			
-			for (int xx = 0; xx < screenX + w; ++xx) {
-				for (int yy = 0; yy < screenY + h; ++yy) {
-					rgbVal = rgbData[yy * ((int)(fr->imageSize.width + 1)) * xx] & maxCol;
-					value += rgbVal / maxCol;
+			for (int xx = 0; xx < (screenX + w); ++xx) {
+				for (int yy = 0; yy < (screenY + h); ++yy) {
+					rgbVal = rgbData[(yy * ((int)(fr->imageSize.width + 1))) + xx] & maxCol;
+					value += (rgbVal / maxCol);
 				}
 			}
 			
-			value = (value / (long)pixels) * 255L;
-			fr->eigenface[x][y] = (int)value;
+			value = (value / pixels) * 255L;
+			fr->eigenface[x][y] = value;
 		}
 	}
 	

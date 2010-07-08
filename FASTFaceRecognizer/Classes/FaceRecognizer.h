@@ -21,7 +21,7 @@ struct FaceRecognizer {
 	
 	CGSize imageSize;
 	CGSize areaSize;
-	int **eigenface;
+	uint32_t **eigenface;
 };
 typedef struct FaceRecognizer FaceRecognizer;
 

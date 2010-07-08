@@ -114,7 +114,7 @@ long FaceRecognizerGetDistance(const FaceRecognizer *fr, const FaceRecognizer *f
 	return distance;
 }
 
-void FaceRecognizerGetRGBDataFromImage(FaceRecognizer *fr, int *rgbData, CGImageRef image) {
+void FaceRecognizerGetRGBDataFromImage(FaceRecognizer *fr, uint32_t *rgbData, CGImageRef image) {
 	// get RGB data from image
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 	CGContextRef context = CGBitmapContextCreate(rgbData, fr->imageSize.width, fr->imageSize.height, 8, fr->imageSize.width * 4, colorSpace, kCGImageAlphaPremultipliedFirst);

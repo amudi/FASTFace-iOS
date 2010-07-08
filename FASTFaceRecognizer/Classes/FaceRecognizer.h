@@ -29,7 +29,7 @@ FaceRecognizer *FaceRecognizerCreate(CGImageRef image, FaceTemplate *ft);
 void FaceRecognizerDealloc(FaceRecognizer *fr);
 int FaceRecognizerGetEigenFace(const FaceRecognizer *fr, int x, int y);
 long FaceRecognizerGetDistance(const FaceRecognizer *fr, const FaceRecognizer *frReference);
-void FaceRecognizerGetRGBDataFromImage(FaceRecognizer *fr, int *rgbData, CGImageRef image);
+void FaceRecognizerGetRGBDataFromImage(FaceRecognizer *fr, uint32_t *rgbData, CGImageRef image);
 char *FaceRecognizerDump(const FaceRecognizer *fr);
 
 #endif

@@ -65,11 +65,11 @@
 }
 
 - (void)testFaceRecognizerGetRGBData {
-	int rgbData[((int)(fr->imageSize.width + 1)) * ((int)fr->imageSize.height)];
+	uint32_t rgbData[((int)(fr->imageSize.width + 1)) * ((int)fr->imageSize.height)];
 	FaceRecognizerGetRGBDataFromImage(fr, rgbData, imageRef);
 	STAssertFalse(rgbData == NULL, @"Get RGB data failed, rgbData = %@", rgbData);
 	
-	int arrayOfZeros[((int)(fr->imageSize.width + 1)) * ((int)fr->imageSize.height)];
+	uint32_t arrayOfZeros[((int)(fr->imageSize.width + 1)) * ((int)fr->imageSize.height)];
 	memset(arrayOfZeros, 0, ((int)(fr->imageSize.width + 1)) * ((int)fr->imageSize.height));
 	STAssertFalse(rgbData == arrayOfZeros, @"Get RGB data returns all zeros");
 }

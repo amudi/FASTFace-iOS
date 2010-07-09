@@ -107,8 +107,14 @@
 	[faceModel setPhoto2:testImage];
 	STAssertNotNil([faceModel photo2], @"failed to load photo1, photo2 = %@", [faceModel photo2]);
 	
+	[faceModel preprocessPhoto1];
+	STAssertNotNil([faceModel prepPhoto1], @"failed to preprocess photo1, prepPhoto1 = %@", [faceModel prepPhoto1]);
+	
+	[faceModel preprocessPhoto2];
+	STAssertNotNil([faceModel prepPhoto2], @"failed to preprocess photo1, prepPhoto2 = %@", [faceModel prepPhoto2]);
+	
 	[faceModel calculateDistance];
-	STAssertEquals([faceModel result], 0.0f, @"failed to get correct distance from same image, distance = %f", [faceModel result]);
+	STAssertEquals([faceModel result], 0L, @"failed to get correct distance from same image, distance = %d", [faceModel result]);
 }
 
 - (void)tearDown {

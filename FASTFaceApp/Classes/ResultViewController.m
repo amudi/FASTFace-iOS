@@ -63,9 +63,15 @@
 }
 
 - (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	self.firstPhotoView = nil;
+	self.secondPhotoView = nil;
+	self.startOverButton = nil;
+	self.shareButton = nil;
+	self.resultPercentageLabel = nil;
+	self.resultDescriptionLabel = nil;
+	self.adBanner = nil
+	
+	[super viewDidUnload];
 }
 
 

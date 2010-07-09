@@ -16,8 +16,10 @@
 @synthesize faceTemplate = ft;
 @synthesize photo1;
 @synthesize thumbnail1;
+@synthesize prepPhoto1;
 @synthesize photo2;
 @synthesize thumbnail2;
+@synthesize prepPhoto2;
 @synthesize result;
 
 - (id)init {
@@ -50,12 +52,12 @@
 }
 
 - (void)clear {
-	[photo1 release];
-	[photo2 release];
-	[thumbnail1 release];
-	[thumbnail2 release];
-	[prepPhoto1 release];
-	[prepPhoto2 release];
+	self.photo1 = nil;
+	self.photo2 = nil;
+	self.thumbnail1 = nil;
+	self.thumbnail2 = nil;
+	self.prepPhoto1 = nil;
+	self.prepPhoto2 = nil;
 }
 
 - (void)generateThumbnails {

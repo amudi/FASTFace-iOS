@@ -31,8 +31,10 @@
 @property (nonatomic, assign) FaceTemplate *faceTemplate;
 @property (nonatomic, retain) UIImage *photo1;
 @property (nonatomic, retain) UIImage *thumbnail1;
+@property (nonatomic, retain) UIImage *prepPhoto1;
 @property (nonatomic, retain) UIImage *photo2;
 @property (nonatomic, retain) UIImage *thumbnail2;
+@property (nonatomic, retain) UIImage *prepPhoto2;
 @property (nonatomic, assign) CGFloat result;
 
 - (id)initWithFaceTemplatePath:(NSString *)path;

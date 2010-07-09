@@ -12,6 +12,14 @@
 #import "FASTFaceModel.h"
 #import <unistd.h>
 
+@interface MainViewController (/*Private*/)
+@property (nonatomic, retain) UIActionSheet *photoChoiceActionSheet;
+@property (nonatomic, retain) UIActionSheet *clearActionSheet;
+@property (nonatomic, retain) UIActionSheet *processActionSheet;
+@property (nonatomic, retain) UIImagePickerController *cameraViewController;
+@property (nonatomic, retain) UIImagePickerController *photoAlbumViewController;
+@property (nonatomic, retain) FASTFaceModel *faceModel;
+@end
 
 @implementation MainViewController
 
@@ -26,7 +34,7 @@
 @synthesize cameraViewController;
 @synthesize photoAlbumViewController;
 @synthesize adBanner;
-@synthesize progressHUD;
+@synthesize resultView;
 @synthesize faceModel;
 
 - (id)init {
@@ -62,23 +70,29 @@
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	// Return YES for supported orientations
+	return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 
 - (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+	DLog(@"Low Memory Warning!!");
+	// Releases the view if it doesn't have a superview.
+	[super didReceiveMemoryWarning];
+	
+	// Release any cached data, images, etc that aren't in use.
+	[defaultBlankImage release];
 }
 
 
 - (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	self.clearButton = nil;
+	self.processButton = nil;
+	self.firstPhotoView = nil;
+	self.secondPhotoView = nil;
+	self.adBanner = nil;
+	
+	[super viewDidUnload];
 }
 
 - (NSString *)viewNibName {

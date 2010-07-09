@@ -9,11 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class MainViewController;
+@class ResultViewController;
 @class FASTFaceModel;
 
 @interface FASTFaceAppDelegate : NSObject <UIApplicationDelegate> {
-    UIWindow *window;
-	MainViewController* mainViewController;
+	UIWindow *window;
+	MainViewController *mainViewController;
+	ResultViewController *resultViewController;
 	FASTFaceModel *faceModel;
 }
 
@@ -22,4 +24,3 @@
 @property (nonatomic, retain) ResultViewController *resultViewController;
 
 @end
-

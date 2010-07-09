@@ -33,6 +33,7 @@ typedef enum PhotoChoice {
 	UIImagePickerController *photoAlbumViewController;
 	ADBannerView *adBanner;
 	MBProgressHUD *progressHUD;
+	ResultViewController *resultView;
 	
 	UIImage *defaultBlankImage;
 	BOOL hasCamera;

@@ -37,9 +37,13 @@
 @synthesize faceModel;
 
 - (id)init {
-	[super initWithNibName:@"MainViewController" bundle:nil];
-	// Custom initialization
-	
+	if ((self = [super initWithNibName:@"MainViewController" bundle:nil])) {
+		// Custom initialization
+		photoChoice = PhotoChoice_PhotoUnknown;
+		defaultBlankImage = [[UIImage imageNamed:@"blank_image.png"] retain];
+		hasCamera = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
+		DLog(@"is Camera available: %d", hasCamera);
+	}
 	return self;
 }
 
@@ -49,8 +53,14 @@
 
 
 - (void)dealloc {
+	[clearButton release];
+	[processButton release];
+	[firstPhotoView release];
+	[secondPhotoView release];
+	[adBanner release];
 	[defaultBlankImage release];
-	defaultBlankImage = nil;
+	[resultView release];
+	[faceModel release];
 	
     [super dealloc];
 }
@@ -59,11 +69,6 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	photoChoice = PhotoChoice_PhotoUnknown;
-	defaultBlankImage = [[UIImage imageNamed:@"blank_image.png"] retain];
-	hasCamera = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
-	DLog(@"is Camera available: %d", hasCamera);
-	
 	DLog(@"Main Screen Loaded");
 }
 

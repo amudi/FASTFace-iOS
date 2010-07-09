@@ -44,9 +44,10 @@ typedef enum PhotoChoice {
 @property (nonatomic, retain) IBOutlet UIButton *processButton;
 @property (nonatomic, retain) IBOutlet UIButton *firstPhotoView;
 @property (nonatomic, retain) IBOutlet UIButton *secondPhotoView;
-@property (nonatomic, assign) PhotoChoice photoChoice;
 @property (nonatomic, retain) IBOutlet ADBannerView *adBanner;
 @property (nonatomic, retain) ResultViewController *resultView;
+@property (nonatomic, assign) PhotoChoice photoChoice;
+@property (nonatomic, retain) FASTFaceModel *faceModel;
 
 - (IBAction)selectPhotoSource:(id)sender;
 - (IBAction)clearPhotos:(id)sender;

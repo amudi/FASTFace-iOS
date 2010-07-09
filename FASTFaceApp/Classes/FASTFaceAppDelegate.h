@@ -19,6 +19,7 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet MainViewController *mainViewController;
+@property (nonatomic, retain) ResultViewController *resultViewController;
 
 @end
 

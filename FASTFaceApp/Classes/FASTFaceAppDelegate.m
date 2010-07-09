@@ -25,7 +25,17 @@
 	DLog(@"Loading faceModel..");
 	NSString *templatePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"face_template" ofType:@"txt"];
 	faceModel = [[FASTFaceModel alloc] initWithFaceTemplatePath:templatePath];
-	[mainViewController setFaceModel:faceModel];
+	
+	DLog(@"Loading ResultViewController");
+	resultViewController = [[ResultViewController alloc] init];
+	
+	DLog(@"Loading MainViewController");
+	mainViewController = [[MainViewController alloc] init];
+    mainViewController.view.frame = [[UIScreen mainScreen] applicationFrame];
+	
+	[mainViewController setResultView:resultViewController];
+	mainViewController.faceModel = faceModel;
+	
 	[window addSubview:mainViewController.view];
     [window makeKeyAndVisible];
 	

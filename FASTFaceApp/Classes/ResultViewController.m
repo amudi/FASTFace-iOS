@@ -69,7 +69,7 @@
 	self.shareButton = nil;
 	self.resultPercentageLabel = nil;
 	self.resultDescriptionLabel = nil;
-	self.adBanner = nil
+	self.adBanner = nil;
 	
 	[super viewDidUnload];
 }

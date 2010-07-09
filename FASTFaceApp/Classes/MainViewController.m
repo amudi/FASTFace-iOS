@@ -18,7 +18,6 @@
 @property (nonatomic, retain) UIActionSheet *processActionSheet;
 @property (nonatomic, retain) UIImagePickerController *cameraViewController;
 @property (nonatomic, retain) UIImagePickerController *photoAlbumViewController;
-@property (nonatomic, retain) FASTFaceModel *faceModel;
 @end
 
 @implementation MainViewController
@@ -156,9 +155,7 @@
 
 - (IBAction)showResult:(id)sender {
 	DLog(@"Show Result Screen");
-	ResultViewController *resultScreen = [[ResultViewController alloc] init];
-	[resultScreen setMainViewController:self];
-	
+	ResultViewController *resultScreen = [[ResultViewController alloc] init];	
 	resultScreen.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 	[self presentModalViewController:resultScreen animated:YES];
 	[resultScreen release];

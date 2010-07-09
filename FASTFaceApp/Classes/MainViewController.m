@@ -146,17 +146,13 @@
 	[resultScreen setMainViewController:self];
 	
 	resultScreen.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-	if ([sender class] == [MBProgressHUD class]) {
-		DLog(@"sender is MBProgressHUD");
-		MBProgressHUD *hud = (MBProgressHUD *)sender;
-		[hud hide];
-	}
 	[self presentModalViewController:resultScreen animated:YES];
 	[resultScreen release];
 }
 
-
+#pragma mark -
 #pragma mark Action Sheet Handler
+
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if ([actionSheet isEqual:photoChoiceActionSheet]) {
 		DLog(@"photoChoiceActionSheet [%@] tapped at index: %d for photo: %d", actionSheet, buttonIndex, photoChoice);
@@ -194,7 +190,7 @@
 					[self presentModalViewController:photoAlbumViewController animated:YES];
 				} else {
 					DLog(@"Cancel photo %d", photoChoice);
-				}				
+				}
 				break;
 
 			default:
@@ -206,18 +202,13 @@
 		switch (buttonIndex) {
 			case 0:
 				DLog(@"Clear all photos");
-				progressHUD = [[[MBProgressHUD alloc] initWithView:self.view] autorelease];
+				progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
+				progressHUD.mode = MBProgressHUDModeIndeterminate;
 				[self.view addSubview:progressHUD];
-				[progressHUD showWithBlock:^(id <MBProgressHUD> hud) {
-					hud.labelText = NSLocalizedString(@"Loading", nil);
-					hud.detailsLabelText = NSLocalizedString(@"clearing all photos", nil);
-					
-					hud.mode = MBProgressHUDModeIndeterminate;
-					[self clearPhotos];
-					sleep(1);
-					
-					[hud hide];
-				}];
+				progressHUD.delegate = self;
+				progressHUD.labelText = NSLocalizedString(@"Loading", nil);
+				progressHUD.detailsLabelText = NSLocalizedString(@"clearing all photos", nil);
+				[progressHUD showWhileExecuting:@selector(clearPhotos) onTarget:self withObject:nil animated:YES];
 				break;
 			default:
 				break;
@@ -227,21 +218,15 @@
 		switch (buttonIndex) {
 			case 0:
 				DLog(@"Process photos")
-				progressHUD = [[[MBProgressHUD alloc] initWithView:self.view] autorelease];
+				progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
+				progressHUD.mode = MBProgressHUDModeIndeterminate;
 				[self.view addSubview:progressHUD];
-				[progressHUD showWithBlock:^(id <MBProgressHUD> hud) {
-					hud.labelText = NSLocalizedString(@"Loading", nil);
-					hud.detailsLabelText = NSLocalizedString(@"processing photos", nil);
-					
-					hud.mode = MBProgressHUDModeIndeterminate;
-					// TODO: actual photo processing here
-					[faceModel preprocessPhoto1];
-					[faceModel preprocessPhoto2];
-					[faceModel calculateDistance];
-					sleep(1);
-					
-					[self showResult:progressHUD];
-				}];
+				progressHUD.delegate = self;
+				progressHUD.labelText = NSLocalizedString(@"Loading", nil);
+				progressHUD.detailsLabelText = NSLocalizedString(@"processing photos", nil);
+				[progressHUD showWhileExecuting:@selector(processPhotos) onTarget:self withObject:nil animated:YES];
+				
+				[self showResult:self];
 				break;
 			default:
 				break;
@@ -249,13 +234,13 @@
 	}
 }
 
-
+#pragma mark -
 #pragma mark Delegates methods
+
 - (void)actionSheetCancel:(UIActionSheet *)actionSheet {
 	// do nothing on cancel
 	DLog(@"Action sheet %@ cancelled");
 }
-
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 	DLog(@"Photo selected from picker [%@] : %@", picker, info);
@@ -297,11 +282,31 @@
 	[picker release];
 }
 
+- (void)hudWasHidden {
+	[progressHUD removeFromSuperview];
+	[progressHUD release];
+}
+
+#pragma mark -
 #pragma mark Photo processing methods
+
 - (void)clearPhotos {
-	[faceModel clear];
 	[firstPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
 	[secondPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
+	[faceModel clear];
+}
+
+- (void)processPhotos {
+	[faceModel preprocessPhoto1];
+	[faceModel preprocessPhoto2];
+	[faceModel calculateDistance];
+	
+	// TODO: add below image to project
+	progressHUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
+	progressHUD.mode = MBProgressHUDModeCustomView;
+	progressHUD.labelText = NSLocalizedString(@"Completed", nil);
+	progressHUD.detailsLabelText = NSLocalizedString(@"", nil);
+	sleep(2);
 }
 
 

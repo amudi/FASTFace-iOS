@@ -20,7 +20,7 @@ typedef enum PhotoChoice {
 } PhotoChoice;
 
 
-@interface MainViewController : UIViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
+@interface MainViewController : UIViewController <UIActionSheetDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, MBProgressHUDDelegate> {
 	UIButton *clearButton;
 	UIButton *processButton;
 	UIButton *firstPhotoView;

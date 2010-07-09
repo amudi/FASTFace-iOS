@@ -34,7 +34,7 @@
 	mainViewController = [[MainViewController alloc] init];
     mainViewController.view.frame = [[UIScreen mainScreen] applicationFrame];
 	
-	[mainViewController setResultView:resultViewController];
+	mainViewController.resultView = resultViewController;
 	mainViewController.faceModel = faceModel;
 	
 	[window addSubview:mainViewController.view];

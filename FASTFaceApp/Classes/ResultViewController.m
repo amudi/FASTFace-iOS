@@ -9,7 +9,6 @@
 #import "ResultViewController.h"
 #import "MainViewController.h"
 
-
 @implementation ResultViewController
 
 @synthesize firstPhotoView;
@@ -74,7 +73,7 @@
 	self.resultDescriptionLabel = nil;
 	self.adBanner = nil;
 	
-	//[super viewDidUnload];
+	[super viewDidUnload];
 }
 
 - (IBAction)startOver:(id)sender {

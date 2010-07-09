@@ -51,7 +51,6 @@
     return [self init];
 }
 
-
 - (void)dealloc {
 	[clearButton release];
 	[processButton release];
@@ -65,20 +64,25 @@
     [super dealloc];
 }
 
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	if ([self.faceModel photo1]) {
 		if (![self.faceModel thumbnail1]) {
 			[self.faceModel generateThumbnails];
 		}
-		[self.firstPhotoView setBackgroundImage:[faceModel thumbnail1] forState:UIControlStateNormal];
+		[self.firstPhotoView setBackgroundImage:[self.faceModel thumbnail1] forState:UIControlStateNormal];
+	} else {
+		DLog(@"photo1 is not set, using default blank image");
+		[self.firstPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
 	}
+
 	if ([self.faceModel photo2]) {
 		if (![self.faceModel thumbnail2]) {
 			[self.faceModel generateThumbnails];
 		}
-		[self.secondPhotoView setBackgroundImage:[faceModel thumbnail2] forState:UIControlStateNormal];
+		[self.secondPhotoView setBackgroundImage:[self.faceModel thumbnail2] forState:UIControlStateNormal];
+	} else {
+		DLog(@"photo2 is not set, using default blank image");
+		[self.secondPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
 	}
 	DLog(@"Main Screen Loaded");
     [super viewDidLoad];
@@ -107,7 +111,7 @@
 	self.secondPhotoView = nil;
 	self.adBanner = nil;
 	
-	//[super viewDidUnload];
+	[super viewDidUnload];
 }
 
 - (NSString *)viewNibName {
@@ -150,7 +154,6 @@
 	[self.photoChoiceActionSheet release];
 }
 
-
 - (IBAction)clearPhotos:(id)sender {
 	DLog(@"Clear Photos");
 	clearActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Clear All photos", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Clear", nil) otherButtonTitles:nil];
@@ -158,7 +161,6 @@
 	[self.clearActionSheet showInView:self.view];
 	[self.clearActionSheet release];
 }
-
 
 - (IBAction)processPhotos:(id)sender {
 	DLog(@"Process Photos");
@@ -168,13 +170,10 @@
 	[self.processActionSheet release];
 }
 
-
 - (IBAction)showResult:(id)sender {
 	DLog(@"Show Result Screen");
-	ResultViewController *resultScreen = [[ResultViewController alloc] init];	
-	resultScreen.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-	[self presentModalViewController:resultScreen animated:YES];
-	[resultScreen release];
+	self.resultView.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+	[self presentModalViewController:self.resultView animated:YES];
 }
 
 #pragma mark -
@@ -210,10 +209,10 @@
 				if (hasCamera) {
 					DLog(@"Photo Album for photo %d", self.photoChoice);
 					photoAlbumViewController = [[UIImagePickerController alloc] init];
-					photoAlbumViewController.delegate = self;
-					photoAlbumViewController.allowsEditing = YES;
-					photoAlbumViewController.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
-					photoAlbumViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+					self.photoAlbumViewController.delegate = self;
+					self.photoAlbumViewController.allowsEditing = YES;
+					self.photoAlbumViewController.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
+					self.photoAlbumViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 					[self presentModalViewController:self.photoAlbumViewController animated:YES];
 				} else {
 					DLog(@"Cancel photo %d", self.photoChoice);
@@ -285,12 +284,12 @@
 		case PhotoChoice_Photo1:
 			[self.faceModel setPhoto1:photo];
 			[self.faceModel generateThumbnails];
-			[self.firstPhotoView setBackgroundImage:[faceModel thumbnail1] forState:UIControlStateNormal];
+			[self.firstPhotoView setBackgroundImage:[self.faceModel thumbnail1] forState:UIControlStateNormal];
 			break;
 		case PhotoChoice_Photo2:
 			[self.faceModel setPhoto2:photo];
 			[self.faceModel generateThumbnails];
-			[self.secondPhotoView setBackgroundImage:[faceModel thumbnail2] forState:UIControlStateNormal];
+			[self.secondPhotoView setBackgroundImage:[self.faceModel thumbnail2] forState:UIControlStateNormal];
 			break;
 		default:
 			break;
@@ -300,7 +299,6 @@
 	
 	[picker release];
 }
-
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
 	DLog(@"Image picker [%@] cancelled", picker);

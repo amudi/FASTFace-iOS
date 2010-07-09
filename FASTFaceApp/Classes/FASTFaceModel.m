@@ -61,40 +61,40 @@
 
 - (void)generateThumbnails {
 	if (photo1 && !thumbnail1) {
-		[thumbnail1 release];
-		UIImage *tmpImage = [[UIImage alloc] initWithCGImage:[photo1 CGImage]];
+		self.thumbnail1 = nil;
+		UIImage *tmpImage = [[UIImage alloc] initWithCGImage:[self.photo1 CGImage]];
 		UIImage *tmpImageResized = [tmpImage resizedImage:CGSizeMake(kThumbnailSize, kThumbnailSize) interpolationQuality:kCGInterpolationHigh];
-		thumbnail1 = [tmpImageResized thumbnailImage:kThumbnailSize transparentBorder:1 cornerRadius:kThumbnailRadius interpolationQuality:kCGInterpolationHigh];
+		self.thumbnail1 = [tmpImageResized thumbnailImage:kThumbnailSize transparentBorder:1 cornerRadius:kThumbnailRadius interpolationQuality:kCGInterpolationHigh];
 		[tmpImage release];
 	}
 	if (photo2 && !thumbnail2) {
-		[thumbnail2 release];
-		UIImage *tmpImage = [[UIImage alloc] initWithCGImage:[photo2 CGImage]];
+		self.thumbnail2 = nil;
+		UIImage *tmpImage = [[UIImage alloc] initWithCGImage:[self.photo2 CGImage]];
 		UIImage *tmpImageResized = [tmpImage resizedImage:CGSizeMake(kThumbnailSize, kThumbnailSize) interpolationQuality:kCGInterpolationHigh];
-		thumbnail2 = [tmpImageResized thumbnailImage:kThumbnailSize transparentBorder:1 cornerRadius:kThumbnailRadius interpolationQuality:kCGInterpolationHigh];
+		self.thumbnail2 = [tmpImageResized thumbnailImage:kThumbnailSize transparentBorder:1 cornerRadius:kThumbnailRadius interpolationQuality:kCGInterpolationHigh];
 		[tmpImage release];
 	}
 }
 
 - (void)preprocessPhoto1 {
-	[prepPhoto1 release];
+	self.prepPhoto1 = nil;
 	
 	DLog(@"converting photo1 to grayscale");
-	UIImage *grayscalePhoto1 = [photo1 convertToGrayscale];
+	UIImage *grayscalePhoto1 = [self.photo1 convertToGrayscale];
 	DLog(@"resizing photo1");
 	UIImage *resizedPhoto1 = [grayscalePhoto1 resizedImage:CGSizeMake(80.0f, 60.0f) interpolationQuality:kCGInterpolationHigh]; 
-	prepPhoto1 = [resizedPhoto1 retain];
+	self.prepPhoto1 = resizedPhoto1;
 	isPhoto1Preprocessed = YES;
 }
 
 - (void)preprocessPhoto2 {
-	[prepPhoto2 release];
+	self.prepPhoto2 = nil;
 	
 	DLog(@"converting photo2 to grayscale");
 	UIImage *grayscalePhoto2 = [photo2 convertToGrayscale];
 	DLog(@"resizing photo2");
 	UIImage *resizedPhoto2 = [grayscalePhoto2 resizedImage:CGSizeMake(80.0f, 60.0f) interpolationQuality:kCGInterpolationHigh]; 
-	prepPhoto2 = [resizedPhoto2 retain];
+	self.prepPhoto2 = resizedPhoto2;
 	isPhoto2Preprocessed = YES;
 }
 
@@ -103,29 +103,29 @@
 	DLog(@"calculating distance of photoRef = %d to photo = %d", photoRef, photo);
 	if (!photoRef || !photo) {
 		DLog(@"one of the photo is nil");
-		result = -1;
+		self.result = -1;
 		return;
 	}
 	
 	if (!isPhoto1Preprocessed || !isPhoto2Preprocessed) {
 		DLog(@"one of the photo is not preprocessed yet");
-		result = -1;
+		self.result = -1;
 		return;
 	}
 	
 	// if images are equal
 	if ([photoRef isEqual:photo]) {
 		DLog(@"photos are equal");
-		result = 0;
+		self.result = 0;
 		return;
 	}
 	
 	// create FaceRecognizer object
-	FaceRecognizer *fr1 = FaceRecognizerCreate([prepPhoto1 CGImage], ft);
-	FaceRecognizer *fr2 = FaceRecognizerCreate([prepPhoto2 CGImage], ft);
+	FaceRecognizer *fr1 = FaceRecognizerCreate([self.prepPhoto1 CGImage], ft);
+	FaceRecognizer *fr2 = FaceRecognizerCreate([self.prepPhoto2 CGImage], ft);
 	
-	result = FaceRecognizerGetDistance(fr1, fr2);
-	DLog(@"result = %d", result);
+	self.result = FaceRecognizerGetDistance(fr1, fr2);
+	DLog(@"result = %d", self.result);
 	
 	FaceRecognizerDealloc(fr1);
 	FaceRecognizerDealloc(fr2);
@@ -134,7 +134,7 @@
 }
 
 - (void)calculateDistance {
-	[self calculateDistanceFrom:photo1 to:photo2];
+	[self calculateDistanceFrom:self.photo1 to:self.photo2];
 }
 
 @end

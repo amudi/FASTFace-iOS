@@ -233,7 +233,7 @@
 		switch (buttonIndex) {
 			case 0:
 				DLog(@"Clear all photos");
-				progressHUD = [[[MBProgressHUD alloc] initWithView:self.view] autorelease];
+				progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
 				progressHUD.mode = MBProgressHUDModeIndeterminate;
 				[self.view addSubview:progressHUD];
 				progressHUD.delegate = self;
@@ -319,9 +319,9 @@
 #pragma mark Photo processing methods
 
 - (void)clearPhotos {
-	[self.firstPhotoView setBackgroundImage:[defaultBlankImage retain] forState:UIControlStateNormal];
-	[self.secondPhotoView setBackgroundImage:[defaultBlankImage retain] forState:UIControlStateNormal];
-	//[self.faceModel clear];
+	[self.firstPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
+	[self.secondPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
+	[self.faceModel clear];
 	sleep(1);
 }
 

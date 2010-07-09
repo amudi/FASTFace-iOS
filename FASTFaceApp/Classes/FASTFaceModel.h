@@ -23,7 +23,7 @@
 	UIImage *photo2;
 	UIImage *thumbnail2;
 	UIImage *prepPhoto2;
-	CGFloat result;
+	long result;
 	BOOL isPhoto1Preprocessed;
 	BOOL isPhoto2Preprocessed;
 }
@@ -35,7 +35,7 @@
 @property (nonatomic, retain) UIImage *photo2;
 @property (nonatomic, retain) UIImage *thumbnail2;
 @property (nonatomic, retain) UIImage *prepPhoto2;
-@property (nonatomic, assign) CGFloat result;
+@property (nonatomic, assign) long result;
 
 - (id)initWithFaceTemplatePath:(NSString *)path;
 - (void)clear;

@@ -93,6 +93,8 @@
 		D091DDFF11C9901C009B2AA1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D091DDFD11C9901C009B2AA1 /* MainViewController.m */; };
 		D091DE0F11C994E7009B2AA1 /* blank_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D091DE0E11C994E7009B2AA1 /* blank_image.png */; };
 		D0955D1611CDB51600B5FBAD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0955D1511CDB51600B5FBAD /* MobileCoreServices.framework */; };
+		D0BE6FCF11E74BDE0053BD08 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BE6FCE11E74BDE0053BD08 /* 37x-Checkmark.png */; };
+		D0BE6FD011E74BDE0053BD08 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BE6FCE11E74BDE0053BD08 /* 37x-Checkmark.png */; };
 		D0C05C9F11CECD1C00C20516 /* FASTFaceRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C05C9D11CECD1C00C20516 /* FASTFaceRecognizer.h */; };
 		D0C05CA011CECD1C00C20516 /* FASTFaceRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C05C9E11CECD1C00C20516 /* FASTFaceRecognizer.m */; };
 		D0F44DA411E077D4003CE7FC /* FASTFaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F44DA311E077D4003CE7FC /* FASTFaceModel.m */; };
@@ -191,6 +193,7 @@
 		D091DDFE11C9901C009B2AA1 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainViewController.xib; path = English.lproj/MainViewController.xib; sourceTree = "<group>"; };
 		D091DE0E11C994E7009B2AA1 /* blank_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_image.png; sourceTree = "<group>"; };
 		D0955D1511CDB51600B5FBAD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D0BE6FCE11E74BDE0053BD08 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
 		D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFASTFaceRecognizer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C05C9D11CECD1C00C20516 /* FASTFaceRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTFaceRecognizer.h; sourceTree = "<group>"; };
 		D0C05C9E11CECD1C00C20516 /* FASTFaceRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceRecognizer.m; sourceTree = "<group>"; };
@@ -322,6 +325,7 @@
 				D059412E11CC81BD000B3FDC /* MainViewController.xib */,
 				D059412C11CC81A9000B3FDC /* ResultViewController.xib */,
 				D059418011CC859E000B3FDC /* MainWindow.xib */,
+				D0BE6FCE11E74BDE0053BD08 /* 37x-Checkmark.png */,
 				8D1107310486CEB800E47090 /* FASTFace-Info.plist */,
 				D091DE0E11C994E7009B2AA1 /* blank_image.png */,
 			);
@@ -631,6 +635,7 @@
 				D059412D11CC81A9000B3FDC /* ResultViewController.xib in Resources */,
 				D05848ED11E214D9008372C9 /* face_template.txt in Resources */,
 				D05848EE11E214D9008372C9 /* test_image.png in Resources */,
+				D0BE6FCF11E74BDE0053BD08 /* 37x-Checkmark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +647,7 @@
 				D02F61A211E14A7D006ABDC6 /* blank_image.png in Resources */,
 				D05848EF11E214D9008372C9 /* face_template.txt in Resources */,
 				D05848F011E214D9008372C9 /* test_image.png in Resources */,
+				D0BE6FD011E74BDE0053BD08 /* 37x-Checkmark.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

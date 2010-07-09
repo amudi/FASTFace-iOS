@@ -19,7 +19,7 @@
 	UILabel *resultPercentageLabel;
 	UILabel *resultDescriptionLabel;
 	ADBannerView *adBanner;
-	CGFloat result;
+	long result;
 }
 
 @property (nonatomic, retain) IBOutlet UIImageView *firstPhotoView;
@@ -29,7 +29,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *resultPercentageLabel;
 @property (nonatomic, retain) IBOutlet UILabel *resultDescriptionLabel;
 @property (nonatomic, retain) IBOutlet ADBannerView *adBanner;
-@property (nonatomic, assign) CGFloat result;
+@property (nonatomic, assign) long result;
 
 - (IBAction)startOver:(id)sender;
 - (IBAction)share:(id)sender;

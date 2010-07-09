@@ -317,7 +317,6 @@
 	[faceModel preprocessPhoto2];
 	[faceModel calculateDistance];
 	
-	// TODO: add below image to project
 	progressHUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
 	progressHUD.mode = MBProgressHUDModeCustomView;
 	progressHUD.labelText = NSLocalizedString(@"Completed", nil);

@@ -24,7 +24,6 @@
 
 - (id)init {
 	if ((self = [super init])) {
-		//NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 		ft = FaceTemplateCreate();
 		result = -1.0f;
 		isPhoto1Preprocessed = NO;
@@ -34,7 +33,7 @@
 }
 
 - (id)initWithFaceTemplatePath:(NSString *)path {
-	if ([self init]) {
+	if ((self = [self init])) {
 		FaceTemplateLoadResource(ft, [path cStringUsingEncoding:NSUTF8StringEncoding]);
 	}
 	return self;
@@ -104,19 +103,20 @@
 	DLog(@"calculating distance of photoRef = %d to photo = %d", photoRef, photo);
 	if (!photoRef || !photo) {
 		DLog(@"one of the photo is nil");
-		result = -1.0f;
+		result = -1;
 		return;
 	}
 	
 	if (!isPhoto1Preprocessed || !isPhoto2Preprocessed) {
 		DLog(@"one of the photo is not preprocessed yet");
+		result = -1;
 		return;
 	}
 	
 	// if images are equal
 	if ([photoRef isEqual:photo]) {
 		DLog(@"photos are equal");
-		result = 0.0f;
+		result = 0;
 		return;
 	}
 	

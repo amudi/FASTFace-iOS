@@ -68,8 +68,20 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-    [super viewDidLoad];
+	if ([self.faceModel photo1]) {
+		if (![self.faceModel thumbnail1]) {
+			[self.faceModel generateThumbnails];
+		}
+		[self.firstPhotoView setBackgroundImage:[faceModel thumbnail1] forState:UIControlStateNormal];
+	}
+	if ([self.faceModel photo2]) {
+		if (![self.faceModel thumbnail2]) {
+			[self.faceModel generateThumbnails];
+		}
+		[self.secondPhotoView setBackgroundImage:[faceModel thumbnail2] forState:UIControlStateNormal];
+	}
 	DLog(@"Main Screen Loaded");
+    [super viewDidLoad];
 }
 
 
@@ -85,7 +97,6 @@
 	[super didReceiveMemoryWarning];
 	
 	// Release any cached data, images, etc that aren't in use.
-	[defaultBlankImage release];
 }
 
 
@@ -96,7 +107,7 @@
 	self.secondPhotoView = nil;
 	self.adBanner = nil;
 	
-	[super viewDidUnload];
+	//[super viewDidUnload];
 }
 
 - (NSString *)viewNibName {
@@ -121,40 +132,40 @@
 	
 	if (photoView == firstPhotoView) {
 		DLog(@"Select first photo");
-		photoChoice = PhotoChoice_Photo1;
+		self.photoChoice = PhotoChoice_Photo1;
 	} else if (photoView == secondPhotoView) {
 		DLog(@"Select second photo");
-		photoChoice = PhotoChoice_Photo2;
+		self.photoChoice = PhotoChoice_Photo2;
 	}
 	
 	if (hasCamera) {
-		photoChoiceActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Select photo source", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Camera", nil), NSLocalizedString(@"Photo Album", nil), nil];
+		self.photoChoiceActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Select photo source", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Camera", nil), NSLocalizedString(@"Photo Album", nil), nil];
 	} else {
 		// camera not available
-		photoChoiceActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Select photo source", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Photo Album", nil), nil];
+		self.photoChoiceActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Select photo source", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Photo Album", nil), nil];
 	}
 	
-	[photoChoiceActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-	[photoChoiceActionSheet showInView:self.view];
-	[photoChoiceActionSheet release];
+	[self.photoChoiceActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+	[self.photoChoiceActionSheet showInView:self.view];
+	[self.photoChoiceActionSheet release];
 }
 
 
 - (IBAction)clearPhotos:(id)sender {
 	DLog(@"Clear Photos");
 	clearActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Clear All photos", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:NSLocalizedString(@"Clear", nil) otherButtonTitles:nil];
-	[clearActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-	[clearActionSheet showInView:self.view];
-	[clearActionSheet release];
+	[self.clearActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+	[self.clearActionSheet showInView:self.view];
+	[self.clearActionSheet release];
 }
 
 
 - (IBAction)processPhotos:(id)sender {
 	DLog(@"Process Photos");
 	processActionSheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Process photos now? It may take a few minutes.", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", nil) destructiveButtonTitle:nil otherButtonTitles:NSLocalizedString(@"Process", nil), nil];
-	[processActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-	[processActionSheet showInView:self.view];
-	[processActionSheet release];
+	[self.processActionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+	[self.processActionSheet showInView:self.view];
+	[self.processActionSheet release];
 }
 
 
@@ -172,40 +183,40 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if ([actionSheet isEqual:photoChoiceActionSheet]) {
 		DLog(@"photoChoiceActionSheet [%@] tapped at index: %d for photo: %d", actionSheet, buttonIndex, photoChoice);
-		if (photoChoice == PhotoChoice_PhotoUnknown) {
+		if (self.photoChoice == PhotoChoice_PhotoUnknown) {
 			@throw [NSException exceptionWithName:@"FASTFaceException" reason:NSLocalizedString(@"Unknown selected photo on selectPhotoSource", nil) userInfo:nil];
 		}
 		switch (buttonIndex) {
 			case 0: 				
 				// show camera or photo album
 				cameraViewController = [[UIImagePickerController alloc] init];
-				cameraViewController.delegate = self;
-				cameraViewController.allowsEditing = YES;
+				self.cameraViewController.delegate = self;
+				self.cameraViewController.allowsEditing = YES;
 				
 				if (hasCamera) {
-					DLog(@"Camera for photo %d", photoChoice);
-					cameraViewController.sourceType = UIImagePickerControllerSourceTypeCamera;
-					cameraViewController.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
+					DLog(@"Camera for photo %d", self.photoChoice);
+					self.cameraViewController.sourceType = UIImagePickerControllerSourceTypeCamera;
+					self.cameraViewController.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
 				} else {
-					DLog(@"Photo Album for photo %d", photoChoice);
-					cameraViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+					DLog(@"Photo Album for photo %d", self.photoChoice);
+					self.cameraViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 				}
 
-				[self presentModalViewController:cameraViewController animated:YES];
+				[self presentModalViewController:self.cameraViewController animated:YES];
 				break;
 				
 			case 1:
 				// show photo album or cancel
 				if (hasCamera) {
-					DLog(@"Photo Album for photo %d", photoChoice);
+					DLog(@"Photo Album for photo %d", self.photoChoice);
 					photoAlbumViewController = [[UIImagePickerController alloc] init];
 					photoAlbumViewController.delegate = self;
 					photoAlbumViewController.allowsEditing = YES;
 					photoAlbumViewController.mediaTypes = [NSArray arrayWithObject:(NSString *)kUTTypeImage];
 					photoAlbumViewController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-					[self presentModalViewController:photoAlbumViewController animated:YES];
+					[self presentModalViewController:self.photoAlbumViewController animated:YES];
 				} else {
-					DLog(@"Cancel photo %d", photoChoice);
+					DLog(@"Cancel photo %d", self.photoChoice);
 				}
 				break;
 
@@ -270,21 +281,21 @@
 			photo = [info objectForKey:UIImagePickerControllerOriginalImage];
 			DLog(@"No edited image, using original image");
 		}
-		switch (photoChoice) {
+		switch (self.photoChoice) {
 		case PhotoChoice_Photo1:
-			[faceModel setPhoto1:photo];
-			[faceModel generateThumbnails];
-			[firstPhotoView setBackgroundImage:[faceModel thumbnail1] forState:UIControlStateNormal];
+			[self.faceModel setPhoto1:photo];
+			[self.faceModel generateThumbnails];
+			[self.firstPhotoView setBackgroundImage:[faceModel thumbnail1] forState:UIControlStateNormal];
 			break;
 		case PhotoChoice_Photo2:
-			[faceModel setPhoto2:photo];
-			[faceModel generateThumbnails];
-			[secondPhotoView setBackgroundImage:[faceModel thumbnail2] forState:UIControlStateNormal];
+			[self.faceModel setPhoto2:photo];
+			[self.faceModel generateThumbnails];
+			[self.secondPhotoView setBackgroundImage:[faceModel thumbnail2] forState:UIControlStateNormal];
 			break;
 		default:
 			break;
 		}
-		photoChoice = PhotoChoice_PhotoUnknown;
+		self.photoChoice = PhotoChoice_PhotoUnknown;
 	}
 	
 	[picker release];
@@ -307,15 +318,15 @@
 #pragma mark Photo processing methods
 
 - (void)clearPhotos {
-	[firstPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
-	[secondPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
-	[faceModel clear];
+	[self.firstPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
+	[self.secondPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
+	[self.faceModel clear];
 }
 
 - (void)processPhotos {
-	[faceModel preprocessPhoto1];
-	[faceModel preprocessPhoto2];
-	[faceModel calculateDistance];
+	[self.faceModel preprocessPhoto1];
+	[self.faceModel preprocessPhoto2];
+	[self.faceModel calculateDistance];
 	
 	progressHUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
 	progressHUD.mode = MBProgressHUDModeCustomView;

@@ -49,8 +49,8 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	[super viewDidLoad];
 	DLog(@"Result Screen loaded");
+	[super viewDidLoad];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -74,7 +74,7 @@
 	self.resultDescriptionLabel = nil;
 	self.adBanner = nil;
 	
-	[super viewDidUnload];
+	//[super viewDidUnload];
 }
 
 - (IBAction)startOver:(id)sender {

@@ -39,6 +39,10 @@
 - (id)init {
 	if ((self = [super initWithNibName:@"MainViewController" bundle:nil])) {
 		// Custom initialization
+		DLog(@"Loading faceModel..");
+		NSString *templatePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"face_template" ofType:@"txt"];
+		faceModel = [[FASTFaceModel alloc] initWithFaceTemplatePath:templatePath];
+		
 		photoChoice = PhotoChoice_PhotoUnknown;
 		defaultBlankImage = [[UIImage imageNamed:@"blank_image.png"] retain];
 		hasCamera = [UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera];
@@ -105,6 +109,7 @@
 
 
 - (void)viewDidUnload {
+	DLog(@"Main View unloaded");
 	self.clearButton = nil;
 	self.processButton = nil;
 	self.firstPhotoView = nil;
@@ -228,7 +233,7 @@
 		switch (buttonIndex) {
 			case 0:
 				DLog(@"Clear all photos");
-				progressHUD = [[MBProgressHUD alloc] initWithView:self.view];
+				progressHUD = [[[MBProgressHUD alloc] initWithView:self.view] autorelease];
 				progressHUD.mode = MBProgressHUDModeIndeterminate;
 				[self.view addSubview:progressHUD];
 				progressHUD.delegate = self;
@@ -251,8 +256,6 @@
 				progressHUD.labelText = NSLocalizedString(@"Loading", nil);
 				progressHUD.detailsLabelText = NSLocalizedString(@"processing photos", nil);
 				[progressHUD showWhileExecuting:@selector(processPhotos) onTarget:self withObject:nil animated:YES];
-				
-				[self showResult:self];
 				break;
 			default:
 				break;
@@ -316,21 +319,24 @@
 #pragma mark Photo processing methods
 
 - (void)clearPhotos {
-	[self.firstPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
-	[self.secondPhotoView setBackgroundImage:defaultBlankImage forState:UIControlStateNormal];
-	[self.faceModel clear];
+	[self.firstPhotoView setBackgroundImage:[defaultBlankImage retain] forState:UIControlStateNormal];
+	[self.secondPhotoView setBackgroundImage:[defaultBlankImage retain] forState:UIControlStateNormal];
+	//[self.faceModel clear];
+	sleep(1);
 }
 
 - (void)processPhotos {
 	[self.faceModel preprocessPhoto1];
 	[self.faceModel preprocessPhoto2];
 	[self.faceModel calculateDistance];
+	sleep(1);
 	
 	progressHUD.customView = [[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"37x-Checkmark.png"]] autorelease];
 	progressHUD.mode = MBProgressHUDModeCustomView;
 	progressHUD.labelText = NSLocalizedString(@"Completed", nil);
 	progressHUD.detailsLabelText = NSLocalizedString(@"", nil);
-	sleep(2);
+	sleep(1);
+	[self showResult:self];
 }
 
 

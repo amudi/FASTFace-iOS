@@ -23,10 +23,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
     // Override point for customization after application launch.
-	DLog(@"Loading faceModel..");
-	NSString *templatePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"face_template" ofType:@"txt"];
-	faceModel = [[FASTFaceModel alloc] initWithFaceTemplatePath:templatePath];
-	
 	DLog(@"Loading ResultViewController");
 	resultViewController = [[ResultViewController alloc] init];
 	
@@ -35,7 +31,6 @@
     mainViewController.view.frame = [[UIScreen mainScreen] applicationFrame];
 	
 	mainViewController.resultView = resultViewController;
-	mainViewController.faceModel = faceModel;
 	
 	[window addSubview:mainViewController.view];
     [window makeKeyAndVisible];
@@ -80,6 +75,7 @@
 #pragma mark Memory management
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
+	DLog(@"Low Memory Warning!!");
     /*
      Free up as much memory as possible by purging cached data objects that can be recreated (or reloaded from disk) later.
      */

@@ -125,7 +125,7 @@
 	FaceRecognizer *fr2 = FaceRecognizerCreate([prepPhoto2 CGImage], ft);
 	
 	result = FaceRecognizerGetDistance(fr1, fr2);
-	DLog(@"result = %f", result);
+	DLog(@"result = %d", result);
 	
 	FaceRecognizerDealloc(fr1);
 	FaceRecognizerDealloc(fr2);

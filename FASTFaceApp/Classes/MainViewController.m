@@ -284,18 +284,22 @@
 			DLog(@"No edited image, using original image");
 		}
 		switch (self.photoChoice) {
-		case PhotoChoice_Photo1:
-			[self.faceModel setPhoto1:photo];
-			[self.faceModel generateThumbnails];
-			[self.firstPhotoView setBackgroundImage:[self.faceModel thumbnail1] forState:UIControlStateNormal];
-			break;
-		case PhotoChoice_Photo2:
-			[self.faceModel setPhoto2:photo];
-			[self.faceModel generateThumbnails];
-			[self.secondPhotoView setBackgroundImage:[self.faceModel thumbnail2] forState:UIControlStateNormal];
-			break;
-		default:
-			break;
+			case PhotoChoice_Photo1:
+				self.faceModel.photo1 = photo;
+				self.faceModel.thumbnail1 = nil;
+				self.faceModel.prepPhoto1 = nil;
+				[self.faceModel generateThumbnails];
+				[self.firstPhotoView setBackgroundImage:[self.faceModel thumbnail1] forState:UIControlStateNormal];
+				break;
+			case PhotoChoice_Photo2:
+				self.faceModel.photo2 = photo;
+				self.faceModel.thumbnail2 = nil;
+				self.faceModel.prepPhoto2 = nil;
+				[self.faceModel generateThumbnails];
+				[self.secondPhotoView setBackgroundImage:[self.faceModel thumbnail2] forState:UIControlStateNormal];
+				break;
+			default:
+				break;
 		}
 		self.photoChoice = PhotoChoice_PhotoUnknown;
 	}

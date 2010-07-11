@@ -14,7 +14,7 @@
 @interface ResultViewController : UIViewController {
 	UIImageView *firstPhotoView;
 	UIImageView *secondPhotoView;
-	UIButton *startOverButton;
+	UIButton *backButton;
 	UIButton *shareButton;
 	UILabel *resultPercentageLabel;
 	UILabel *resultDescriptionLabel;
@@ -24,14 +24,14 @@
 
 @property (nonatomic, retain) IBOutlet UIImageView *firstPhotoView;
 @property (nonatomic, retain) IBOutlet UIImageView *secondPhotoView;
-@property (nonatomic, retain) IBOutlet UIButton *startOverButton;
+@property (nonatomic, retain) IBOutlet UIButton *backButton;
 @property (nonatomic, retain) IBOutlet UIButton *shareButton;
 @property (nonatomic, retain) IBOutlet UILabel *resultPercentageLabel;
 @property (nonatomic, retain) IBOutlet UILabel *resultDescriptionLabel;
 @property (nonatomic, retain) IBOutlet ADBannerView *adBanner;
 @property (nonatomic, assign) long result;
 
-- (IBAction)startOver:(id)sender;
+- (IBAction)back:(id)sender;
 - (IBAction)share:(id)sender;
 
 @end

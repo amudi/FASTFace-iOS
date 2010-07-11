@@ -13,7 +13,7 @@
 
 @synthesize firstPhotoView;
 @synthesize secondPhotoView;
-@synthesize startOverButton;
+@synthesize backButton;
 @synthesize shareButton;
 @synthesize resultPercentageLabel;
 @synthesize resultDescriptionLabel;
@@ -36,7 +36,7 @@
 - (void)dealloc {
 	[firstPhotoView release];
 	[secondPhotoView release];
-	[startOverButton release];
+	[backButton release];
 	[shareButton release];
 	[resultPercentageLabel release];
 	[resultDescriptionLabel release];
@@ -68,7 +68,7 @@
 - (void)viewDidUnload {
 	self.firstPhotoView = nil;
 	self.secondPhotoView = nil;
-	self.startOverButton = nil;
+	self.backButton = nil;
 	self.shareButton = nil;
 	self.resultPercentageLabel = nil;
 	self.resultDescriptionLabel = nil;
@@ -77,8 +77,8 @@
 	[super viewDidUnload];
 }
 
-- (IBAction)startOver:(id)sender {
-	DLog(@"Start Over");
+- (IBAction)back:(id)sender {
+	DLog(@"Back");
 	//[mainViewController clearPhotos];
 	[self dismissModalViewControllerAnimated:YES];
 }

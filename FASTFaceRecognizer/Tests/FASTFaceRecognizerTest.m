@@ -12,12 +12,14 @@
 #import "UIImage+Grayscale.h"
 #import "FaceTemplate.h"
 #import "FaceRecognizer.h"
+#import "FaceDistance.h"
 
 @interface FASTFaceRecognizerTest : SenTestCase {
 	UIImage *uiImage;
 	CGImageRef imageRef;
 	FaceRecognizer *fr;
 	FaceTemplate *ft;
+	FaceDistance *fd;
 }
 
 - (void)testSetUpAllocation;
@@ -29,6 +31,10 @@
 - (void)testFaceTemplateCreate;
 - (void)testFaceTemplateDealloc;
 - (void)testFaceTemplateLoadResource;
+
+- (void)testFaceDistanceCreate;
+- (void)testFaceDistanceDealloc;
+- (void)testFaceDistanceGetDistance;
 
 // Issue #24
 - (void)testFaceTemplateLoadAndGetDistance;
@@ -47,6 +53,7 @@
 	CGImageRetain(imageRef);
 	ft = FaceTemplateCreate();
 	fr = FaceRecognizerCreate(imageRef, ft);
+	fd = FaceDistanceCreate();
 }
 
 - (void)testSetUpAllocation {
@@ -94,6 +101,66 @@
 	STAssertTrue(sizeof(ft->pixelInfo) > 0, @"load resource failed, sizeof(ft->pixelInfo) = %d", sizeof(ft->pixelInfo));
 	STAssertTrue(ft->areaSize.width > 0, @"load resource resulted in a 0 width, areaSize.width = %d", (int)ft->areaSize.width);
 	STAssertTrue(ft->areaSize.height > 0, @"load resource resulted in a 0 height, areaSize.height = %d", (int)ft->areaSize.height);
+}
+
+- (void)testFaceDistanceCreate {
+	STAssertTrue(fd != NULL, @"failed to create FaceDistance, fd = %d", fd);
+	STAssertTrue(fd->samePersonPct == 0, @"samePersonPct value incorrect");
+	STAssertTrue(fd->relativesPct == 0, @"relativesPct value incorrect");
+	STAssertTrue(fd->soulmatePct == 0, @"soulmatePct value incorrect");
+	STAssertTrue(fd->ancestorPct == 0, @"ancestorPct value incorrect");
+	STAssertTrue(fd->characteristicPct == 0, @"characteristicPct value incorrect");
+	
+	FaceDistance *fd2 = FaceDistanceCreate(10000L);
+	STAssertTrue(fd2!= NULL, @"failed to create FaceDistance, fd2 = %d", fd2);
+	STAssertTrue(fd2->samePersonPct >= 0, @"samePersonPct value incorrect");
+	STAssertTrue(fd2->relativesPct >= 0, @"relativesPct value incorrect");
+	STAssertTrue(fd2->soulmatePct >= 0, @"soulmatePct value incorrect");
+	STAssertTrue(fd2->ancestorPct >= 0, @"ancestorPct value incorrect");
+	STAssertTrue(fd2->characteristicPct >= 0, @"characteristicPct value incorrect");
+	
+	FaceDistanceDealloc(fd2);
+}
+
+- (void)testFaceDistanceDealloc {
+	STAssertTrue(fd != NULL, @"failed to create FaceDistance, fd = %d", fd);
+	FaceDistanceDealloc(fd);
+	STAssertTrue(fd == NULL, @"failed to dealloc FaceDistance, fd = %d", fd);
+	
+	FaceDistance *fd2 = FaceDistanceCreate(10000L);
+	STAssertTrue(fd2 != NULL, @"failed to create FaceDistance, fd2 = %d", fd2);
+	FaceDistanceDealloc(fd2);
+	STAssertTrue(fd2 == NULL, @"failed to dealloc FaceDistance, fd2 = %d", fd2);
+}
+
+- (void)testFaceDistanceGetDistance {
+	STAssertTrue(fd != NULL, @"failed to create FaceDistance, fd = %d", fd);
+	STAssertTrue(fd->samePersonPct == 0, @"samePersonPct value incorrect");
+	STAssertTrue(fd->relativesPct == 0, @"relativesPct value incorrect");
+	STAssertTrue(fd->soulmatePct == 0, @"soulmatePct value incorrect");
+	STAssertTrue(fd->ancestorPct == 0, @"ancestorPct value incorrect");
+	STAssertTrue(fd->characteristicPct == 0, @"characteristicPct value incorrect");
+	
+	FaceDistanceGetDistance(fd, -10000L);
+	STAssertTrue(fd->samePersonPct >= 0, @"samePersonPct value incorrect");
+	STAssertTrue(fd->relativesPct >= 0, @"relativesPct value incorrect");
+	STAssertTrue(fd->soulmatePct >= 0, @"soulmatePct value incorrect");
+	STAssertTrue(fd->ancestorPct >= 0, @"ancestorPct value incorrect");
+	STAssertTrue(fd->characteristicPct >= 0, @"characteristicPct value incorrect");
+	
+	FaceDistanceGetDistance(fd, 20000L);
+	STAssertTrue(fd->samePersonPct >= 0, @"samePersonPct value incorrect");
+	STAssertTrue(fd->relativesPct >= 0, @"relativesPct value incorrect");
+	STAssertTrue(fd->soulmatePct >= 0, @"soulmatePct value incorrect");
+	STAssertTrue(fd->ancestorPct >= 0, @"ancestorPct value incorrect");
+	STAssertTrue(fd->characteristicPct >= 0, @"characteristicPct value incorrect");
+	
+	FaceDistanceGetDistance(fd, 21000L);
+	STAssertTrue(fd->samePersonPct == 1, @"samePersonPct value incorrect");
+	STAssertTrue(fd->relativesPct == 1, @"relativesPct value incorrect");
+	STAssertTrue(fd->soulmatePct == 1, @"soulmatePct value incorrect");
+	STAssertTrue(fd->ancestorPct == 1, @"ancestorPct value incorrect");
+	STAssertTrue(fd->characteristicPct == 99, @"characteristicPct value incorrect");
 }
 
 // Issue #24

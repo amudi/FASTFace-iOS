@@ -8,6 +8,7 @@
 
 #include "FaceDistance.h"
 #include <stdlib.h>
+#include <stdio.h>
 
 int FaceDistanceGetSamePersonPct(const long distance) {
 	if (distance < 21000L) {
@@ -61,6 +62,10 @@ FaceDistance *FaceDistanceCreateEmpty() {
 
 FaceDistance *FaceDistanceCreate(const long distance) {
 	FaceDistance *fd = (FaceDistance *)malloc(sizeof(FaceDistance));
+	if (!fd) {
+		fprintf(stderr, "can't allocate memory for FaceDistance");
+		return NULL;
+	}
 	FaceDistanceGetDistance(fd, distance);
 	return fd;
 }

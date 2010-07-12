@@ -104,22 +104,30 @@
 }
 
 - (void)testFaceDistanceCreate {
-	STAssertTrue(fd != NULL, @"failed to create FaceDistance, fd = %d", fd);
-	STAssertTrue(fd->samePersonPct == 0, @"samePersonPct value incorrect");
-	STAssertTrue(fd->relativesPct == 0, @"relativesPct value incorrect");
-	STAssertTrue(fd->soulmatePct == 0, @"soulmatePct value incorrect");
-	STAssertTrue(fd->ancestorPct == 0, @"ancestorPct value incorrect");
-	STAssertTrue(fd->characteristicPct == 0, @"characteristicPct value incorrect");
+	if (fd) {
+		STAssertTrue(fd != NULL, @"failed to create FaceDistance, fd = %d", fd);
+		STAssertTrue(fd->samePersonPct == 0, @"samePersonPct value incorrect");
+		STAssertTrue(fd->relativesPct == 0, @"relativesPct value incorrect");
+		STAssertTrue(fd->soulmatePct == 0, @"soulmatePct value incorrect");
+		STAssertTrue(fd->ancestorPct == 0, @"ancestorPct value incorrect");
+		STAssertTrue(fd->characteristicPct == 0, @"characteristicPct value incorrect");
+	} else {
+		STAssertFalse(true, @"FaceDistance is NULL");
+	}
+
 	
 	FaceDistance *fd2 = FaceDistanceCreate(10000L);
-	STAssertTrue(fd2!= NULL, @"failed to create FaceDistance, fd2 = %d", fd2);
-	STAssertTrue(fd2->samePersonPct >= 0, @"samePersonPct value incorrect");
-	STAssertTrue(fd2->relativesPct >= 0, @"relativesPct value incorrect");
-	STAssertTrue(fd2->soulmatePct >= 0, @"soulmatePct value incorrect");
-	STAssertTrue(fd2->ancestorPct >= 0, @"ancestorPct value incorrect");
-	STAssertTrue(fd2->characteristicPct >= 0, @"characteristicPct value incorrect");
-	
-	FaceDistanceDealloc(fd2);
+	if (fd2) {
+		STAssertTrue(fd2!= NULL, @"failed to create FaceDistance, fd2 = %d", fd2);
+		STAssertTrue(fd2->samePersonPct >= 0, @"samePersonPct value incorrect");
+		STAssertTrue(fd2->relativesPct >= 0, @"relativesPct value incorrect");
+		STAssertTrue(fd2->soulmatePct >= 0, @"soulmatePct value incorrect");
+		STAssertTrue(fd2->ancestorPct >= 0, @"ancestorPct value incorrect");
+		STAssertTrue(fd2->characteristicPct >= 0, @"characteristicPct value incorrect");
+		FaceDistanceDealloc(fd2);
+	} else {
+		STAssertFalse(true, @"FaceDistance is NULL");
+	}
 }
 
 - (void)testFaceDistanceDealloc {
@@ -136,33 +144,37 @@
 }
 
 - (void)testFaceDistanceGetDistance {
-	STAssertTrue(fd != NULL, @"failed to create FaceDistance, fd = %d", fd);
-	STAssertTrue(fd->samePersonPct == 0, @"samePersonPct value incorrect");
-	STAssertTrue(fd->relativesPct == 0, @"relativesPct value incorrect");
-	STAssertTrue(fd->soulmatePct == 0, @"soulmatePct value incorrect");
-	STAssertTrue(fd->ancestorPct == 0, @"ancestorPct value incorrect");
-	STAssertTrue(fd->characteristicPct == 0, @"characteristicPct value incorrect");
-	
-	FaceDistanceGetDistance(fd, -10000L);
-	STAssertTrue(fd->samePersonPct >= 0, @"samePersonPct value incorrect");
-	STAssertTrue(fd->relativesPct >= 0, @"relativesPct value incorrect");
-	STAssertTrue(fd->soulmatePct != 0, @"soulmatePct value incorrect");
-	STAssertTrue(fd->ancestorPct >= 0, @"ancestorPct value incorrect");
-	STAssertTrue(fd->characteristicPct >= 0, @"characteristicPct value incorrect");
-	
-	FaceDistanceGetDistance(fd, 20000L);
-	STAssertTrue(fd->samePersonPct >= 0, @"samePersonPct value incorrect");
-	STAssertTrue(fd->relativesPct >= 0, @"relativesPct value incorrect");
-	STAssertTrue(fd->soulmatePct != 0, @"soulmatePct value incorrect");
-	STAssertTrue(fd->ancestorPct >= 0, @"ancestorPct value incorrect");
-	STAssertTrue(fd->characteristicPct >= 0, @"characteristicPct value incorrect");
-	
-	FaceDistanceGetDistance(fd, 21000L);
-	STAssertTrue(fd->samePersonPct == 1, @"samePersonPct value incorrect");
-	STAssertTrue(fd->relativesPct == 1, @"relativesPct value incorrect");
-	STAssertTrue(fd->soulmatePct == 1, @"soulmatePct value incorrect");
-	STAssertTrue(fd->ancestorPct == 1, @"ancestorPct value incorrect");
-	STAssertTrue(fd->characteristicPct == 99, @"characteristicPct value incorrect");
+	if (fd) {
+		STAssertTrue(fd != NULL, @"failed to create FaceDistance, fd = %d", fd);
+		STAssertTrue(fd->samePersonPct == 0, @"samePersonPct value incorrect");
+		STAssertTrue(fd->relativesPct == 0, @"relativesPct value incorrect");
+		STAssertTrue(fd->soulmatePct == 0, @"soulmatePct value incorrect");
+		STAssertTrue(fd->ancestorPct == 0, @"ancestorPct value incorrect");
+		STAssertTrue(fd->characteristicPct == 0, @"characteristicPct value incorrect");
+		
+		FaceDistanceGetDistance(fd, -10000L);
+		STAssertTrue(fd->samePersonPct >= 0, @"samePersonPct value incorrect");
+		STAssertTrue(fd->relativesPct >= 0, @"relativesPct value incorrect");
+		STAssertTrue(fd->soulmatePct != 0, @"soulmatePct value incorrect");
+		STAssertTrue(fd->ancestorPct >= 0, @"ancestorPct value incorrect");
+		STAssertTrue(fd->characteristicPct >= 0, @"characteristicPct value incorrect");
+		
+		FaceDistanceGetDistance(fd, 20000L);
+		STAssertTrue(fd->samePersonPct >= 0, @"samePersonPct value incorrect");
+		STAssertTrue(fd->relativesPct >= 0, @"relativesPct value incorrect");
+		STAssertTrue(fd->soulmatePct != 0, @"soulmatePct value incorrect");
+		STAssertTrue(fd->ancestorPct >= 0, @"ancestorPct value incorrect");
+		STAssertTrue(fd->characteristicPct >= 0, @"characteristicPct value incorrect");
+		
+		FaceDistanceGetDistance(fd, 21000L);
+		STAssertTrue(fd->samePersonPct == 1, @"samePersonPct value incorrect");
+		STAssertTrue(fd->relativesPct == 1, @"relativesPct value incorrect");
+		STAssertTrue(fd->soulmatePct == 1, @"soulmatePct value incorrect");
+		STAssertTrue(fd->ancestorPct == 1, @"ancestorPct value incorrect");
+		STAssertTrue(fd->characteristicPct == 99, @"characteristicPct value incorrect");
+	} else {
+		STAssertFalse(true, @"FaceDistance is NULL");
+	}
 }
 
 // Issue #24

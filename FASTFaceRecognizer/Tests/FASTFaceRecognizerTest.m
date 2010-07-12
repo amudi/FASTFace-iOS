@@ -53,7 +53,7 @@
 	CGImageRetain(imageRef);
 	ft = FaceTemplateCreate();
 	fr = FaceRecognizerCreate(imageRef, ft);
-	fd = FaceDistanceCreate();
+	fd = FaceDistanceCreateEmpty();
 }
 
 - (void)testSetUpAllocation {
@@ -125,11 +125,13 @@
 - (void)testFaceDistanceDealloc {
 	STAssertTrue(fd != NULL, @"failed to create FaceDistance, fd = %d", fd);
 	FaceDistanceDealloc(fd);
+	fd = NULL;
 	STAssertTrue(fd == NULL, @"failed to dealloc FaceDistance, fd = %d", fd);
 	
 	FaceDistance *fd2 = FaceDistanceCreate(10000L);
 	STAssertTrue(fd2 != NULL, @"failed to create FaceDistance, fd2 = %d", fd2);
 	FaceDistanceDealloc(fd2);
+	fd2 = NULL;
 	STAssertTrue(fd2 == NULL, @"failed to dealloc FaceDistance, fd2 = %d", fd2);
 }
 
@@ -144,14 +146,14 @@
 	FaceDistanceGetDistance(fd, -10000L);
 	STAssertTrue(fd->samePersonPct >= 0, @"samePersonPct value incorrect");
 	STAssertTrue(fd->relativesPct >= 0, @"relativesPct value incorrect");
-	STAssertTrue(fd->soulmatePct >= 0, @"soulmatePct value incorrect");
+	STAssertTrue(fd->soulmatePct != 0, @"soulmatePct value incorrect");
 	STAssertTrue(fd->ancestorPct >= 0, @"ancestorPct value incorrect");
 	STAssertTrue(fd->characteristicPct >= 0, @"characteristicPct value incorrect");
 	
 	FaceDistanceGetDistance(fd, 20000L);
 	STAssertTrue(fd->samePersonPct >= 0, @"samePersonPct value incorrect");
 	STAssertTrue(fd->relativesPct >= 0, @"relativesPct value incorrect");
-	STAssertTrue(fd->soulmatePct >= 0, @"soulmatePct value incorrect");
+	STAssertTrue(fd->soulmatePct != 0, @"soulmatePct value incorrect");
 	STAssertTrue(fd->ancestorPct >= 0, @"ancestorPct value incorrect");
 	STAssertTrue(fd->characteristicPct >= 0, @"characteristicPct value incorrect");
 	

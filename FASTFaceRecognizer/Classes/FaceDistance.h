@@ -23,7 +23,7 @@ int FaceDistanceGetRelativesPct(const long distance);
 int FaceDistanceGetSoulmatePct(const long distance);
 int FaceDistanceGetAncestorPct(const long distance);
 int FaceDistanceGetCharacteristicPct(const long distance);
-FaceDistance *FaceDistanceCreate();
+FaceDistance *FaceDistanceCreateEmpty();
 FaceDistance *FaceDistanceCreate(const long distance);
 void FaceDistanceDealloc(FaceDistance *fd);
 void FaceDistanceGetDistance(FaceDistance *fd, const long distance);

@@ -1,4 +1,4 @@
-﻿//
+//
 //  FaceDistance.c
 //  FASTFace
 //
@@ -7,6 +7,7 @@
 //
 
 #include "FaceDistance.h"
+#include <stdlib.h>
 
 int FaceDistanceGetSamePersonPct(const long distance) {
 	if (distance < 21000L) {
@@ -48,7 +49,7 @@ int FaceDistanceGetCharacteristicPct(const long distance) {
 	}
 }
 
-FaceDistance *FaceDistanceCreateFaceDistance() {
+FaceDistance *FaceDistanceCreateEmpty() {
 	FaceDistance *fd = (FaceDistance *)malloc(sizeof(FaceDistance));
 	fd->samePersonPct = 0;
 	fd->relativesPct = 0;
@@ -73,12 +74,12 @@ void FaceDistanceDealloc(FaceDistance *fd) {
 
 void FaceDistanceGetDistance(FaceDistance *fd, const long distance) {
 	if (!fd) {
-		fd = CreateFaceDistance(distance);
+		fd = FaceDistanceCreate(distance);
 	}
-	fd->samePersonPct = GetSamePersonPct(distance);
-	fd->relativesPct = GetRelativesPct(distance);
-	fd->soulmatePct = GetSoulmatePct(distance);
-	fd->ancestorPct = GetAncestorPct(distance);
-	fd->characteristicPct = GetCharacteristicPct(distance);
+	fd->samePersonPct = FaceDistanceGetSamePersonPct(distance);
+	fd->relativesPct = FaceDistanceGetRelativesPct(distance);
+	fd->soulmatePct = FaceDistanceGetSoulmatePct(distance);
+	fd->ancestorPct = FaceDistanceGetAncestorPct(distance);
+	fd->characteristicPct = FaceDistanceGetCharacteristicPct(distance);
 }
 

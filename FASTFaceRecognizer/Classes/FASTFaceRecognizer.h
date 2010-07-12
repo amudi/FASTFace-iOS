@@ -6,5 +6,6 @@
 //  Copyright 2010 amudi.org. All rights reserved.
 //
 
-#include "FaceRecognizer.h"
-#include "FaceTemplate.h"
+#import "FaceRecognizer.h"
+#import "FaceTemplate.h"
+#import "FaceDistance.h"

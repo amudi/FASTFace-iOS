@@ -16,7 +16,7 @@ FaceRecognizer *FaceRecognizerCreate(CGImageRef image, FaceTemplate *ft) {
 		return NULL;
 	}
 	
-	FaceRecognizer *fr = (FaceRecognizer*)malloc(sizeof(FaceRecognizer));
+	FaceRecognizer *fr = (FaceRecognizer *)malloc(sizeof(FaceRecognizer));
 	if (!fr) {
 		fprintf(stderr, "can't allocate memory for FaceRecognizer");
 		return NULL;

@@ -97,6 +97,10 @@
 		D0BE6FD011E74BDE0053BD08 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BE6FCE11E74BDE0053BD08 /* 37x-Checkmark.png */; };
 		D0C05C9F11CECD1C00C20516 /* FASTFaceRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C05C9D11CECD1C00C20516 /* FASTFaceRecognizer.h */; };
 		D0C05CA011CECD1C00C20516 /* FASTFaceRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C05C9E11CECD1C00C20516 /* FASTFaceRecognizer.m */; };
+		D0EB62F011EB444400C54FF1 /* FaceDistance.h in Headers */ = {isa = PBXBuildFile; fileRef = D0EB62EE11EB444400C54FF1 /* FaceDistance.h */; };
+		D0EB62F211EB444400C54FF1 /* FaceDistance.h in Headers */ = {isa = PBXBuildFile; fileRef = D0EB62EE11EB444400C54FF1 /* FaceDistance.h */; };
+		D0EB635011EB47F100C54FF1 /* FaceDistance.c in Sources */ = {isa = PBXBuildFile; fileRef = D0EB634F11EB47F100C54FF1 /* FaceDistance.c */; };
+		D0EB635111EB47F100C54FF1 /* FaceDistance.c in Sources */ = {isa = PBXBuildFile; fileRef = D0EB634F11EB47F100C54FF1 /* FaceDistance.c */; };
 		D0F44DA411E077D4003CE7FC /* FASTFaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F44DA311E077D4003CE7FC /* FASTFaceModel.m */; };
 		D0F992FD11D029F8004312F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		D0F992FE11D029F8004312F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -199,6 +203,8 @@
 		D0C05C9E11CECD1C00C20516 /* FASTFaceRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceRecognizer.m; sourceTree = "<group>"; };
 		D0C05CAB11CECF6400C20516 /* FASTFaceRecognizerTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FASTFaceRecognizerTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C05CAC11CECF6400C20516 /* FASTFaceRecognizerTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FASTFaceRecognizerTest-Info.plist"; sourceTree = "<group>"; };
+		D0EB62EE11EB444400C54FF1 /* FaceDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceDistance.h; sourceTree = "<group>"; };
+		D0EB634F11EB47F100C54FF1 /* FaceDistance.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FaceDistance.c; sourceTree = "<group>"; };
 		D0F44DA211E077D4003CE7FC /* FASTFaceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTFaceModel.h; sourceTree = "<group>"; };
 		D0F44DA311E077D4003CE7FC /* FASTFaceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTFaceModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -432,6 +438,8 @@
 				D078DE9D11D174D20006BAD6 /* FaceRecognizer.c */,
 				D078DEA611D174F70006BAD6 /* FaceTemplate.h */,
 				D078DEA711D174F70006BAD6 /* FaceTemplate.c */,
+				D0EB62EE11EB444400C54FF1 /* FaceDistance.h */,
+				D0EB634F11EB47F100C54FF1 /* FaceDistance.c */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -471,6 +479,7 @@
 				D0C05C9F11CECD1C00C20516 /* FASTFaceRecognizer.h in Headers */,
 				D078DEA811D174F70006BAD6 /* FaceTemplate.h in Headers */,
 				D078DEAA11D175080006BAD6 /* FaceRecognizer.h in Headers */,
+				D0EB62F211EB444400C54FF1 /* FaceDistance.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +490,7 @@
 				D01DB6EE11E7420400CE5D9A /* UIImage+Alpha.h in Headers */,
 				D01DB6EF11E7420400CE5D9A /* UIImage+Grayscale.h in Headers */,
 				D01DB6F011E7420400CE5D9A /* UIImage+Resize.h in Headers */,
+				D0EB62F011EB444400C54FF1 /* FaceDistance.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +804,7 @@
 				D0C05CA011CECD1C00C20516 /* FASTFaceRecognizer.m in Sources */,
 				D078DEA911D174F70006BAD6 /* FaceTemplate.c in Sources */,
 				D078DEAC11D175140006BAD6 /* FaceRecognizer.c in Sources */,
+				D0EB635111EB47F100C54FF1 /* FaceDistance.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,6 +816,7 @@
 				D01DB6E011E741D900CE5D9A /* UIImage+Grayscale.m in Sources */,
 				D01DB6E111E741D900CE5D9A /* UIImage+Resize.m in Sources */,
 				D058498711E21A0F008372C9 /* FASTFaceRecognizerTest.m in Sources */,
+				D0EB635011EB47F100C54FF1 /* FaceDistance.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

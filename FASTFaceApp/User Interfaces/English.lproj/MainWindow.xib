@@ -226,7 +226,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/FASTFaceAppDelegate.h</string>
+						<string key="minorKey">FASTFaceApp/Classes/FASTFaceAppDelegate.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -341,7 +341,7 @@
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">Classes/MainViewController.h</string>
+						<string key="minorKey">FASTFaceApp/Classes/MainViewController.h</string>
 					</object>
 				</object>
 			</object>

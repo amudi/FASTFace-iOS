@@ -14,8 +14,9 @@
 @interface ResultViewController : UIViewController {
 	UIImageView *firstPhotoView;
 	UIImageView *secondPhotoView;
-	UIButton *backButton;
-	UIButton *shareButton;
+	UIToolbar *toolbar;
+	UIBarButtonItem *doneButton;
+	UIBarButtonItem *shareButton;
 	UILabel *resultPercentageLabel;
 	UILabel *resultDescriptionLabel;
 	ADBannerView *adBanner;
@@ -24,14 +25,15 @@
 
 @property (nonatomic, retain) IBOutlet UIImageView *firstPhotoView;
 @property (nonatomic, retain) IBOutlet UIImageView *secondPhotoView;
-@property (nonatomic, retain) IBOutlet UIButton *backButton;
-@property (nonatomic, retain) IBOutlet UIButton *shareButton;
+@property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *doneButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *shareButton;
 @property (nonatomic, retain) IBOutlet UILabel *resultPercentageLabel;
 @property (nonatomic, retain) IBOutlet UILabel *resultDescriptionLabel;
 @property (nonatomic, retain) IBOutlet ADBannerView *adBanner;
 @property (nonatomic, assign) long result;
 
-- (IBAction)back:(id)sender;
+- (IBAction)done:(id)sender;
 - (IBAction)share:(id)sender;
 
 @end

@@ -13,7 +13,8 @@
 
 @synthesize firstPhotoView;
 @synthesize secondPhotoView;
-@synthesize backButton;
+@synthesize toolbar;
+@synthesize doneButton;
 @synthesize shareButton;
 @synthesize resultPercentageLabel;
 @synthesize resultDescriptionLabel;
@@ -36,8 +37,9 @@
 - (void)dealloc {
 	[firstPhotoView release];
 	[secondPhotoView release];
-	[backButton release];
+	[doneButton release];
 	[shareButton release];
+	[toolbar release];
 	[resultPercentageLabel release];
 	[resultDescriptionLabel release];
 	[adBanner release];
@@ -68,8 +70,9 @@
 - (void)viewDidUnload {
 	self.firstPhotoView = nil;
 	self.secondPhotoView = nil;
-	self.backButton = nil;
+	self.doneButton = nil;
 	self.shareButton = nil;
+	self.toolbar = nil;
 	self.resultPercentageLabel = nil;
 	self.resultDescriptionLabel = nil;
 	self.adBanner = nil;
@@ -77,8 +80,8 @@
 	[super viewDidUnload];
 }
 
-- (IBAction)back:(id)sender {
-	DLog(@"Back");
+- (IBAction)done:(id)sender {
+	DLog(@"Done");
 	//[mainViewController clearPhotos];
 	[self dismissModalViewControllerAnimated:YES];
 }

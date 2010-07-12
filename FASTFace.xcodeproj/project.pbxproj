@@ -76,9 +76,6 @@
 		D05849AE11E21A87008372C9 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = D058499E11E21A87008372C9 /* UIImage+RoundedCorner.m */; };
 		D0593F7311CC681C000B3FDC /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0593F7111CC681C000B3FDC /* ResultViewController.m */; };
 		D0593FFD11CC6DC5000B3FDC /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0593FFC11CC6DC5000B3FDC /* iAd.framework */; };
-		D059412D11CC81A9000B3FDC /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D059412C11CC81A9000B3FDC /* ResultViewController.xib */; };
-		D059412F11CC81BD000B3FDC /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D059412E11CC81BD000B3FDC /* MainViewController.xib */; };
-		D059418111CC859E000B3FDC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D059418011CC859E000B3FDC /* MainWindow.xib */; };
 		D05CD35511E34F1C0099F2F8 /* UIImageCategoriesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D05CD35411E34F1C0099F2F8 /* UIImageCategoriesTests.m */; };
 		D05CD36211E34FA60099F2F8 /* test_image_noalpha.png in Resources */ = {isa = PBXBuildFile; fileRef = D05CD36111E34FA60099F2F8 /* test_image_noalpha.png */; };
 		D05CD3BF11E351C60099F2F8 /* UIImage+Alpha.m in Sources */ = {isa = PBXBuildFile; fileRef = D058499811E21A87008372C9 /* UIImage+Alpha.m */; };
@@ -93,6 +90,12 @@
 		D091DDFF11C9901C009B2AA1 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D091DDFD11C9901C009B2AA1 /* MainViewController.m */; };
 		D091DE0F11C994E7009B2AA1 /* blank_image.png in Resources */ = {isa = PBXBuildFile; fileRef = D091DE0E11C994E7009B2AA1 /* blank_image.png */; };
 		D0955D1611CDB51600B5FBAD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0955D1511CDB51600B5FBAD /* MobileCoreServices.framework */; };
+		D0BE416411EB53B30067921C /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BE415E11EB53B30067921C /* MainViewController.xib */; };
+		D0BE416511EB53B30067921C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BE416011EB53B30067921C /* MainWindow.xib */; };
+		D0BE416611EB53B30067921C /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BE416211EB53B30067921C /* ResultViewController.xib */; };
+		D0BE416711EB53B30067921C /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BE415E11EB53B30067921C /* MainViewController.xib */; };
+		D0BE416811EB53B30067921C /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BE416011EB53B30067921C /* MainWindow.xib */; };
+		D0BE416911EB53B30067921C /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0BE416211EB53B30067921C /* ResultViewController.xib */; };
 		D0BE6FCF11E74BDE0053BD08 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BE6FCE11E74BDE0053BD08 /* 37x-Checkmark.png */; };
 		D0BE6FD011E74BDE0053BD08 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = D0BE6FCE11E74BDE0053BD08 /* 37x-Checkmark.png */; };
 		D0C05C9F11CECD1C00C20516 /* FASTFaceRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = D0C05C9D11CECD1C00C20516 /* FASTFaceRecognizer.h */; };
@@ -152,7 +155,6 @@
 		1D6058910D05DD3D006BFB54 /* FASTFace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FASTFace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = MainWindow.xib; path = English.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* FASTFace_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTFace_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* FASTFace-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "FASTFace-Info.plist"; path = "../FASTFace-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -184,7 +186,6 @@
 		D058499E11E21A87008372C9 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		D0593F7011CC681C000B3FDC /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		D0593F7111CC681C000B3FDC /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
-		D0593F7211CC681C000B3FDC /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = ResultViewController.xib; path = English.lproj/ResultViewController.xib; sourceTree = "<group>"; };
 		D0593FFC11CC6DC5000B3FDC /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		D05CD35411E34F1C0099F2F8 /* UIImageCategoriesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageCategoriesTests.m; sourceTree = "<group>"; };
 		D05CD36111E34FA60099F2F8 /* test_image_noalpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test_image_noalpha.png; sourceTree = "<group>"; };
@@ -194,9 +195,11 @@
 		D078DEA711D174F70006BAD6 /* FaceTemplate.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = FaceTemplate.c; sourceTree = "<group>"; };
 		D091DDFC11C9901C009B2AA1 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		D091DDFD11C9901C009B2AA1 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		D091DDFE11C9901C009B2AA1 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = MainViewController.xib; path = English.lproj/MainViewController.xib; sourceTree = "<group>"; };
 		D091DE0E11C994E7009B2AA1 /* blank_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blank_image.png; sourceTree = "<group>"; };
 		D0955D1511CDB51600B5FBAD /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D0BE415F11EB53B30067921C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainViewController.xib; sourceTree = "<group>"; };
+		D0BE416111EB53B30067921C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		D0BE416311EB53B30067921C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/ResultViewController.xib; sourceTree = "<group>"; };
 		D0BE6FCE11E74BDE0053BD08 /* 37x-Checkmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "37x-Checkmark.png"; sourceTree = "<group>"; };
 		D0C05C8011CECC2000C20516 /* libFASTFaceRecognizer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFASTFaceRecognizer.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0C05C9D11CECD1C00C20516 /* FASTFaceRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTFaceRecognizer.h; sourceTree = "<group>"; };
@@ -328,9 +331,9 @@
 		29B97317FDCFA39411CA2CEA /* User Interfaces */ = {
 			isa = PBXGroup;
 			children = (
-				D059412E11CC81BD000B3FDC /* MainViewController.xib */,
-				D059412C11CC81A9000B3FDC /* ResultViewController.xib */,
-				D059418011CC859E000B3FDC /* MainWindow.xib */,
+				D0BE415E11EB53B30067921C /* MainViewController.xib */,
+				D0BE416011EB53B30067921C /* MainWindow.xib */,
+				D0BE416211EB53B30067921C /* ResultViewController.xib */,
 				D0BE6FCE11E74BDE0053BD08 /* 37x-Checkmark.png */,
 				8D1107310486CEB800E47090 /* FASTFace-Info.plist */,
 				D091DE0E11C994E7009B2AA1 /* blank_image.png */,
@@ -639,13 +642,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D059418111CC859E000B3FDC /* MainWindow.xib in Resources */,
-				D059412F11CC81BD000B3FDC /* MainViewController.xib in Resources */,
 				D091DE0F11C994E7009B2AA1 /* blank_image.png in Resources */,
-				D059412D11CC81A9000B3FDC /* ResultViewController.xib in Resources */,
 				D05848ED11E214D9008372C9 /* face_template.txt in Resources */,
 				D05848EE11E214D9008372C9 /* test_image.png in Resources */,
 				D0BE6FCF11E74BDE0053BD08 /* 37x-Checkmark.png in Resources */,
+				D0BE416711EB53B30067921C /* MainViewController.xib in Resources */,
+				D0BE416811EB53B30067921C /* MainWindow.xib in Resources */,
+				D0BE416911EB53B30067921C /* ResultViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +661,9 @@
 				D05848EF11E214D9008372C9 /* face_template.txt in Resources */,
 				D05848F011E214D9008372C9 /* test_image.png in Resources */,
 				D0BE6FD011E74BDE0053BD08 /* 37x-Checkmark.png in Resources */,
+				D0BE416411EB53B30067921C /* MainViewController.xib in Resources */,
+				D0BE416511EB53B30067921C /* MainWindow.xib in Resources */,
+				D0BE416611EB53B30067921C /* ResultViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,28 +857,28 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D059412C11CC81A9000B3FDC /* ResultViewController.xib */ = {
+		D0BE415E11EB53B30067921C /* MainViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D0593F7211CC681C000B3FDC /* ResultViewController.xib */,
-			);
-			name = ResultViewController.xib;
-			sourceTree = "<group>";
-		};
-		D059412E11CC81BD000B3FDC /* MainViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D091DDFE11C9901C009B2AA1 /* MainViewController.xib */,
+				D0BE415F11EB53B30067921C /* English */,
 			);
 			name = MainViewController.xib;
 			sourceTree = "<group>";
 		};
-		D059418011CC859E000B3FDC /* MainWindow.xib */ = {
+		D0BE416011EB53B30067921C /* MainWindow.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
+				D0BE416111EB53B30067921C /* English */,
 			);
 			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		D0BE416211EB53B30067921C /* ResultViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D0BE416311EB53B30067921C /* English */,
+			);
+			name = ResultViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

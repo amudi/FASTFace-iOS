@@ -24,6 +24,7 @@
 	UIImage *thumbnail2;
 	UIImage *prepPhoto2;
 	long result;
+	FaceDistance *fd;
 	BOOL isPhoto1Preprocessed;
 	BOOL isPhoto2Preprocessed;
 }
@@ -36,6 +37,7 @@
 @property (nonatomic, retain) UIImage *thumbnail2;
 @property (nonatomic, retain) UIImage *prepPhoto2;
 @property (nonatomic, assign) long result;
+@property (nonatomic, assign) FaceDistance *fd;
 
 - (id)initWithFaceTemplatePath:(NSString *)path;
 - (void)clear;

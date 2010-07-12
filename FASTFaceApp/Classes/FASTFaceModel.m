@@ -21,6 +21,7 @@
 @synthesize thumbnail2;
 @synthesize prepPhoto2;
 @synthesize result;
+@synthesize fd;
 
 - (id)init {
 	if ((self = [super init])) {
@@ -46,6 +47,7 @@
 	[thumbnail2 release];
 	[prepPhoto1 release];
 	[prepPhoto2 release];
+	FaceDistanceDealloc(fd);
 	FaceTemplateDealloc(ft);
 	[super dealloc];
 }
@@ -57,6 +59,10 @@
 	self.thumbnail2 = nil;
 	self.prepPhoto1 = nil;
 	self.prepPhoto2 = nil;
+	if (self.fd) {
+		FaceDistanceDealloc(self.fd);
+		self.fd = nil;
+	}
 }
 
 - (void)generateThumbnails {
@@ -125,6 +131,7 @@
 	FaceRecognizer *fr2 = FaceRecognizerCreate([self.prepPhoto2 CGImage], ft);
 	
 	self.result = FaceRecognizerGetDistance(fr1, fr2);
+	fd = FaceDistanceCreate(self.result);
 	DLog(@"result = %d", self.result);
 	
 	FaceRecognizerDealloc(fr1);

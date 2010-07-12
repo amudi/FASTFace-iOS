@@ -1,4 +1,4 @@
-﻿//
+//
 //  FaceDistance.h
 //  FASTFace
 //
